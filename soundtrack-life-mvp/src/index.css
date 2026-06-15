@@ -1,0 +1,152 @@
+:root {
+  /* ── Palette: cinematic dark editorial ── */
+  --ink-900: #0c0a09;   /* near-black, warm */
+  --ink-800: #14110f;
+  --ink-700: #1c1815;
+  --ink-600: #2a2421;
+  --ink-500: #3a322d;
+  --paper: #f3ece1;     /* warm off-white */
+  --paper-dim: #c9bfb2;
+  --muted: #8c8377;
+
+  /* Accents */
+  --amber: #e7a13b;     /* vinyl / film gold */
+  --amber-soft: #f0c674;
+  --rust: #c2562f;      /* high-energy / tension */
+  --teal: #4c8a86;      /* calm / reflective */
+  --plum: #7b5e8f;      /* melancholy */
+
+  --line: rgba(243, 236, 225, 0.10);
+  --line-strong: rgba(243, 236, 225, 0.18);
+
+  /* Fonts */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-narration: 'Newsreader', Georgia, serif;
+  --font-mono: 'Space Mono', 'SFMono-Regular', monospace;
+
+  --maxw: 1180px;
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink-900);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Atmospheric background: warm radial glow + vignette */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 600px at 78% -8%, rgba(231, 161, 59, 0.10), transparent 60%),
+    radial-gradient(700px 500px at 8% 108%, rgba(76, 138, 134, 0.08), transparent 55%),
+    radial-gradient(1200px 1000px at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.6s steps(2) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-3%, 2%); }
+}
+
+#root { position: relative; z-index: 1; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+::selection { background: var(--amber); color: var(--ink-900); }
+
+/* ── Type scale ── */
+.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.narration {
+  font-family: var(--font-narration);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: var(--paper-dim);
+}
+.mono { font-family: var(--font-mono); }
+
+/* ── Layout helpers ── */
+.shell { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+.btn:hover { border-color: var(--amber); color: var(--amber-soft); transform: translateY(-1px); }
+.btn-primary {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink-900);
+}
+.btn-primary:hover { background: var(--amber-soft); color: var(--ink-900); box-shadow: 0 10px 40px -12px rgba(231,161,59,0.6); }
+.btn-ghost { padding: 10px 18px; font-size: 14px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--paper-dim);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ink-900); }
+::-webkit-scrollbar-thumb { background: var(--ink-600); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-500); }
+
+@media (max-width: 720px) {
+  .shell { padding: 0 18px; }
+}
