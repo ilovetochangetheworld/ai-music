@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily restart for Soundtrack Life Backend Proxy
+
+[Timer]
+OnCalendar=*-*-* 04:05:00
+Unit=soundtrack-life-proxy-restart.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

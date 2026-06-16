@@ -25,6 +25,7 @@ const LLM_MODEL = env.LLM_MODEL || env.VITE_LLM_MODEL || 'hy3-preview'
 const QQ_MUSIC_API_BASE_URL = env.QQ_MUSIC_API_BASE_URL
 const MUSIC_SESSION_TTL_MS = Number(env.MUSIC_SESSION_TTL_MS || 12 * 60 * 60 * 1000)
 const SESSION_FILE = env.MUSIC_SESSION_FILE || path.resolve('data/music-sessions.json')
+const QQ_MUSIC_TIMEOUT_MS = Number(env.QQ_MUSIC_TIMEOUT_MS || 8000)
 const musicSessions = new Map()
 
 function loadMusicSessions() {
@@ -66,10 +67,24 @@ function qqmusicUrl(pathname) {
 }
 
 async function qqmusicJson(pathname, init = {}) {
-  const res = await fetch(qqmusicUrl(pathname), init)
-  const data = await res.json()
-  if (data?.code !== undefined && data.code !== 0) throw new Error(data?.msg || 'QQMusicApi failed.')
-  return data
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), QQ_MUSIC_TIMEOUT_MS)
+  try {
+    const res = await fetch(qqmusicUrl(pathname), {
+      ...init,
+      signal: controller.signal,
+    })
+    const data = await res.json()
+    if (data?.code !== undefined && data.code !== 0) throw new Error(data?.msg || 'QQMusicApi failed.')
+    return data
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      throw new Error(`QQMusicApi timed out after ${QQ_MUSIC_TIMEOUT_MS}ms.`)
+    }
+    throw err
+  } finally {
+    clearTimeout(timer)
+  }
 }
 
 function storeMusicSession(credential) {
