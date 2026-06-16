@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useStore } from '../store'
 import { generateSoundtrack } from '../lib/lifeParser'
 import { analyzeTranscript, SAMPLE_TRANSCRIPT, parsePastedTranscript } from '../lib/transcriptAnalyzer'
+import QQMusicLogin from '../components/QQMusicLogin'
 
 type Mode = 'life' | 'audio'
 
@@ -59,7 +60,7 @@ export default function HomePage() {
       )}
 
       <motion.section className="hero" {...fade} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">QQ 音乐 · AI 黑客松原型</span>
+        <span className="eyebrow">AI 音频体验原型</span>
         <h1 className="display">
           把今天，<br />听成一张<em>电影原声带</em>。
         </h1>
@@ -139,6 +140,8 @@ export default function HomePage() {
           <p>自动章节、3 分钟速听、按问题跳到该听的时间片段。</p>
         </div>
       </section>
+
+      <QQMusicLogin />
     </main>
   )
 }

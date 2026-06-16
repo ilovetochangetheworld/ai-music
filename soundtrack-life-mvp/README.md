@@ -50,7 +50,7 @@
 - 争议点/金句/人物/术语
 - 用户追问：“只听关于版权风险的部分”
 
-## 推荐黑客松收敛版本
+## 推荐收敛版本
 
 首选做一个 Web App：
 
@@ -76,6 +76,8 @@ npm run build    # 类型检查 + 生产构建
 - [产品方案](docs/product-brief.md)
 - [MVP 计划](docs/mvp-plan.md)
 - [开发 Checklist](docs/build-checklist.md)
+- [功能接入与改进路线](docs/integration-and-improvements.md)
+- [部署与后端方案](docs/deployment-and-backend.md)
 - [技术方案](docs/technical-design.md)
 - [数据与接口](docs/data-model.md)
 - [演示脚本](demo/demo-script.md)

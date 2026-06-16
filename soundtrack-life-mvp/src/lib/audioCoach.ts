@@ -52,11 +52,25 @@ function heuristicAsk(question: string, analysis: TranscriptAnalysis): CoachAnsw
 
 const SYSTEM = `你是长音频导航助手。基于章节和转写稿回答用户问题，并返回最值得收听的时间片段。不要编造 transcript 中没有的信息，每个片段必须有 start/end/title/reason，回答要短。必须返回 JSON。`
 
+const SCHEMA_HINT = `只返回如下 JSON，不要 markdown，不要解释：
+{
+  "answer": "简短回答",
+  "segments": [
+    {
+      "start": "00:00",
+      "end": "03:20",
+      "title": "片段标题",
+      "reason": "为什么这段值得听"
+    }
+  ],
+  "followUpQuestions": ["可以继续追问的问题"]
+}`
+
 export async function askAudioCoach(
   question: string,
   analysis: TranscriptAnalysis,
 ): Promise<CoachAnswer> {
-  const user = `用户问题：${question}\n章节：${JSON.stringify(analysis.chapters)}\n转写稿：${JSON.stringify(analysis.segments)}\n\n请按约定 JSON 结构输出（answer/segments/followUpQuestions）。`
+  const user = `${SCHEMA_HINT}\n\n用户问题：${question}\n章节：${JSON.stringify(analysis.chapters)}\n转写稿：${JSON.stringify(analysis.segments)}`
   const llm = await callLLMJson<CoachAnswer>(SYSTEM, user)
   if (llm?.segments) return llm
   return heuristicAsk(question, analysis)

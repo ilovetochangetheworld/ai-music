@@ -1,5 +1,6 @@
 import type { LifeScene, Soundtrack, UserPreference } from '../types'
 import { callLLMJson } from './llm'
+import { searchQQMusicForScene } from './musicApi'
 import { matchSongs } from './songMatcher'
 
 // ── 情绪词典：用于本地启发式解析（LLM 不可用时的降级路径）──
@@ -190,7 +191,7 @@ export function emotionColor(emotion: string): string {
 interface LLMScene {
   id: string; label: string; timeOfDay: string; sourceEvent: string
   emotion: string; energy: number; musicIntent: string
-  recommendedTags: string[]; djNarration: string
+  recommendedTags: string[]; searchKeywords?: string[]; djNarration: string
 }
 interface LLMResult {
   title: string; subtitle: string; overallEmotion: string
@@ -201,21 +202,53 @@ interface LLMResult {
 
 const SYSTEM = `你是一个中文 AI 音乐导演。理解用户今天的生活轨迹，拆成 3-5 个有情绪起伏的场景，为每个场景设计音乐意图、推荐标签和电台旁白。不要过度鸡汤，情绪细腻，必须返回 JSON。recommendedTags 用英文标签：mood(warm/soft/hopeful/sad/calm/energetic/release/reflective/fresh/optimistic/restrained) 与 scene(commute/walk/work/night/run/sleep/morning/alone)。energy 为 0-100 整数。`
 
+const SCHEMA_HINT = `只返回如下 JSON，不要 markdown，不要解释：
+{
+  "title": "今日原声带标题",
+  "subtitle": "一句副标题",
+  "overallEmotion": "整体情绪",
+  "moodPath": [
+    { "label": "情绪名", "energy": 0 }
+  ],
+  "scenes": [
+    {
+      "id": "scene_1",
+      "label": "场景标题",
+      "timeOfDay": "morning | noon | afternoon | evening | night",
+      "sourceEvent": "用户原始事件片段",
+      "emotion": "中文情绪",
+      "energy": 0,
+      "musicIntent": "这一段需要什么音乐",
+      "recommendedTags": ["warm", "soft", "walk"],
+      "searchKeywords": ["具体歌曲名或歌名+歌手", "第二个不同歌名", "第三个不同歌名"],
+      "djNarration": "15-30 秒中文电台旁白"
+    }
+  ],
+  "openingNarration": "开场旁白",
+  "closingNarration": "收尾旁白",
+  "shareCopy": "分享文案"
+}
+searchKeywords 必须提供 3-5 个适合 QQ 音乐搜索的候选，优先用不同歌名或“歌名 歌手”，不要只写抽象情绪词，也不要重复同一首歌的不同版本。`
+
 /**
  * 解析生活文本生成今日原声带。优先 LLM，失败自动降级到本地启发式。
  * 歌曲推荐始终由本地 songMatcher 完成（避免 LLM 编造不存在的歌）。
  */
 export async function generateSoundtrack(text: string, pref?: UserPreference): Promise<Soundtrack> {
-  const user = `用户今天的描述：\n${text}\n\n用户偏好：\n${JSON.stringify(pref ?? {})}\n\n请按约定 JSON 结构输出。`
+  const user = `${SCHEMA_HINT}\n\n用户今天的描述：\n${text}\n\n用户偏好：\n${JSON.stringify(pref ?? {})}`
   const llm = await callLLMJson<LLMResult>(SYSTEM, user)
 
   if (llm?.scenes?.length) {
-    const scenes: LifeScene[] = llm.scenes.map((s, i) => {
+    const scenes: LifeScene[] = await Promise.all(llm.scenes.slice(0, 5).map(async (s, i) => {
       const sceneTags = (s.recommendedTags ?? []).filter((t) =>
         ['commute', 'walk', 'work', 'night', 'run', 'sleep', 'morning', 'alone'].includes(t),
       )
       const moodTags = (s.recommendedTags ?? []).filter((t) => !sceneTags.includes(t))
-      return {
+      const localSongs = matchSongs(
+        { scene: sceneTags, mood: moodTags, energy: s.energy, languages: pref?.languages },
+        2,
+      )
+      const baseScene: LifeScene = {
         id: s.id || `scene_${i + 1}`,
         label: s.label,
         timeOfDay: s.timeOfDay,
@@ -224,13 +257,18 @@ export async function generateSoundtrack(text: string, pref?: UserPreference): P
         energy: s.energy,
         musicIntent: s.musicIntent,
         recommendedTags: s.recommendedTags ?? [],
+        searchKeywords: s.searchKeywords ?? [],
         djNarration: s.djNarration,
-        recommendedSongs: matchSongs(
-          { scene: sceneTags, mood: moodTags, energy: s.energy, languages: pref?.languages },
-          2,
-        ),
+        recommendedSongs: localSongs,
       }
-    })
+      const remoteSongs = await searchQQMusicForScene(baseScene, 2)
+      return {
+        ...baseScene,
+        recommendedSongs: remoteSongs.length >= 2
+          ? remoteSongs
+          : [...remoteSongs, ...localSongs.filter((song) => !remoteSongs.some((remote) => remote.title === song.title))].slice(0, 2),
+      }
+    }))
     return {
       id: `soundtrack_${Date.now()}`,
       title: llm.title,

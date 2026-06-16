@@ -85,11 +85,35 @@ interface LLMAnalysis {
 
 const SYSTEM = `你是长音频速听教练。把转写稿变成可导航章节地图，保留时间戳，给出 3 分钟速听与 15 分钟精听路线，必须返回 JSON。`
 
+const SCHEMA_HINT = `只返回如下 JSON，不要 markdown，不要解释：
+{
+  "brief": "整期长音频的一段短摘要",
+  "chapters": [
+    {
+      "id": "chapter_1",
+      "start": "00:00",
+      "end": "03:20",
+      "title": "章节标题",
+      "summary": "章节摘要",
+      "keywords": ["关键词"],
+      "importance": 0
+    }
+  ],
+  "threeMinuteRoute": [
+    { "start": "00:00", "end": "03:20", "reason": "为什么值得速听" }
+  ],
+  "fifteenMinuteRoute": [
+    { "start": "00:00", "end": "03:20", "reason": "为什么值得精听" }
+  ],
+  "quotes": ["节目金句"],
+  "questionsToAsk": ["用户可能追问的问题"]
+}`
+
 export async function analyzeTranscript(
   title: string,
   segments: TranscriptSegment[],
 ): Promise<TranscriptAnalysis> {
-  const user = `长音频标题：${title}\n转写稿：\n${JSON.stringify(segments)}\n\n请按约定 JSON 结构输出（含 brief/chapters/threeMinuteRoute/fifteenMinuteRoute/quotes/questionsToAsk）。`
+  const user = `${SCHEMA_HINT}\n\n长音频标题：${title}\n转写稿：\n${JSON.stringify(segments)}`
   const llm = await callLLMJson<LLMAnalysis>(SYSTEM, user)
   if (llm?.chapters?.length) {
     return { id: SAMPLE_TRANSCRIPT.id, audioTitle: title, segments, ...llm }

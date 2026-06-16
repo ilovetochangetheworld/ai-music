@@ -7,8 +7,16 @@ export type MoodKey =
 
 export interface Song {
   id: string
+  mid?: string
+  mediaMid?: string
+  songType?: number
   title: string
   artist: string
+  album?: string
+  coverUrl?: string
+  playUrl?: string
+  detailUrl?: string
+  source?: 'mock' | 'qqmusic'
   language: 'mandarin' | 'cantonese' | 'english' | 'instrumental'
   mood: string[]
   scene: string[]
@@ -33,6 +41,7 @@ export interface LifeScene {
   energy: number
   musicIntent: string
   recommendedTags: string[]
+  searchKeywords?: string[]
   djNarration: string
   /** 由 songMatcher 填充 */
   recommendedSongs: Song[]

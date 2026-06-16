@@ -2,7 +2,7 @@
 
 ## 项目现状
 
-本仓库已落地为一个可运行的 **Vite + React + TypeScript** 单页应用（人生原声机 MVP，面向 QQ 音乐 AI 黑客松），同时保留完整的产品/技术设计文档。实现代码位于 `src/`，设计文档位于 `docs/`、`prompts/`、`samples/`。
+本仓库已落地为一个可运行的 **Vite + React + TypeScript** 单页应用（人生原声机 MVP），同时保留完整的产品/技术设计文档。实现代码位于 `src/`，设计文档位于 `docs/`、`prompts/`、`samples/`。
 
 修改业务逻辑前，务必先读 `docs/technical-design.md`（架构与 API 契约）和 `docs/data-model.md`（数据结构），它们与 `src/types.ts` 共同构成事实来源。
 
