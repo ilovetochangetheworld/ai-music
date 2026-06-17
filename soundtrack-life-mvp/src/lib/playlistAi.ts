@@ -1,5 +1,6 @@
 import type { Song } from '../types'
 import type { AiPlaylist } from '../data/aiPlaylists'
+import { callLLMJson } from './llm'
 
 const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL as string | undefined
 
@@ -18,6 +19,18 @@ export interface PlaylistFilterResult {
   songs: Array<Song & { score: number; reason: string }>
   relaxed?: boolean
 }
+
+export interface PlaylistChatResult {
+  kind: 'answer'
+  query: string
+  answer: string
+  suggestions: string[]
+  referencedSongIds: string[]
+}
+
+export type PlaylistConversationResult =
+  | { kind: 'filter'; result: PlaylistFilterResult }
+  | { kind: 'answer'; result: PlaylistChatResult }
 
 interface ServerFilterResult {
   understood?: string
@@ -63,6 +76,69 @@ export async function filterPlaylist(
   const remote = await requestServerFilter(playlist, query, history)
   if (remote) return remote
   return localFilterPlaylist(playlist, query, history)
+}
+
+export async function converseWithPlaylist(
+  playlist: AiPlaylist,
+  query: string,
+  history: PlaylistTurn[] = [],
+): Promise<PlaylistConversationResult> {
+  const remote = await requestConversation(playlist, query, history)
+  if (remote?.kind === 'answer') return { kind: 'answer', result: remote }
+  if (remote?.kind === 'filter') {
+    const filtered = await filterPlaylist(playlist, remote.rewrittenQuery || query, history)
+    return { kind: 'filter', result: filtered }
+  }
+
+  if (looksLikeQuestion(query)) {
+    return { kind: 'answer', result: localAnswerPlaylistQuestion(playlist, query) }
+  }
+  return { kind: 'filter', result: await filterPlaylist(playlist, query, history) }
+}
+
+async function requestConversation(
+  playlist: AiPlaylist,
+  query: string,
+  history: PlaylistTurn[],
+): Promise<({ kind: 'answer' } & PlaylistChatResult) | { kind: 'filter'; rewrittenQuery?: string } | null> {
+  const songs = playlist.songs.slice(0, 120).map((song) => ({
+    id: song.id,
+    title: song.title,
+    artist: song.artist,
+    album: song.album,
+    language: song.language,
+    releaseYear: song.releaseYear,
+    genre: song.genre,
+    mood: song.mood,
+    scene: song.scene,
+    energy: song.energy,
+    bpm: song.bpm,
+    tags: song.tags,
+    semanticDescription: song.semanticDescription,
+  }))
+
+  return await callLLMJson<({ kind: 'answer' } & PlaylistChatResult) | { kind: 'filter'; rewrittenQuery?: string }>(
+    `你是 QQ 音乐的 AI音乐管家。用户会围绕“当前歌单”与你多轮对话。
+你有两种动作：
+1. answer: 回答关于歌曲、风格、歌手、某首歌类型、适合场景的问题，帮助用户澄清想听什么。
+2. filter: 当用户明确想“找/筛/播放/来一些/换一批/更轻快”等时，进入歌单筛选。
+只能基于提供的当前歌单信息回答；不确定就说明信息有限。
+返回严格 JSON：
+{
+  "kind": "answer" | "filter",
+  "answer": "kind=answer 时的简洁回答",
+  "referencedSongIds": ["提到的歌曲id"],
+  "suggestions": ["下一步建议"],
+  "rewrittenQuery": "kind=filter 时，结合上下文改写后的筛选请求"
+}`,
+    JSON.stringify({
+      playlist: { id: playlist.id, title: playlist.title },
+      history,
+      query,
+      songs,
+    }),
+    18000,
+  )
 }
 
 async function requestServerFilter(
@@ -163,6 +239,51 @@ function inferTokens(query: string): Set<string> {
   if (/再轻快|轻快一点/.test(query)) tokens.add('lighter')
   if (/换一批|换些|重新/.test(query)) tokens.add('shuffle')
   return tokens
+}
+
+function looksLikeQuestion(query: string): boolean {
+  return /什么|为何|为什么|吗|呢|介绍|解释|类型|风格|适合|属于|类似|怎么样|\?/.test(query)
+    && !/找|筛|播放|来一些|来点|换一批|只听|不要|更|再/.test(query)
+}
+
+function localAnswerPlaylistQuestion(playlist: AiPlaylist, query: string): PlaylistChatResult {
+  const mentioned = findMentionedSongs(playlist.songs, query)
+  const song = mentioned[0]
+  if (song) {
+    const style = [
+      song.genre?.join(' / '),
+      song.tags?.slice(0, 3).join(' / '),
+    ].filter(Boolean).join('，') || '偏流行语境'
+    const energyText = song.energy >= 75 ? '能量偏高' : song.energy <= 40 ? '能量偏低' : '能量适中'
+    const tempoText = song.bpm >= 115 ? '节奏偏快' : song.bpm > 0 && song.bpm <= 82 ? '节奏偏慢' : '节奏稳定'
+    return {
+      kind: 'answer',
+      query,
+      answer: `《${song.title}》在当前歌单里更接近「${style}」这一类。${song.bpm ? `它大约 ${song.bpm} BPM，` : ''}${tempoText}，${energyText}。${song.semanticDescription || '如果你喜欢这种感觉，可以继续让我找类似但更轻快、安静或更有节奏感的歌。'}`,
+      referencedSongIds: [song.id],
+      suggestions: [
+        `找几首类似《${song.title}》的`,
+        `类似《${song.title}》但更轻快一点`,
+        `播放这种风格`,
+      ],
+    }
+  }
+
+  return {
+    kind: 'answer',
+    query,
+    answer: `我可以先帮你理解当前歌单里的歌曲风格，也可以在多轮对话后再筛选播放。你可以问“某首歌是什么类型”，也可以说“这种感觉再轻快一点，帮我播放”。`,
+    referencedSongIds: [],
+    suggestions: ['解释这首歌的风格', '找类似但不太吵的', '适合晚上开车的歌'],
+  }
+}
+
+function findMentionedSongs(songs: Song[], query: string): Song[] {
+  const compactQuery = query.replace(/\s+/g, '').toLowerCase()
+  return songs.filter((song) => {
+    const title = song.title.replace(/\s+/g, '').toLowerCase()
+    return title && compactQuery.includes(title)
+  })
 }
 
 function hardPass(song: Song, tokens: Set<string>, query: string): boolean {

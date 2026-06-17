@@ -2,7 +2,12 @@ import { useMemo, useState } from 'react'
 import MockPlayer from '../components/MockPlayer'
 import QQMusicLogin from '../components/QQMusicLogin'
 import type { AiPlaylist } from '../data/aiPlaylists'
-import { filterPlaylist, type PlaylistFilterResult, type PlaylistTurn } from '../lib/playlistAi'
+import {
+  converseWithPlaylist,
+  type PlaylistChatResult,
+  type PlaylistFilterResult,
+  type PlaylistTurn,
+} from '../lib/playlistAi'
 import {
   fetchQQMusicPlaylistSongs,
   fetchQQMusicPlayUrl,
@@ -28,6 +33,7 @@ export default function PlaylistButlerPage() {
   const [query, setQuery] = useState('适合晚上开车，节奏感强一点，但不要太吵')
   const [history, setHistory] = useState<PlaylistTurn[]>([])
   const [result, setResult] = useState<PlaylistFilterResult | null>(null)
+  const [chatAnswer, setChatAnswer] = useState<PlaylistChatResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [savedName, setSavedName] = useState('')
@@ -50,9 +56,15 @@ export default function PlaylistButlerPage() {
     setError('')
     setSavedName('')
     try {
-      const next = await filterPlaylist(playlist, text, history)
-      setResult(next)
-      setHistory((items) => [...items, { query: text, understood: next.understood }].slice(-4))
+      const next = await converseWithPlaylist(playlist, text, history)
+      if (next.kind === 'filter') {
+        setResult(next.result)
+        setChatAnswer(null)
+        setHistory((items) => [...items, { query: text, understood: next.result.understood }].slice(-5))
+      } else {
+        setChatAnswer(next.result)
+        setHistory((items) => [...items, { query: text, understood: next.result.answer }].slice(-5))
+      }
       setQuery('')
     } catch {
       setError('这次筛选没有成功，可以换个说法再试一次。')
@@ -65,6 +77,7 @@ export default function PlaylistButlerPage() {
     setPlaylistId(id)
     setHistory([])
     setResult(null)
+    setChatAnswer(null)
     setSavedName('')
     setPlaying(null)
     setPlayStatus('')
@@ -101,13 +114,14 @@ export default function PlaylistButlerPage() {
       source: 'qqmusic',
       type: selected.type,
       songCount: data.total,
-      quickPrompts: ['适合深夜开车', '节奏感强但不要太吵', '最近没听过的', '只听轻快一点的'],
+      quickPrompts: ['瓦解是什么类型的歌？', '适合深夜开车', '节奏感强但不要太吵', '播放这种风格但轻快一点'],
       songs: data.songs as Song[],
     }
     setPlaylists((items) => [imported, ...items.filter((item) => item.id !== imported.id)])
     setPlaylistId(imported.id)
     setHistory([])
     setResult(null)
+    setChatAnswer(null)
     setSavedName('')
     setPlaying(null)
     setQqStatus(`已导入「${selected.title}」的 ${data.songs.length} 首歌曲。`)
@@ -151,7 +165,7 @@ export default function PlaylistButlerPage() {
           <div>
             <div className="eyebrow">AI MUSIC BUTLER</div>
             <h1 className="display">用一句话，叫醒你的歌单</h1>
-            <p className="subtitle">在当前歌单范围内理解情绪、场景、节奏和排除条件，动态生成此刻想听的子歌单。</p>
+            <p className="subtitle">先聊清楚你想听的感觉，再从真实 QQ 音乐歌单里筛选、排序和播放。</p>
           </div>
           <div className="butler-stats">
             <span>真实账号</span>
@@ -254,10 +268,10 @@ export default function PlaylistButlerPage() {
                 <textarea
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="例如：找一些适合夜晚开车、节奏感强但不要太吵的歌"
+                  placeholder="可以问：瓦解是什么类型的歌？也可以说：找一些适合夜晚开车、节奏感强但不要太吵的歌"
                 />
                 <button className="btn btn-primary" onClick={() => submit()} disabled={loading || !playlist}>
-                  {loading ? '筛选中' : '帮我找'}
+                  {loading ? '处理中' : '发送给管家'}
                 </button>
               </div>
               {playStatus && <div className="history-line">{playStatus}</div>}
@@ -277,6 +291,34 @@ export default function PlaylistButlerPage() {
             )}
 
             {error && <div className="empty-state">{error}</div>}
+
+            {chatAnswer && !loading && (
+              <div className="chat-card">
+                <div className="speaker">MUSIC BUTLER</div>
+                <p>{chatAnswer.answer}</p>
+                {chatAnswer.referencedSongIds.length > 0 && (
+                  <div className="referenced">
+                    {chatAnswer.referencedSongIds
+                      .map((id) => playlist?.songs.find((song) => song.id === id))
+                      .filter(Boolean)
+                      .map((song) => (
+                        <button key={song!.id} onClick={() => playSong(song!)}>
+                          <span>
+                            <b>{song!.title}</b>
+                            <small>{song!.artist} · {song!.album || 'QQ 音乐'}</small>
+                          </span>
+                          <span>播放</span>
+                        </button>
+                      ))}
+                  </div>
+                )}
+                <div className="followups">
+                  {chatAnswer.suggestions.map((item) => (
+                    <button className="ex-chip" key={item} onClick={() => submit(item)}>{item}</button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {result && !loading && (
               <div className="ai-result">
