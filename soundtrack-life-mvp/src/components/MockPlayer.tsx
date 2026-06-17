@@ -2,6 +2,7 @@ import type { Song } from '../types'
 
 export default function MockPlayer({ song, onClose }: { song: Song; onClose: () => void }) {
   const hasAudio = Boolean(song.playUrl)
+  const isQQMusic = song.source === 'qqmusic'
   return (
     <div className="player">
       <div className="disc" />
@@ -15,6 +16,21 @@ export default function MockPlayer({ song, onClose }: { song: Song; onClose: () 
       </div>
       {hasAudio ? (
         <audio src={song.playUrl} controls autoPlay style={{ width: 220, height: 32 }} />
+      ) : isQQMusic ? (
+        <>
+          <span className="mono" style={{ fontSize: 11, color: 'var(--muted)' }}>未取得播放链接</span>
+          {song.detailUrl && (
+            <a
+              className="mono"
+              href={song.detailUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{ fontSize: 11, color: 'var(--muted)' }}
+            >
+              打开 QQ 音乐
+            </a>
+          )}
+        </>
       ) : (
         <>
           <div className="prog">

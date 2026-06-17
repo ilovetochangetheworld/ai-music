@@ -305,7 +305,15 @@
 .playlist-tabs button.active, .playlist-tabs button:hover { border-color: var(--amber); color: var(--paper); }
 .playlist-tabs b { display: block; font-size: 14px; }
 .playlist-tabs small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
-.cover-dot { width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0; border: 1px solid var(--line-strong); }
+.cover-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  border: 1px solid var(--line-strong);
+  background-size: cover;
+  background-position: center;
+}
 .playlist-card, .ai-card, .thinking-card, .ai-result {
   background: var(--ink-800);
   border: 1px solid var(--line);
@@ -410,6 +418,9 @@
   color: var(--paper-dim);
   background: var(--ink-800);
 }
+.empty-state.compact { margin-top: 0; padding: 14px; font-size: 13px; }
+.login-required-card .playlist-cover { background: linear-gradient(135deg, var(--ink-700), var(--ink-500)); }
+.login-hint { color: var(--muted); margin: 8px 0 18px; }
 .ai-result { margin-top: 18px; padding: 24px; }
 .result-summary { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 18px; }
 .result-summary .mono { color: var(--amber); font-size: 11px; letter-spacing: .16em; }

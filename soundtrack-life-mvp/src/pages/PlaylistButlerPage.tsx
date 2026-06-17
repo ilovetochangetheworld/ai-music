@@ -1,9 +1,15 @@
 import { useMemo, useState } from 'react'
 import MockPlayer from '../components/MockPlayer'
 import QQMusicLogin from '../components/QQMusicLogin'
-import { aiPlaylists, type AiPlaylist } from '../data/aiPlaylists'
+import type { AiPlaylist } from '../data/aiPlaylists'
 import { filterPlaylist, type PlaylistFilterResult, type PlaylistTurn } from '../lib/playlistAi'
-import { fetchQQMusicPlaylistSongs, fetchQQMusicPlaylists, type QQMusicPlaylistSummary } from '../lib/qqMusicLogin'
+import {
+  fetchQQMusicPlaylistSongs,
+  fetchQQMusicPlayUrl,
+  fetchQQMusicPlaylists,
+  getQQMusicSession,
+  type QQMusicPlaylistSummary,
+} from '../lib/qqMusicLogin'
 import type { Song } from '../types'
 
 const processLines = [
@@ -13,8 +19,8 @@ const processLines = [
 ]
 
 export default function PlaylistButlerPage() {
-  const [playlists, setPlaylists] = useState<AiPlaylist[]>(aiPlaylists)
-  const [playlistId, setPlaylistId] = useState(aiPlaylists[0].id)
+  const [playlists, setPlaylists] = useState<AiPlaylist[]>([])
+  const [playlistId, setPlaylistId] = useState('')
   const [qqPlaylists, setQqPlaylists] = useState<QQMusicPlaylistSummary[]>([])
   const [selectedQQPlaylistKey, setSelectedQQPlaylistKey] = useState('')
   const [qqLoading, setQqLoading] = useState(false)
@@ -26,15 +32,20 @@ export default function PlaylistButlerPage() {
   const [error, setError] = useState('')
   const [savedName, setSavedName] = useState('')
   const [playing, setPlaying] = useState<Song | null>(null)
+  const [playStatus, setPlayStatus] = useState('')
 
   const playlist = useMemo(
-    () => playlists.find((item) => item.id === playlistId) ?? playlists[0],
+    () => playlists.find((item) => item.id === playlistId) ?? null,
     [playlistId, playlists],
   )
 
   async function submit(nextQuery = query) {
     const text = nextQuery.trim()
     if (!text || loading) return
+    if (!playlist) {
+      setError('请先扫码登录 QQ 音乐，并导入一个真实歌单。')
+      return
+    }
     setLoading(true)
     setError('')
     setSavedName('')
@@ -56,6 +67,7 @@ export default function PlaylistButlerPage() {
     setResult(null)
     setSavedName('')
     setPlaying(null)
+    setPlayStatus('')
   }
 
   async function loadQQPlaylists() {
@@ -93,9 +105,38 @@ export default function PlaylistButlerPage() {
       songs: data.songs as Song[],
     }
     setPlaylists((items) => [imported, ...items.filter((item) => item.id !== imported.id)])
-    switchPlaylist(imported.id)
+    setPlaylistId(imported.id)
+    setHistory([])
+    setResult(null)
+    setSavedName('')
+    setPlaying(null)
     setQqStatus(`已导入「${selected.title}」的 ${data.songs.length} 首歌曲。`)
     setQqLoading(false)
+  }
+
+  async function playSong(song?: Song) {
+    if (!song) return
+    setPlayStatus('')
+    if (song.source !== 'qqmusic') {
+      setPlaying(song)
+      return
+    }
+    if (!getQQMusicSession()) {
+      setPlayStatus('请先扫码登录 QQ 音乐，再播放真实歌曲。')
+      return
+    }
+    setPlayStatus(`正在获取「${song.title}」播放链接……`)
+    const playUrl = song.playUrl || (song.mid ? await fetchQQMusicPlayUrl(song.mid, {
+      mediaMid: song.mediaMid,
+      songType: song.songType,
+    }) : '')
+    if (!playUrl) {
+      setPlayStatus('暂时没有拿到播放链接，可能是登录失效、版权限制或该歌曲只支持客户端播放。')
+      setPlaying({ ...song, playUrl: '' })
+      return
+    }
+    setPlaying({ ...song, playUrl })
+    setPlayStatus('')
   }
 
   function saveGeneratedPlaylist() {
@@ -113,9 +154,9 @@ export default function PlaylistButlerPage() {
             <p className="subtitle">在当前歌单范围内理解情绪、场景、节奏和排除条件，动态生成此刻想听的子歌单。</p>
           </div>
           <div className="butler-stats">
-            <span>当前 MVP</span>
-            <b>3</b>
-            <span>个高辨识度歌单</span>
+            <span>真实账号</span>
+            <b>QQ</b>
+            <span>扫码后读取你的歌单</span>
           </div>
         </section>
 
@@ -123,33 +164,46 @@ export default function PlaylistButlerPage() {
           <aside className="playlist-panel">
             <div className="panel-title">选择当前歌单</div>
             <div className="playlist-tabs">
-              {playlists.map((item) => (
+              {playlists.length > 0 ? playlists.map((item) => (
                 <button
                   key={item.id}
-                  className={item.id === playlist.id ? 'active' : ''}
+                  className={item.id === playlist?.id ? 'active' : ''}
                   onClick={() => switchPlaylist(item.id)}
                 >
-                  <span className="cover-dot" style={{ background: item.coverTone }} />
+                  <span
+                    className="cover-dot"
+                    style={item.coverUrl ? { backgroundImage: `url(${item.coverUrl})` } : { background: item.coverTone }}
+                  />
                   <span>
                     <b>{item.title}</b>
                     <small>{item.subtitle}</small>
                   </span>
                 </button>
-              ))}
+              )) : (
+                <div className="empty-state compact">还没有真实歌单。请先登录 QQ 音乐并读取歌单。</div>
+              )}
             </div>
 
-            <div className="playlist-card">
-              <div className="playlist-cover" style={{ background: playlist.coverTone }}>
-                {playlist.coverUrl ? <img src={playlist.coverUrl} alt="" /> : <span>AI</span>}
+            {playlist ? (
+              <div className="playlist-card">
+                <div className="playlist-cover" style={{ background: playlist.coverTone }}>
+                  {playlist.coverUrl ? <img src={playlist.coverUrl} alt="" /> : <span>QQ</span>}
+                </div>
+                <h2>{playlist.title}</h2>
+                <p>{playlist.description}</p>
+                <div className="playlist-actions">
+                  <button className="btn btn-primary" onClick={() => playSong(playlist.songs[0])}>播放全部</button>
+                  <button className="btn btn-ghost" onClick={() => playSong(playlist.songs[Math.floor(Math.random() * playlist.songs.length)])}>随机</button>
+                  <button className="btn btn-ghost" onClick={() => submit(playlist.quickPrompts[0])}>AI帮我选</button>
+                </div>
               </div>
-              <h2>{playlist.title}</h2>
-              <p>{playlist.description}</p>
-              <div className="playlist-actions">
-                <button className="btn btn-primary" onClick={() => setPlaying(playlist.songs[0])}>播放全部</button>
-                <button className="btn btn-ghost">随机</button>
-                <button className="btn btn-ghost" onClick={() => submit(playlist.quickPrompts[0])}>AI帮我选</button>
+            ) : (
+              <div className="playlist-card login-required-card">
+                <div className="playlist-cover"><span>QQ</span></div>
+                <h2>请先登录 QQ 音乐</h2>
+                <p>AI 音乐管家现在只处理你的真实 QQ 音乐歌单。扫码登录后，读取并导入歌单即可开始筛选和播放。</p>
               </div>
-            </div>
+            )}
 
             <div className="qq-import">
               <QQMusicLogin />
@@ -174,8 +228,8 @@ export default function PlaylistButlerPage() {
             </div>
 
             <div className="source-list">
-              {playlist.songs.slice(0, 8).map((song, index) => (
-                <button key={song.id} onClick={() => setPlaying(song)}>
+              {playlist?.songs.slice(0, 8).map((song, index) => (
+                <button key={song.id} onClick={() => playSong(song)}>
                   <span className="idx">{String(index + 1).padStart(2, '0')}</span>
                   <span className="song-main">
                     <b>{song.title}</b>
@@ -191,21 +245,22 @@ export default function PlaylistButlerPage() {
             <div className="ai-card">
               <div className="panel-title">AI音乐管家</div>
               <h2>你现在想听什么？</h2>
-              <div className="prompt-grid">
+              {playlist ? <div className="prompt-grid">
                 {playlist.quickPrompts.map((prompt) => (
                   <button key={prompt} onClick={() => submit(prompt)}>{prompt}</button>
                 ))}
-              </div>
+              </div> : <p className="login-hint">登录并导入 QQ 音乐歌单后，就可以用自然语言筛选当前歌单。</p>}
               <div className="butler-input">
                 <textarea
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="例如：找一些适合夜晚开车、节奏感强但不要太吵的歌"
                 />
-                <button className="btn btn-primary" onClick={() => submit()} disabled={loading}>
+                <button className="btn btn-primary" onClick={() => submit()} disabled={loading || !playlist}>
                   {loading ? '筛选中' : '帮我找'}
                 </button>
               </div>
+              {playStatus && <div className="history-line">{playStatus}</div>}
               {history.length > 0 && (
                 <div className="history-line">
                   上下文：{history.map((item) => item.query).join(' → ')}
@@ -233,7 +288,7 @@ export default function PlaylistButlerPage() {
                     {result.chips.map((chip) => <span className="chip" key={chip}>{chip}</span>)}
                   </div>
                   <div className="result-actions compact">
-                    <button className="btn btn-primary" onClick={() => setPlaying(result.songs[0])}>播放全部</button>
+                    <button className="btn btn-primary" onClick={() => playSong(result.songs[0])}>播放全部</button>
                     <button className="btn btn-ghost" onClick={saveGeneratedPlaylist}>保存为「{result.generatedName}」</button>
                   </div>
                   {savedName && <div className="save-toast">已保存为临时歌单「{savedName}」</div>}
@@ -244,7 +299,7 @@ export default function PlaylistButlerPage() {
                     <button
                       key={`${song.id}_${index}`}
                       className={`track ${playing?.id === song.id ? 'playing' : ''}`}
-                      onClick={() => setPlaying(song)}
+                      onClick={() => playSong(song)}
                     >
                       <span className="play">▶</span>
                       <span className="info">
