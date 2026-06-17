@@ -1,5 +1,6 @@
 const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL as string | undefined
 const SESSION_KEY = 'qq_music_session'
+export const QQ_MUSIC_SESSION_EVENT = 'qq-music-session-change'
 
 export interface QQMusicPlaylistSummary {
   id: string
@@ -51,6 +52,7 @@ export function getQQMusicSession(): string | null {
 export function clearQQMusicSession() {
   try {
     localStorage.removeItem(SESSION_KEY)
+    window.dispatchEvent(new Event(QQ_MUSIC_SESSION_EVENT))
   } catch {
     // ignore
   }
@@ -92,6 +94,7 @@ export async function checkQQMusicLogin(identifier: string, type = 'qq'): Promis
   const data = (await res.json()) as QRStatusResponse
   if (data.data?.sessionId) {
     localStorage.setItem(SESSION_KEY, data.data.sessionId)
+    window.dispatchEvent(new Event(QQ_MUSIC_SESSION_EVENT))
   }
   return data
 }

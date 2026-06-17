@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import MockPlayer from '../components/MockPlayer'
 import QQMusicLogin from '../components/QQMusicLogin'
 import type { AiPlaylist } from '../data/aiPlaylists'
@@ -13,6 +13,7 @@ import {
   fetchQQMusicPlayUrl,
   fetchQQMusicPlaylists,
   getQQMusicSession,
+  QQ_MUSIC_SESSION_EVENT,
   type QQMusicPlaylistSummary,
 } from '../lib/qqMusicLogin'
 import type { Song } from '../types'
@@ -26,6 +27,7 @@ const processLines = [
 export default function PlaylistButlerPage() {
   const [playlists, setPlaylists] = useState<AiPlaylist[]>([])
   const [playlistId, setPlaylistId] = useState('')
+  const [hasQQSession, setHasQQSession] = useState(() => Boolean(getQQMusicSession()))
   const [qqPlaylists, setQqPlaylists] = useState<QQMusicPlaylistSummary[]>([])
   const [selectedQQPlaylistKey, setSelectedQQPlaylistKey] = useState('')
   const [qqLoading, setQqLoading] = useState(false)
@@ -44,6 +46,15 @@ export default function PlaylistButlerPage() {
     () => playlists.find((item) => item.id === playlistId) ?? null,
     [playlistId, playlists],
   )
+
+  useEffect(() => {
+    function syncSession() {
+      setHasQQSession(Boolean(getQQMusicSession()))
+    }
+    syncSession()
+    window.addEventListener(QQ_MUSIC_SESSION_EVENT, syncSession)
+    return () => window.removeEventListener(QQ_MUSIC_SESSION_EVENT, syncSession)
+  }, [])
 
   async function submit(nextQuery = query) {
     const text = nextQuery.trim()
@@ -85,12 +96,14 @@ export default function PlaylistButlerPage() {
 
   async function loadQQPlaylists() {
     if (qqLoading) return
+    setHasQQSession(Boolean(getQQMusicSession()))
     setQqLoading(true)
     setQqStatus('正在读取 QQ 音乐歌单……')
     const items = await fetchQQMusicPlaylists()
+    setHasQQSession(Boolean(getQQMusicSession()))
     setQqPlaylists(items)
     setSelectedQQPlaylistKey(items[0] ? `${items[0].type}:${items[0].id}` : '')
-    setQqStatus(items.length ? `读取到 ${items.length} 个 QQ 音乐歌单。` : '没有读取到歌单，请确认已扫码登录。')
+    setQqStatus(items.length ? `读取到 ${items.length} 个 QQ 音乐歌单。` : '没有读取到歌单。如果刚扫码成功，请稍等几秒再试；也可能是登录会话已失效。')
     setQqLoading(false)
   }
 
@@ -194,7 +207,9 @@ export default function PlaylistButlerPage() {
                   </span>
                 </button>
               )) : (
-                <div className="empty-state compact">还没有真实歌单。请先登录 QQ 音乐并读取歌单。</div>
+                <div className="empty-state compact">
+                  {hasQQSession ? 'QQ 音乐已登录。请读取并导入一个歌单。' : '还没有真实歌单。请先扫码登录 QQ 音乐。'}
+                </div>
               )}
             </div>
 
@@ -214,8 +229,12 @@ export default function PlaylistButlerPage() {
             ) : (
               <div className="playlist-card login-required-card">
                 <div className="playlist-cover"><span>QQ</span></div>
-                <h2>请先登录 QQ 音乐</h2>
-                <p>AI 音乐管家现在只处理你的真实 QQ 音乐歌单。扫码登录后，读取并导入歌单即可开始筛选和播放。</p>
+                <h2>{hasQQSession ? '导入一个 QQ 音乐歌单' : '请先登录 QQ 音乐'}</h2>
+                <p>
+                  {hasQQSession
+                    ? '已检测到 QQ 音乐登录会话。点击“读取我的 QQ 歌单”，选择歌单并导入后，就可以开始对话筛选和真实播放。'
+                    : 'AI 音乐管家现在只处理你的真实 QQ 音乐歌单。扫码登录后，读取并导入歌单即可开始筛选和播放。'}
+                </p>
               </div>
             )}
 
