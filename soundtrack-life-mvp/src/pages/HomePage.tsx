@@ -60,14 +60,20 @@ export default function HomePage() {
       )}
 
       <motion.section className="hero" {...fade} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">AI 音频体验原型</span>
+        <span className="eyebrow">AI音乐管家 · Hackathon MVP</span>
         <h1 className="display">
-          把今天，<br />听成一张<em>电影原声带</em>。
+          用一句话，<br />从歌单里找到<em>此刻想听</em>。
         </h1>
         <p className="lead">
-          人生原声机读懂你一天的轨迹与情绪，编排成可播放、可解释、可分享的私人声音体验；
-          也能把一段长长的播客，变成可导航、可速听、可追问的音频地图。
+          在已有歌单内部输入自然语言需求，AI 理解情绪、场景、节奏和排除条件，
+          动态生成可以立即播放、继续调整或保存的新子歌单。
         </p>
+        <div className="composer-actions">
+          <button className="btn btn-primary" onClick={() => nav('/playlist-butler')}>
+            进入 AI音乐管家 →
+          </button>
+          <span className="hint">新版主线：歌单语义筛选入口。</span>
+        </div>
       </motion.section>
 
       <div className="tabs">
@@ -126,18 +132,18 @@ export default function HomePage() {
       <section className="features">
         <div className="feature">
           <span className="n">01</span>
-          <h4>情绪轨迹</h4>
-          <p>把一句话拆成几段有起伏的场景，画出今天的情绪曲线。</p>
+          <h4>一句话筛歌</h4>
+          <p>用户不用记歌名，只需要描述此刻想听的感觉。</p>
         </div>
         <div className="feature">
           <span className="n">02</span>
-          <h4>分场景 BGM 与电台旁白</h4>
-          <p>每段配 2-3 首歌，附上「为什么是它」，再加一段深夜电台口播。</p>
+          <h4>限定当前歌单</h4>
+          <p>不是推荐陌生歌曲，而是在用户已有音乐资产中动态重组。</p>
         </div>
         <div className="feature">
           <span className="n">03</span>
-          <h4>长音频速听导航</h4>
-          <p>自动章节、3 分钟速听、按问题跳到该听的时间片段。</p>
+          <h4>可继续调整</h4>
+          <p>支持“再轻快一点”“不要英文歌”“换一批”等上下文追问。</p>
         </div>
       </section>
 

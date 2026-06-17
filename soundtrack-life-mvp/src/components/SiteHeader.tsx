@@ -7,11 +7,12 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <NavLink to="/" className="brand">
-        <span className="mark">人生原声机</span>
-        <span className="sub">Soundtrack of Life</span>
+        <span className="mark">AI音乐管家</span>
+        <span className="sub">Playlist Butler</span>
       </NavLink>
       <nav className="nav">
-        {onResult && <NavLink to="/" className="btn btn-ghost">重新开始</NavLink>}
+        <NavLink to="/playlist-butler" className="btn btn-ghost">AI帮我选</NavLink>
+        {onResult && <NavLink to="/" className="btn btn-ghost">旧版入口</NavLink>}
         <span className="mode-flag">
           引擎 <b>{isLLMConfigured() ? 'LLM' : 'MOCK'}</b>
         </span>

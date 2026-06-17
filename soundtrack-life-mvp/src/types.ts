@@ -18,6 +18,12 @@ export interface Song {
   detailUrl?: string
   source?: 'mock' | 'qqmusic'
   language: 'mandarin' | 'cantonese' | 'english' | 'instrumental'
+  releaseYear?: number
+  genre?: string[]
+  version?: 'studio' | 'live' | 'cover' | 'instrumental'
+  semanticDescription?: string
+  playCount?: number
+  lastPlayedAt?: string
   mood: string[]
   scene: string[]
   energy: number // 0-100

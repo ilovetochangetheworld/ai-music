@@ -4,6 +4,7 @@ import SoundtrackPage from './pages/SoundtrackPage'
 import AudioCoachPage from './pages/AudioCoachPage'
 import SharePage from './pages/SharePage'
 import SiteHeader from './components/SiteHeader'
+import PlaylistButlerPage from './pages/PlaylistButlerPage'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <SiteHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/playlist-butler" element={<PlaylistButlerPage />} />
         <Route path="/soundtrack" element={<SoundtrackPage />} />
         <Route path="/audio-coach" element={<AudioCoachPage />} />
         <Route path="/share/:id" element={<SharePage />} />

@@ -1,6 +1,18 @@
 const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL as string | undefined
 const SESSION_KEY = 'qq_music_session'
 
+export interface QQMusicPlaylistSummary {
+  id: string
+  dirid?: number
+  title: string
+  subtitle: string
+  description: string
+  coverUrl?: string
+  songCount: number
+  source: 'qqmusic'
+  type: string
+}
+
 interface QRCodeResponse {
   code: number
   msg: string
@@ -101,4 +113,37 @@ export async function fetchQQMusicPlayUrl(
   if (!res.ok) return ''
   const data = await res.json()
   return data?.playUrl || ''
+}
+
+export async function fetchQQMusicPlaylists(limit = 30): Promise<QQMusicPlaylistSummary[]> {
+  const session = getQQMusicSession()
+  const url = backendUrl(`/api/music/playlists?num=${limit}`)
+  if (!url || !session) return []
+  const res = await fetch(url, {
+    headers: { 'X-Music-Session': session },
+  })
+  if (res.status === 401) clearQQMusicSession()
+  if (!res.ok) return []
+  const data = await res.json()
+  return Array.isArray(data?.playlists) ? data.playlists : []
+}
+
+export async function fetchQQMusicPlaylistSongs(
+  playlist: Pick<QQMusicPlaylistSummary, 'id' | 'type'>,
+  limit = 80,
+): Promise<{ playlist: QQMusicPlaylistSummary | null; songs: unknown[]; total: number; hasMore: boolean } | null> {
+  const session = getQQMusicSession()
+  const params = new URLSearchParams({
+    id: playlist.id,
+    type: playlist.type || '',
+    num: String(limit),
+  })
+  const url = backendUrl(`/api/music/playlist-songs?${params.toString()}`)
+  if (!url || !session) return null
+  const res = await fetch(url, {
+    headers: { 'X-Music-Session': session },
+  })
+  if (res.status === 401) clearQQMusicSession()
+  if (!res.ok) return null
+  return await res.json()
 }
