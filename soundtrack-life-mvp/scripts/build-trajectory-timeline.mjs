@@ -91,9 +91,9 @@ const manifest = {
   artist: '周杰伦',
   duration,
   assets: {
-    accompaniment: 'accompaniment.flac',
-    rescueLead: 'rescue-lead.flac',
-    harmony: 'harmony.flac',
+    accompaniment: 'accompaniment.mp3',
+    rescueLead: 'rescue-lead.mp3',
+    harmony: 'harmony.mp3',
   },
   mix: {
     accompanimentGain: 0.82,

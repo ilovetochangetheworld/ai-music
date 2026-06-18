@@ -39,12 +39,12 @@ CLIP_END="267.53"
 CLIP_DURATION="80.04"
 ffmpeg -y -hide_banner -loglevel warning -i "$ACCOMPANIMENT" \
   -af "atrim=start=$CLIP_START:end=$CLIP_END,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.08,afade=t=out:st=79.04:d=1,apad,atrim=0:$CLIP_DURATION" \
-  -c:a flac -compression_level 8 "$PUBLIC/accompaniment.flac"
+  -ar 44100 -c:a libmp3lame -b:a 128k "$PUBLIC/accompaniment.mp3"
 ffmpeg -y -hide_banner -loglevel warning -i "$VOCAL" \
   -af "atrim=start=$CLIP_START:end=$CLIP_END,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.08,afade=t=out:st=79.04:d=1,apad,atrim=0:$CLIP_DURATION,volume=-5dB" \
-  -c:a flac -compression_level 8 "$PUBLIC/rescue-lead.flac"
+  -ar 44100 -c:a libmp3lame -b:a 128k "$PUBLIC/rescue-lead.mp3"
 ffmpeg -y -hide_banner -loglevel warning -i "$HARMONY_WAV" \
   -af "atrim=start=$CLIP_START:end=$CLIP_END,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.08,afade=t=out:st=79.04:d=1,apad,atrim=0:$CLIP_DURATION,volume=-6dB" \
-  -c:a flac -compression_level 8 "$PUBLIC/harmony.flac"
+  -ar 44100 -c:a libmp3lame -b:a 128k "$PUBLIC/harmony.mp3"
 
 echo "Trajectory assets are ready in $PUBLIC"

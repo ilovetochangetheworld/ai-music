@@ -20,15 +20,16 @@ export class SingAudioEngine {
     const entries = Object.entries(manifest.assets) as [TrackName, string][]
     const decoder = new AudioContext()
 
+    let completed = 0
     try {
-      for (let index = 0; index < entries.length; index += 1) {
-        const [name, url] = entries[index]
+      await Promise.all(entries.map(async ([name, url]) => {
         const response = await fetch(url)
         if (!response.ok) throw new Error(`音轨加载失败：${name}`)
         const buffer = await decoder.decodeAudioData(await response.arrayBuffer())
         this.buffers.set(name, buffer)
-        onProgress?.((index + 1) / entries.length)
-      }
+        completed += 1
+        onProgress?.(completed / entries.length)
+      }))
     } finally {
       await decoder.close()
     }
