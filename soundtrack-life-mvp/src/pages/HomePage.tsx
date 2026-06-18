@@ -60,19 +60,19 @@ export default function HomePage() {
       )}
 
       <motion.section className="hero" {...fade} transition={{ duration: 0.6 }}>
-        <span className="eyebrow">AI音乐管家 · Hackathon MVP</span>
+        <span className="eyebrow">AI声友局 · Hackathon MVP</span>
         <h1 className="display">
-          用一句话，<br />从歌单里找到<em>此刻想听</em>。
+          一个人开麦，<br />也像有朋友<em>陪你唱</em>。
         </h1>
         <p className="lead">
-          在已有歌单内部输入自然语言需求，AI 理解情绪、场景、节奏和排除条件，
-          动态生成可以立即播放、继续调整或保存的新子歌单。
+          AI 听懂你什么时候开口、什么时候停下。在副歌陪唱，在忘词时接住，
+          再把主唱自然地交还给你。
         </p>
         <div className="composer-actions">
-          <button className="btn btn-primary" onClick={() => nav('/playlist-butler')}>
-            进入 AI音乐管家 →
+          <button className="btn btn-primary" onClick={() => nav('/sing-room')}>
+            进入 AI声友局 →
           </button>
-          <span className="hint">新版主线：歌单语义筛选入口。</span>
+          <button className="btn" onClick={() => nav('/playlist-butler')}>先从歌单选一首</button>
         </div>
       </motion.section>
 
@@ -132,18 +132,18 @@ export default function HomePage() {
       <section className="features">
         <div className="feature">
           <span className="n">01</span>
-          <h4>一句话筛歌</h4>
-          <p>用户不用记歌名，只需要描述此刻想听的感觉。</p>
+          <h4>听见你停下</h4>
+          <p>结合歌词时间轴、音量和音高，理解什么时候需要接唱。</p>
         </div>
         <div className="feature">
           <span className="n">02</span>
-          <h4>限定当前歌单</h4>
-          <p>不是推荐陌生歌曲，而是在用户已有音乐资产中动态重组。</p>
+          <h4>副歌有人陪</h4>
+          <p>阿和只在关键段加入和声，不抢主唱，也不持续打扰。</p>
         </div>
         <div className="feature">
           <span className="n">03</span>
-          <h4>可继续调整</h4>
-          <p>支持“再轻快一点”“不要英文歌”“换一批”等上下文追问。</p>
+          <h4>唱后不打分</h4>
+          <p>记录你如何重新开口，把真实高光做成这一局的回忆。</p>
         </div>
       </section>
 

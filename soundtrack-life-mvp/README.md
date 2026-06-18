@@ -1,7 +1,32 @@
-# 人生原声机 MVP
+# AI 声友局 MVP
 
 
-## 一句话
+## 黑客松主体验
+
+AI 声友局会在演唱中感知用户是否开口，在停唱时淡入预制救场人声，并在用户重新开口后自然退出。当前 Demo 使用《轨迹》的 80 秒路演精剪与同步歌词时间轴，支持副歌和声、自动/手动救场、浏览器本地录音，以及基于真实检测数据的唱后回忆与温和评价。
+
+```text
+配置声友 -> 3 秒环境校准 -> 演唱/接唱 -> 唱后高光
+```
+
+入口：`#/sing-room`
+
+音频资产首次生成：
+
+```bash
+uv venv --python 3.11 .audio-venv
+UV_CACHE_DIR=.uv-cache uv pip install --python .audio-venv/bin/python torch torchaudio demucs
+brew install rubberband
+npm run audio:prepare
+```
+
+若模型权重暂时无法下载，可运行 `npm run audio:prepare:dsp`，使用本地中置提取生成可演示的三轨资产；之后再用 Demucs 命令原位覆盖。
+
+详细方案见 [AI 声友局技术设计](docs/ai-singalong-hackathon-design.md)。原“人生原声机”和 AI 音乐管家能力保留为次级入口。
+
+## 原始产品方向
+
+### 一句话
 
 人生原声机把用户一天的轨迹、情绪和长音频内容，生成一张“我的电影原声带”：既能为今天配 BGM，也能把播客/有声书变成可导航、可速听、可追问的音频地图。
 

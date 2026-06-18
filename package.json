@@ -1,0 +1,12 @@
+{
+  "name": "ai-music-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix soundtrack-life-mvp run dev --",
+    "build": "npm --prefix soundtrack-life-mvp run build",
+    "preview": "npm --prefix soundtrack-life-mvp run preview --",
+    "server": "npm --prefix soundtrack-life-mvp run server",
+    "audio:prepare": "npm --prefix soundtrack-life-mvp run audio:prepare",
+    "audio:prepare:dsp": "npm --prefix soundtrack-life-mvp run audio:prepare:dsp"
+  }
+}

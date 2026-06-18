@@ -1,0 +1,179 @@
+{
+  "songId": "trajectory",
+  "title": "轨迹",
+  "artist": "周杰伦",
+  "duration": 80.04,
+  "bpm": 74,
+  "demoCueSec": 0,
+  "sections": [
+    {
+      "id": "prechorus-2",
+      "type": "prechorus",
+      "label": "第二次情绪推进",
+      "start": 0,
+      "end": 25.3,
+      "vocalExpected": true,
+      "harmonyEnabled": false
+    },
+    {
+      "id": "chorus-2",
+      "type": "chorus",
+      "label": "第二段副歌",
+      "start": 25.3,
+      "end": 53.79,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    },
+    {
+      "id": "chorus-final",
+      "type": "chorus",
+      "label": "最终副歌",
+      "start": 53.79,
+      "end": 80.04,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    }
+  ],
+  "lines": [
+    {
+      "id": "trajectory-line-27",
+      "start": 0,
+      "end": 5.51,
+      "text": "如果说分手是苦痛的起点",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-28",
+      "start": 5.59,
+      "end": 8.6,
+      "text": "那在终点之前",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-29",
+      "start": 8.68,
+      "end": 12.67,
+      "text": "我愿意再爱一遍",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-30",
+      "start": 12.75,
+      "end": 15.54,
+      "text": "想要对你说的",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-31",
+      "start": 15.62,
+      "end": 18.64,
+      "text": "不敢说的爱",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-32",
+      "start": 18.72,
+      "end": 25.22,
+      "text": "会不会有人可以明白",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "trajectory-line-33",
+      "start": 25.3,
+      "end": 31.47,
+      "text": "我会发着呆　然后忘记你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-34",
+      "start": 31.55,
+      "end": 37.82,
+      "text": "接着紧紧闭上眼",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-35",
+      "start": 37.9,
+      "end": 44.57,
+      "text": "想着那一天 会有人代替",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-36",
+      "start": 44.65,
+      "end": 53.71,
+      "text": "让我不再想念你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-37",
+      "start": 53.79,
+      "end": 60.78,
+      "text": "我会发着呆　然后忘记你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-38",
+      "start": 60.86,
+      "end": 67.23,
+      "text": "接着紧紧闭上眼",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-39",
+      "start": 67.31,
+      "end": 73.93,
+      "text": "想着那一天 会有人代替",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    },
+    {
+      "id": "trajectory-line-40",
+      "start": 74.01,
+      "end": 80.04,
+      "text": "让我不再想念你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 520
+    }
+  ]
+}

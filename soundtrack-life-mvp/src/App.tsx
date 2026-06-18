@@ -5,6 +5,9 @@ import AudioCoachPage from './pages/AudioCoachPage'
 import SharePage from './pages/SharePage'
 import SiteHeader from './components/SiteHeader'
 import PlaylistButlerPage from './pages/PlaylistButlerPage'
+import SingRoomSetupPage from './pages/SingRoomSetupPage'
+import SingRoomPerformancePage from './pages/SingRoomPerformancePage'
+import SingRoomRecapPage from './pages/SingRoomRecapPage'
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
         <Route path="/soundtrack" element={<SoundtrackPage />} />
         <Route path="/audio-coach" element={<AudioCoachPage />} />
         <Route path="/share/:id" element={<SharePage />} />
+        <Route path="/sing-room" element={<SingRoomSetupPage />} />
+        <Route path="/sing-room/trajectory" element={<SingRoomPerformancePage />} />
+        <Route path="/sing-room/trajectory/recap" element={<SingRoomRecapPage />} />
       </Routes>
     </>
   )

@@ -1,0 +1,16 @@
+{
+  "songId": "trajectory",
+  "title": "轨迹",
+  "artist": "周杰伦",
+  "duration": 80.04,
+  "assets": {
+    "accompaniment": "accompaniment.flac",
+    "rescueLead": "rescue-lead.flac",
+    "harmony": "harmony.flac"
+  },
+  "mix": {
+    "accompanimentGain": 0.82,
+    "rescueGain": 0.66,
+    "harmonyGain": 0.55
+  }
+}

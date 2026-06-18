@@ -9,10 +9,17 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test:llm": "node scripts/test-llm.mjs",
-    "lint": "eslint . --ext ts,tsx"
+    "lint": "eslint . --ext ts,tsx",
+    "audio:timeline": "node scripts/build-trajectory-timeline.mjs",
+    "audio:prepare": "bash scripts/prepare-trajectory-audio.sh",
+    "audio:prepare:dsp": "bash scripts/prepare-trajectory-dsp.sh"
   },
   "dependencies": {
+    "@ricky0123/vad-web": "^0.0.30",
     "framer-motion": "^11.3.0",
+    "lucide-react": "^1.20.0",
+    "onnxruntime-web": "^1.26.0",
+    "pitchy": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0"
