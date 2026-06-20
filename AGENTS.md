@@ -26,6 +26,7 @@ If these conflict, stop and record a decision in `docs/project/DECISIONS.md`; do
 - `soundtrack-life-mvp/server/`: public Node BFF.
 - `soundtrack-life-mvp/services/analysis/`: internal Python CPU analysis service.
 - `soundtrack-life-mvp/public/catalog/`: deployable song packages and validation metadata.
+- `soundtrack-life-mvp/tools/practice-song-builder/`: IDE-agnostic catalog tooling (timeline/manifest/notes/audio generation). Single source of truth for song packaging.
 - `soundtrack-life-mvp/docs/project/`: roadmap, merged status, decisions, and handoffs.
 
 ## Commands and gates
@@ -43,6 +44,24 @@ npm run catalog:validate
 ```
 
 No task is done until relevant tests and `npm run build` pass. Scoring changes also require contract fixtures and Python tests.
+
+## Tooling and skills (multi-IDE)
+
+This project is developed with **multiple IDEs/agents (CodeBuddy and Codex)**. To stay portable:
+
+- **Reusable tooling and SOPs live in the repo, not in any IDE-private directory.** Canonical
+  location for catalog tooling: `soundtrack-life-mvp/tools/practice-song-builder/` (+ its `README.md`).
+- IDE-specific entry points (e.g. a CodeBuddy `practice-song-builder` skill, or a Codex prompt) must be
+  **thin pointers** to the in-repo tooling — never a private fork of the logic.
+- Project progress, decisions, and handoffs live in `soundtrack-life-mvp/docs/project/` so every agent
+  reads the same state regardless of IDE.
+- Practice-song packaging commands (run from `soundtrack-life-mvp/`):
+  ```bash
+  npm run song:build  -- <song.json>   # 生成 timeline/manifest/notes(占位)/phrases + 登记 index.json
+  npm run song:audio  -- <song.json>   # 生成 accompaniment/rescue-lead/harmony 三轨
+  npm run song:notes  -- <vocal.wav> <timeline.json> <out.candidate.json>  # 参考旋律候选(待人工校正)
+  ```
+  See `tools/practice-song-builder/README.md` for the full SOP and invariants.
 
 ## Product and scoring constraints
 
