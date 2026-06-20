@@ -1,0 +1,39 @@
+{
+  "id": "tornado",
+  "title": "龙卷风",
+  "artist": "周杰伦",
+  "bpm": 72,
+  "difficulty": 4,
+  "focus": ["rhythm", "breath", "expression", "consistency"],
+  "demoCueSec": 0,
+  "rightsNote": "User-provided prototype asset; commercial/public rights are not established.",
+
+  "lrc": "../../music/周杰伦 - 龙卷风.lrc",
+  "encoding": "utf-8",
+  "lyricFilter": ["^(作词|作曲|编曲|演唱)"],
+  "minLineSec": 0.9,
+
+  "crossfade": 0.15,
+  "segments": [
+    { "start": 107.26, "end": 147.73 },
+    { "start": 173.86, "end": 214.30 }
+  ],
+
+  "sections": [
+    { "id": "prechorus-2", "type": "prechorus", "label": "情绪推进", "startSec": 0, "endSec": 12.67, "harmonyEnabled": false },
+    { "id": "chorus-2", "type": "chorus", "label": "第二段副歌", "startSec": 12.67, "endSec": 40.47, "harmonyEnabled": true },
+    { "id": "chorus-final", "type": "chorus", "label": "最终副歌", "startSec": 40.32, "endSec": 67.11, "harmonyEnabled": true },
+    { "id": "outro-refrain", "type": "outro", "label": "尾段回落", "startSec": 67.11, "endSec": 80.76, "harmonyEnabled": false }
+  ],
+
+  "breathProtectionMs": { "chorus": 440, "default": 620 },
+  "mix": { "accompanimentGain": 0.82, "rescueGain": 0.64, "harmonyGain": 0.5 },
+
+  "audio": {
+    "mix": "../../music/周杰伦 - 龙卷风.mp3",
+    "preclipped": false,
+    "demucsModel": "htdemucs_ft",
+    "encodeVolume": { "accompaniment": 1.0, "rescueLead": 0.56, "harmony": 0.5 },
+    "harmony": { "regions": "119.93:147.73,173.86:200.65" }
+  }
+}

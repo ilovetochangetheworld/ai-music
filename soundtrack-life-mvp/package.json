@@ -18,7 +18,10 @@
     "audio:prepare:dsp": "bash scripts/prepare-trajectory-dsp.sh",
     "audio:prepare:tornado": "bash scripts/prepare-tornado-audio.sh",
     "audio:prepare:tornado:dsp": "bash scripts/prepare-tornado-dsp.sh",
-    "catalog:validate": "node scripts/validate-practice-catalog.mjs"
+    "catalog:validate": "node scripts/validate-practice-catalog.mjs",
+    "song:build": "node tools/practice-song-builder/build-practice-song.mjs",
+    "song:audio": "node tools/practice-song-builder/prepare-practice-audio.mjs",
+    "song:notes": "python3 tools/practice-song-builder/generate-reference-notes.py"
   },
   "dependencies": {
     "@ricky0123/vad-web": "^0.0.30",
