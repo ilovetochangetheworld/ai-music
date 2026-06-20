@@ -1,25 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { isLLMConfigured } from '../lib/llm'
 
 export default function SiteHeader() {
-  const loc = useLocation()
-  const onResult = loc.pathname !== '/'
-  const inSingRoom = loc.pathname.startsWith('/sing-room')
-  if (loc.pathname === '/sing-room/trajectory') return null
-  return (
-    <header className="site-header">
-      <NavLink to={inSingRoom ? '/sing-room' : '/'} className="brand">
-        <span className="mark">{inSingRoom ? 'AI声友局' : 'AI音乐管家'}</span>
-        <span className="sub">{inSingRoom ? 'Sing Together' : 'Playlist Butler'}</span>
-      </NavLink>
-      <nav className="nav">
-        {!inSingRoom && <NavLink to="/sing-room" className="btn btn-ghost">AI陪我唱</NavLink>}
-        <NavLink to="/playlist-butler" className="btn btn-ghost">AI帮我选</NavLink>
-        {onResult && !inSingRoom && <NavLink to="/" className="btn btn-ghost">旧版入口</NavLink>}
-        <span className="mode-flag">
-          引擎 <b>{isLLMConfigured() ? 'LLM' : 'MOCK'}</b>
-        </span>
-      </nav>
-    </header>
-  )
+  const { pathname } = useLocation()
+  if (pathname.includes('/sing')) return null
+  const inLab = pathname.startsWith('/lab')
+  return <header className="site-header practice-site-header"><NavLink to="/" className="brand"><span className="mark">AI练歌房</span><span className="sub">Practice with 小麦</span></NavLink><nav className="nav"><NavLink to="/songs" className="btn btn-ghost">可练歌曲</NavLink><NavLink to="/growth" className="btn btn-ghost">成长档案</NavLink>{inLab ? <NavLink to="/" className="btn btn-ghost">返回练歌房</NavLink> : <NavLink to="/lab/soundtrack" className="btn btn-ghost lab-link">Lab</NavLink>}</nav></header>
 }

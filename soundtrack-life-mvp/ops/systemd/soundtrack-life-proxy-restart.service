@@ -1,6 +1,0 @@
-[Unit]
-Description=Restart Soundtrack Life Backend Proxy
-
-[Service]
-Type=oneshot
-ExecStart=/bin/systemctl restart soundtrack-life-proxy.service

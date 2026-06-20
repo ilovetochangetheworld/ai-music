@@ -1,0 +1,278 @@
+{
+  "songId": "tornado",
+  "title": "龙卷风",
+  "artist": "周杰伦",
+  "duration": 80.76,
+  "bpm": 72,
+  "demoCueSec": 0,
+  "sections": [
+    {
+      "id": "prechorus-2",
+      "type": "prechorus",
+      "label": "情绪推进",
+      "start": 0,
+      "end": 12.67,
+      "vocalExpected": true,
+      "harmonyEnabled": false
+    },
+    {
+      "id": "chorus-2",
+      "type": "chorus",
+      "label": "第二段副歌",
+      "start": 12.67,
+      "end": 40.47,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    },
+    {
+      "id": "chorus-final",
+      "type": "chorus",
+      "label": "最终副歌",
+      "start": 40.32,
+      "end": 67.11,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    },
+    {
+      "id": "outro-refrain",
+      "type": "outro",
+      "label": "尾段回落",
+      "start": 67.11,
+      "end": 80.76,
+      "vocalExpected": true,
+      "harmonyEnabled": false
+    }
+  ],
+  "lines": [
+    {
+      "id": "tornado-line-01",
+      "start": 0,
+      "end": 2.86,
+      "text": "静静悄悄默默离开",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-02",
+      "start": 2.94,
+      "end": 6.92,
+      "text": "陷入了危险边缘Baby~",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-03",
+      "start": 7,
+      "end": 12.59,
+      "text": "我的世界已狂风暴雨",
+      "section": "prechorus",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-04",
+      "start": 12.67,
+      "end": 16.59,
+      "text": "Wu~ 爱情来得太快就像龙卷风",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-05",
+      "start": 16.67,
+      "end": 19.62,
+      "text": "离不开暴风圈来不及逃",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-06",
+      "start": 19.7,
+      "end": 22.87,
+      "text": "我不能再想 我不能再想",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-07",
+      "start": 22.95,
+      "end": 26.77,
+      "text": "我不 我不 我不能",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-08",
+      "start": 26.85,
+      "end": 29.91,
+      "text": "爱情走得太快就像龙卷风",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-09",
+      "start": 29.99,
+      "end": 32.93,
+      "text": "不能承受我已无处可躲",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-10",
+      "start": 33.01,
+      "end": 36.39,
+      "text": "我不要再想 我不要再想",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-11",
+      "start": 36.47,
+      "end": 40.47,
+      "text": "我不 我不 我不要再想你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-12",
+      "start": 40.6,
+      "end": 43.85,
+      "text": "爱情来得太快就像龙卷风",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-13",
+      "start": 43.93,
+      "end": 46.7,
+      "text": "离不开暴风圈来不及逃",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-14",
+      "start": 46.78,
+      "end": 50,
+      "text": "我不能再想 我不能再想",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-15",
+      "start": 50.08,
+      "end": 53.74,
+      "text": "我不 我不 我不能",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-16",
+      "start": 53.82,
+      "end": 56.87,
+      "text": "爱情走得太快就像龙卷风",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-17",
+      "start": 56.95,
+      "end": 59.9,
+      "text": "不能承受我已无处可躲",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-18",
+      "start": 59.98,
+      "end": 63.37,
+      "text": "我不要再想 我不要再想",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-19",
+      "start": 63.45,
+      "end": 67.93,
+      "text": "我不 我不 我不要再想你",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 440
+    },
+    {
+      "id": "tornado-line-20",
+      "start": 68.01,
+      "end": 70.34,
+      "text": "不知不觉 你已经离开我",
+      "section": "outro",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-21",
+      "start": 70.42,
+      "end": 73.64,
+      "text": "不知不觉 我跟了这节奏",
+      "section": "outro",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-22",
+      "start": 73.72,
+      "end": 76.94,
+      "text": "后知后觉 又过了一个秋",
+      "section": "outro",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    },
+    {
+      "id": "tornado-line-23",
+      "start": 77.02,
+      "end": 80.68,
+      "text": "后知后觉 我该好好生活",
+      "section": "outro",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 620
+    }
+  ]
+}

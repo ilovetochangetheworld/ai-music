@@ -19,9 +19,11 @@ def main():
     parser.add_argument('vocal_wav', type=Path)
     parser.add_argument('output_wav', type=Path)
     parser.add_argument('--work-dir', type=Path, required=True)
+    parser.add_argument('--regions', default='', help='Comma-separated source regions, for example 95.67:146,212.79:241.28')
     args = parser.parse_args()
     args.work_dir.mkdir(parents=True, exist_ok=True)
 
+    regions = parse_regions(args.regions) if args.regions else HARMONY_REGIONS
     waveform, sr = load_pcm16_wav(args.vocal_wav)
     mono = waveform.mean(dim=0, keepdim=True)
     frame_time = 0.02
@@ -39,7 +41,7 @@ def main():
 
     root, mode = detect_key(midi[voiced])
     scale = scale_pitch_classes(root, mode)
-    pitch_map = build_pitch_map(midi, voiced, sr, frame_time, scale)
+    pitch_map = build_pitch_map(midi, voiced, sr, frame_time, scale, regions)
     pitch_map_path = args.work_dir / 'harmony-pitch-map.txt'
     with pitch_map_path.open('w') as handle:
         for frame, shift in pitch_map:
@@ -55,7 +57,7 @@ def main():
     if shifted_sr != sr:
         shifted = torchaudio.functional.resample(shifted, shifted_sr, sr)
     shifted = fit_length(shifted, waveform.shape[1])
-    mask = region_mask(waveform.shape[1], sr, HARMONY_REGIONS, fade_seconds=0.12)
+    mask = region_mask(waveform.shape[1], sr, regions, fade_seconds=0.12)
     shifted = shifted * mask.unsqueeze(0)
     shifted = torchaudio.functional.highpass_biquad(shifted, sr, cutoff_freq=120)
 
@@ -74,7 +76,7 @@ def main():
     metadata = {
         'detectedKey': NOTE_NAMES[root],
         'mode': mode,
-        'regions': HARMONY_REGIONS,
+        'regions': regions,
         'sampleRate': sr,
         'pitchFrames': int(pitch.numel()),
     }
@@ -107,13 +109,13 @@ def scale_pitch_classes(root, mode):
     return [(root + interval) % 12 for interval in pattern]
 
 
-def build_pitch_map(midi, voiced, sr, frame_time, scale):
+def build_pitch_map(midi, voiced, sr, frame_time, scale, regions):
     points = [(0, 0.0)]
     last_shift = 0.0
     hop = int(sr * frame_time)
     for index in range(midi.numel()):
         at = index * frame_time
-        if not in_regions(at):
+        if not in_regions(at, regions):
             shift = 0.0
         elif not bool(voiced[index]):
             shift = last_shift
@@ -138,8 +140,18 @@ def diatonic_third_shift(midi, scale):
     return float(shift)
 
 
-def in_regions(at):
-    return any(start <= at <= end for start, end in HARMONY_REGIONS)
+def in_regions(at, regions):
+    return any(start <= at <= end for start, end in regions)
+
+
+def parse_regions(value):
+    regions = []
+    for item in value.split(','):
+        start, end = item.split(':', 1)
+        regions.append((float(start), float(end)))
+    if not regions or any(start < 0 or end <= start for start, end in regions):
+        raise ValueError('Invalid harmony regions')
+    return regions
 
 
 def region_mask(frames, sr, regions, fade_seconds):

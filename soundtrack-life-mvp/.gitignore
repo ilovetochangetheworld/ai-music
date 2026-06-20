@@ -7,6 +7,9 @@ dist-ssr
 .vite
 .vite-dev.log
 .audio-venv
+services/analysis/.venv
+__pycache__/
+.pytest_cache/
 .uv-cache
 audio-work
 music/

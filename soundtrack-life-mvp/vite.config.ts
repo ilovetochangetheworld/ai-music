@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 // 部署到 GitHub Pages 时位于 https://<user>.github.io/ai-music/，
@@ -8,6 +8,10 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   server: {
     port: 5173,
-    open: true,
+    open: false,
+  },
+  test: {
+    environment: 'node',
+    pool: 'forks',
   },
 }))

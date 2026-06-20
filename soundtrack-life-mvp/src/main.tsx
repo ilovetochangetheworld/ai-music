@@ -6,6 +6,7 @@ import { StoreProvider } from './store'
 import './index.css'
 import './components.css'
 import './sing-room.css'
+import './practice-room.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

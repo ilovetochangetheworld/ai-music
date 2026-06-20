@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-practice-room.local/schema/practice-report.json",
+  "title": "AI Practice Room Contracts",
+  "$defs": {
+    "segment": {
+      "type": "object",
+      "required": ["startSec", "endSec"],
+      "properties": {
+        "startSec": { "type": "number", "minimum": 0 },
+        "endSec": { "type": "number", "minimum": 0 },
+        "lineId": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "metric": {
+      "type": "object",
+      "required": ["key", "label", "score", "confidence", "status", "evidence", "suggestion", "segments"],
+      "properties": {
+        "key": { "enum": ["pitch", "rhythm", "breath", "expression", "consistency"] },
+        "label": { "type": "string" },
+        "score": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "status": { "enum": ["ok", "insufficient_data"] },
+        "evidence": { "type": "string" },
+        "suggestion": { "type": "string" },
+        "segments": { "type": "array", "items": { "$ref": "#/$defs/segment" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "required": ["version", "sessionId", "songId", "status", "overallScore", "dataQuality", "metrics", "highlights", "primarySuggestion"],
+  "properties": {
+    "version": { "const": "1.0" },
+    "sessionId": { "type": "string" },
+    "songId": { "type": "string" },
+    "status": { "enum": ["complete", "insufficient_data", "failed"] },
+    "overallScore": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "dataQuality": {
+      "type": "object",
+      "required": ["vocalCoverage", "pitchConfidence", "noiseFloorDb", "reasons"],
+      "properties": {
+        "vocalCoverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "pitchConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "noiseFloorDb": { "type": "number" },
+        "reasons": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "metrics": { "type": "array", "minItems": 5, "maxItems": 5, "items": { "$ref": "#/$defs/metric" } },
+    "highlights": { "type": "array", "items": { "$ref": "#/$defs/segment" } },
+    "headline": { "type": "string" },
+    "primarySuggestion": { "type": "string" }
+  },
+  "additionalProperties": false
+}

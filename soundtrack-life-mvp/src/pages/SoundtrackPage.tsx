@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useStore } from '../store'
 import { emotionColor } from '../lib/lifeParser'
-import { fetchQQMusicPlayUrl } from '../lib/qqMusicLogin'
 import type { Song } from '../types'
 import MoodCurve from '../components/MoodCurve'
 import MockPlayer from '../components/MockPlayer'
@@ -31,17 +30,9 @@ export default function SoundtrackPage() {
     sceneRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
-  async function playSong(song: Song) {
+  function playSong(song: Song) {
     if (nowPlaying?.id === song.id) {
       setNowPlaying(null)
-      return
-    }
-    if (song.mid && !song.playUrl) {
-      const playUrl = await fetchQQMusicPlayUrl(song.mid, {
-        mediaMid: song.mediaMid,
-        songType: song.songType,
-      })
-      setNowPlaying(playUrl ? { ...song, playUrl } : song)
       return
     }
     setNowPlaying(song)
@@ -119,7 +110,7 @@ export default function SoundtrackPage() {
                         <div className="info">
                           <div className="tt">{song.title}</div>
                           <div className="ar">
-                            {song.artist} · <span className="bpm">{song.source === 'qqmusic' ? 'QQ 音乐' : song.language}</span>
+                            {song.artist} · <span className="bpm">{song.language}</span>
                           </div>
                         </div>
                         <div className="reason">{song.reasonSeeds[0]}</div>

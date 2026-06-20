@@ -1,28 +1,33 @@
-import { Routes, Route } from 'react-router-dom'
-import HomePage from './pages/HomePage'
+import { lazy, Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import SiteHeader from './components/SiteHeader'
+import PracticeHomePage from './pages/PracticeHomePage'
+import SongCatalogPage from './pages/SongCatalogPage'
+import SongImportPage from './pages/SongImportPage'
+import PracticeSetupPage from './pages/PracticeSetupPage'
+import PracticeReportPage from './pages/PracticeReportPage'
+import PracticeHighlightPage from './pages/PracticeHighlightPage'
+import GrowthPage from './pages/GrowthPage'
 import SoundtrackPage from './pages/SoundtrackPage'
 import AudioCoachPage from './pages/AudioCoachPage'
-import SharePage from './pages/SharePage'
-import SiteHeader from './components/SiteHeader'
-import PlaylistButlerPage from './pages/PlaylistButlerPage'
-import SingRoomSetupPage from './pages/SingRoomSetupPage'
-import SingRoomPerformancePage from './pages/SingRoomPerformancePage'
-import SingRoomRecapPage from './pages/SingRoomRecapPage'
+
+const PracticeSingPage = lazy(() => import('./pages/SingRoomPerformancePage'))
+const PracticeRecapPage = lazy(() => import('./pages/SingRoomRecapPage'))
 
 export default function App() {
-  return (
-    <>
-      <SiteHeader />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/playlist-butler" element={<PlaylistButlerPage />} />
-        <Route path="/soundtrack" element={<SoundtrackPage />} />
-        <Route path="/audio-coach" element={<AudioCoachPage />} />
-        <Route path="/share/:id" element={<SharePage />} />
-        <Route path="/sing-room" element={<SingRoomSetupPage />} />
-        <Route path="/sing-room/trajectory" element={<SingRoomPerformancePage />} />
-        <Route path="/sing-room/trajectory/recap" element={<SingRoomRecapPage />} />
-      </Routes>
-    </>
-  )
+  return <><SiteHeader /><Suspense fallback={<main className="practice-mobile practice-empty"><p>小麦正在准备练歌房…</p></main>}><Routes>
+    <Route path="/" element={<PracticeHomePage />} />
+    <Route path="/songs" element={<SongCatalogPage />} />
+    <Route path="/songs/import" element={<SongImportPage />} />
+    <Route path="/practice/:songId" element={<PracticeSetupPage />} />
+    <Route path="/practice/:songId/sing" element={<PracticeSingPage />} />
+    <Route path="/practice/:songId/recap" element={<PracticeRecapPage />} />
+    <Route path="/practice/:songId/report" element={<PracticeReportPage />} />
+    <Route path="/practice/:songId/highlight" element={<PracticeHighlightPage />} />
+    <Route path="/growth" element={<GrowthPage />} />
+    <Route path="/growth/:sessionId" element={<PracticeReportPage />} />
+    <Route path="/lab/soundtrack" element={<SoundtrackPage />} />
+    <Route path="/lab/audio-coach" element={<AudioCoachPage />} />
+    <Route path="*" element={<PracticeHomePage />} />
+  </Routes></Suspense></>
 }

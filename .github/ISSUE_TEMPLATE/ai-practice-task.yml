@@ -1,0 +1,20 @@
+name: AI practice room task
+description: Decision-complete implementation task for an agent or engineer
+title: "[APR-XXXX] "
+labels: ["ready"]
+body:
+  - type: textarea
+    id: objective
+    attributes: { label: Objective }
+    validations: { required: true }
+  - type: textarea
+    id: dependencies
+    attributes: { label: Dependencies and allowed modules }
+  - type: textarea
+    id: acceptance
+    attributes: { label: Acceptance criteria }
+    validations: { required: true }
+  - type: textarea
+    id: tests
+    attributes: { label: Required tests and evidence }
+    validations: { required: true }

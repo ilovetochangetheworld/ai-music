@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Activity, ArrowLeft, Download, Mic2, Play, RefreshCw, Sparkles, TimerReset, Trash2, Waves } from 'lucide-react'
 import { loadRecap } from '../features/sing-room/recap'
 import { deleteSessionRecording, loadSessionRecording } from '../features/sing-room/recording'
-import { loadTrajectory } from '../features/sing-room/session'
+import { loadPracticeSong } from '../features/sing-room/session'
 import type { SingingRecap, SongTimeline } from '../features/sing-room/types'
+import { loadPracticeReport } from '../features/practice-room/reportStore'
+import XiaoMai from '../components/XiaoMai'
 
 export default function SingRoomRecapPage() {
+  const { songId = 'trajectory' } = useParams()
   const navigate = useNavigate()
   const [recap, setRecap] = useState<SingingRecap | null>(() => loadRecap())
   const [timeline, setTimeline] = useState<SongTimeline | null>(null)
@@ -17,17 +20,17 @@ export default function SingRoomRecapPage() {
   const highlightTimerRef = useRef<number | null>(null)
 
   useEffect(() => {
-    loadTrajectory().then(({ timeline: loaded }) => setTimeline(loaded)).catch(() => undefined)
+    loadPracticeSong(songId).then(({ timeline: loaded }) => setTimeline(loaded)).catch(() => undefined)
     return () => {
       if (highlightTimerRef.current) window.clearTimeout(highlightTimerRef.current)
     }
-  }, [])
+  }, [songId])
 
   if (!recap) {
     return (
       <main className="sing-recap empty shell">
         <p>还没有这一局的演唱记录。</p>
-        <button className="sing-primary-command" onClick={() => navigate('/sing-room')}>进入声友局</button>
+        <button className="sing-primary-command" onClick={() => navigate(`/practice/${songId}`)}>开始练歌</button>
       </main>
     )
   }
@@ -36,6 +39,7 @@ export default function SingRoomRecapPage() {
   const participation = Math.round(recap.participationRate * 100)
   const openedUp = recap.recoveredRescueCount > 0 || recap.secondHalfParticipation > recap.firstHalfParticipation + 0.03
   const review = recap.review
+  const practiceReport = loadPracticeReport(songId)
 
   function removeRecording() {
     audioRef.current?.pause()
@@ -69,10 +73,11 @@ export default function SingRoomRecapPage() {
     <main className="sing-recap">
       <section className="recap-hero shell">
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="eyebrow">今晚的 AI 声友局</span>
-          <h1>这首，<em>你唱完了。</em></h1>
-          <p>{review?.headline ?? (openedUp ? '后半段明显更敢开口，阿和把歌递回来以后，你稳稳接住了。' : '你一直按自己的节奏唱，安静也算一种完整表达。')}</p>
+          <span className="eyebrow">小麦的练歌手记</span>
+          <h1>这首，<em>我认真听完了。</em></h1>
+          <p>{practiceReport?.headline ?? review?.headline ?? (openedUp ? '后半段明显更敢开口，小麦接唱后你稳稳接回来了。' : '你一直按自己的节奏唱，安静也算一种完整表达。')}</p>
         </motion.div>
+        <XiaoMai state="notebook" />
         <div className="recap-score" aria-label={`演唱参与度 ${participation}%`}>
           <strong>{participation}</strong><span>%</span><small>开口参与 · 非总分</small>
         </div>
@@ -118,7 +123,7 @@ export default function SingRoomRecapPage() {
 
       <section className="recap-band">
         <div className="shell recap-metrics">
-          <Metric icon={<Mic2 />} value={`${recap.rescueCount}`} label="阿和救场" suffix="次" />
+          <Metric icon={<Mic2 />} value={`${recap.rescueCount}`} label="小麦接唱" suffix="次" />
           <Metric icon={<RefreshCw />} value={`${recap.recoveredRescueCount}`} label="成功接回" suffix="次" />
           <Metric icon={<TimerReset />} value={`${Math.round(recap.longestContinuousSingingSec)}`} label="最长连续演唱" suffix="秒" />
         </div>
@@ -131,8 +136,10 @@ export default function SingRoomRecapPage() {
       </section>
 
       <div className="recap-actions shell">
-        <button className="icon-command" title="返回声友局" onClick={() => navigate('/sing-room')}><ArrowLeft size={19} /></button>
-        <button className="sing-primary-command" onClick={() => navigate('/sing-room/trajectory')}>再唱一次 <RefreshCw size={18} /></button>
+        <button className="icon-command" title="返回选歌" onClick={() => navigate('/songs')}><ArrowLeft size={19} /></button>
+        <button className="recording-action" onClick={() => navigate(`/practice/${songId}/highlight`)}>查看高光</button>
+        <button className="recording-action" onClick={() => navigate(`/practice/${songId}/report`)}>五维报告</button>
+        <button className="sing-primary-command" onClick={() => navigate(`/practice/${songId}/sing`)}>再唱一次 <RefreshCw size={18} /></button>
       </div>
     </main>
   )
