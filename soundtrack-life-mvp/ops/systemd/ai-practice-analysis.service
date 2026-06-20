@@ -1,0 +1,17 @@
+[Unit]
+Description=AI Practice Room CPU Analysis
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ai-practice-room/services/analysis
+Environment=PYTHONPATH=/opt/ai-practice-room/services/analysis
+ExecStart=/opt/ai-practice-room/services/analysis/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8790
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

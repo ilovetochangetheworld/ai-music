@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "id": "tornado",
+  "title": "龙卷风",
+  "artist": "周杰伦",
+  "durationSec": 80.76,
+  "difficulty": 4,
+  "focus": [
+    "rhythm",
+    "breath",
+    "expression",
+    "consistency"
+  ],
+  "assets": {
+    "accompaniment": "audio/tornado/accompaniment.mp3",
+    "rescueLead": "audio/tornado/rescue-lead.mp3",
+    "harmony": "audio/tornado/harmony.mp3",
+    "timeline": "audio/tornado/timeline.json",
+    "notes": "catalog/tornado/notes.json",
+    "phrases": "catalog/tornado/phrases.json"
+  },
+  "rights": {
+    "status": "prototype",
+    "note": "User-provided prototype asset; commercial/public rights are not established."
+  }
+}

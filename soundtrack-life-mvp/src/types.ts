@@ -16,7 +16,7 @@ export interface Song {
   coverUrl?: string
   playUrl?: string
   detailUrl?: string
-  source?: 'mock' | 'qqmusic'
+  source?: 'mock'
   language: 'mandarin' | 'cantonese' | 'english' | 'instrumental'
   releaseYear?: number
   genre?: string[]

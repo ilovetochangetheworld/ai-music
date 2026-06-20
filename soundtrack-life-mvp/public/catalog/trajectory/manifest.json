@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "id": "trajectory",
+  "title": "轨迹",
+  "artist": "周杰伦",
+  "durationSec": 80.04,
+  "difficulty": 3,
+  "focus": ["pitch", "breath", "consistency"],
+  "vocalRange": { "lowMidi": 45, "highMidi": 69 },
+  "assets": {
+    "accompaniment": "audio/trajectory/accompaniment.mp3",
+    "rescueLead": "audio/trajectory/rescue-lead.mp3",
+    "harmony": "audio/trajectory/harmony.mp3",
+    "timeline": "audio/trajectory/timeline.json",
+    "notes": "catalog/trajectory/notes.json",
+    "phrases": "catalog/trajectory/phrases.json"
+  },
+  "rights": {
+    "status": "prototype",
+    "note": "Prototype-only asset; commercial/public rights are not established."
+  }
+}

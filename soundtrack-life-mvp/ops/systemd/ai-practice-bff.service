@@ -1,0 +1,17 @@
+[Unit]
+Description=AI Practice Room Node BFF
+After=network-online.target ai-practice-analysis.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ai-practice-room
+EnvironmentFile=/etc/ai-practice-room/bff.env
+ExecStart=/usr/bin/node /opt/ai-practice-room/server/local-proxy.mjs
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

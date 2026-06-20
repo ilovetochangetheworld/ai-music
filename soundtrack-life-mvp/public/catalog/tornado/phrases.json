@@ -1,0 +1,213 @@
+{
+  "version": "1.0",
+  "reviewStatus": "derived_from_lrc_requires_manual_review",
+  "phrases": [
+    {
+      "id": "phrase-tornado-line-01",
+      "startSec": 0,
+      "endSec": 2.86,
+      "lineIds": [
+        "tornado-line-01"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-02",
+      "startSec": 2.94,
+      "endSec": 6.92,
+      "lineIds": [
+        "tornado-line-02"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-03",
+      "startSec": 7,
+      "endSec": 12.59,
+      "lineIds": [
+        "tornado-line-03"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-04",
+      "startSec": 12.67,
+      "endSec": 16.59,
+      "lineIds": [
+        "tornado-line-04"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-05",
+      "startSec": 16.67,
+      "endSec": 19.62,
+      "lineIds": [
+        "tornado-line-05"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-06",
+      "startSec": 19.7,
+      "endSec": 22.87,
+      "lineIds": [
+        "tornado-line-06"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-07",
+      "startSec": 22.95,
+      "endSec": 26.77,
+      "lineIds": [
+        "tornado-line-07"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-08",
+      "startSec": 26.85,
+      "endSec": 29.91,
+      "lineIds": [
+        "tornado-line-08"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-09",
+      "startSec": 29.99,
+      "endSec": 32.93,
+      "lineIds": [
+        "tornado-line-09"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-10",
+      "startSec": 33.01,
+      "endSec": 36.39,
+      "lineIds": [
+        "tornado-line-10"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-11",
+      "startSec": 36.47,
+      "endSec": 40.47,
+      "lineIds": [
+        "tornado-line-11"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-12",
+      "startSec": 40.6,
+      "endSec": 43.85,
+      "lineIds": [
+        "tornado-line-12"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-13",
+      "startSec": 43.93,
+      "endSec": 46.7,
+      "lineIds": [
+        "tornado-line-13"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-14",
+      "startSec": 46.78,
+      "endSec": 50,
+      "lineIds": [
+        "tornado-line-14"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-15",
+      "startSec": 50.08,
+      "endSec": 53.74,
+      "lineIds": [
+        "tornado-line-15"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-16",
+      "startSec": 53.82,
+      "endSec": 56.87,
+      "lineIds": [
+        "tornado-line-16"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-17",
+      "startSec": 56.95,
+      "endSec": 59.9,
+      "lineIds": [
+        "tornado-line-17"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-18",
+      "startSec": 59.98,
+      "endSec": 63.37,
+      "lineIds": [
+        "tornado-line-18"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-19",
+      "startSec": 63.45,
+      "endSec": 67.93,
+      "lineIds": [
+        "tornado-line-19"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-20",
+      "startSec": 68.01,
+      "endSec": 70.34,
+      "lineIds": [
+        "tornado-line-20"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-21",
+      "startSec": 70.42,
+      "endSec": 73.64,
+      "lineIds": [
+        "tornado-line-21"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-22",
+      "startSec": 73.72,
+      "endSec": 76.94,
+      "lineIds": [
+        "tornado-line-22"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-tornado-line-23",
+      "startSec": 77.02,
+      "endSec": 80.68,
+      "lineIds": [
+        "tornado-line-23"
+      ],
+      "breathWindows": []
+    }
+  ]
+}

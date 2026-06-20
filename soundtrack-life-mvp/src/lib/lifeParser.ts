@@ -1,6 +1,5 @@
 import type { LifeScene, Soundtrack, UserPreference } from '../types'
 import { callLLMJson } from './llm'
-import { searchQQMusicForScene } from './musicApi'
 import { matchSongs } from './songMatcher'
 
 // ── 情绪词典：用于本地启发式解析（LLM 不可用时的降级路径）──
@@ -261,12 +260,9 @@ export async function generateSoundtrack(text: string, pref?: UserPreference): P
         djNarration: s.djNarration,
         recommendedSongs: localSongs,
       }
-      const remoteSongs = await searchQQMusicForScene(baseScene, 2)
       return {
         ...baseScene,
-        recommendedSongs: remoteSongs.length >= 2
-          ? remoteSongs
-          : [...remoteSongs, ...localSongs.filter((song) => !remoteSongs.some((remote) => remote.title === song.title))].slice(0, 2),
+        recommendedSongs: localSongs,
       }
     }))
     return {

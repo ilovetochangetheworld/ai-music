@@ -1,6 +1,0 @@
-[Unit]
-Description=Restart QQMusicApi Web Service
-
-[Service]
-Type=oneshot
-ExecStart=/bin/systemctl restart qqmusic-api-web.service

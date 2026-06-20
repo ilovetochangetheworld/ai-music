@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "songs": [
+    {
+      "id": "trajectory",
+      "title": "轨迹",
+      "artist": "周杰伦",
+      "difficulty": 3,
+      "focus": ["pitch", "breath", "consistency"],
+      "manifestUrl": "catalog/trajectory/manifest.json",
+      "availability": "ready"
+    },
+    {
+      "id": "tornado",
+      "title": "龙卷风",
+      "artist": "周杰伦",
+      "difficulty": 4,
+      "focus": ["rhythm", "breath", "expression", "consistency"],
+      "manifestUrl": "catalog/tornado/manifest.json",
+      "availability": "ready"
+    },
+    {
+      "id": "song-c",
+      "title": "待准备歌曲 C",
+      "artist": "练歌资源准备中",
+      "difficulty": 4,
+      "focus": ["expression"],
+      "availability": "preparing"
+    }
+  ]
+}

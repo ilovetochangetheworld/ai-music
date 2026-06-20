@@ -99,11 +99,15 @@ export interface SingRoomSettings {
   autoRescue: boolean
   harmonyLevel: number
   demoMode: boolean
+  retainRecording: boolean
+  practiceMode: 'free' | 'pitch' | 'rhythm' | 'breath'
 }
 
 export const DEFAULT_ROOM_SETTINGS: SingRoomSettings = {
-  interactionLevel: 'balanced',
-  autoRescue: true,
+  interactionLevel: 'quiet',
+  autoRescue: false,
   harmonyLevel: 0.18,
   demoMode: true,
+  retainRecording: true,
+  practiceMode: 'free',
 }

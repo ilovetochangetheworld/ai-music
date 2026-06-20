@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MicVAD } from '@ricky0123/vad-web'
 import { Headphones, Mic2, Pause, Play, Radio, SkipForward, Sparkles, Volume1, Volume2 } from 'lucide-react'
@@ -7,8 +7,14 @@ import { SingAudioEngine } from '../features/sing-room/audioEngine'
 import { SingingDetector, type SingingFrame } from '../features/sing-room/singingDetector'
 import { buildRecap, saveRecap } from '../features/sing-room/recap'
 import { deleteSessionRecording, preferredRecordingMimeType, saveSessionRecording } from '../features/sing-room/recording'
-import { formatTime, loadSettings, loadTrajectory } from '../features/sing-room/session'
+import { formatTime, loadPracticeSong, loadSettings } from '../features/sing-room/session'
 import type { LyricLine, SingEvent, SongManifest, SongTimeline, VocalFrameSample } from '../features/sing-room/types'
+import { buildLocalPracticeReport } from '../features/practice-room/scoring'
+import { savePracticeReport } from '../features/practice-room/reportStore'
+import { saveGrowthReport } from '../features/practice-room/growth'
+import { loadPracticeManifest } from '../features/practice-room/catalog'
+import type { ReferenceNote } from '../../shared/contracts'
+import XiaoMai from '../components/XiaoMai'
 import ortWasmUrl from '../assets/vad/ort-wasm-simd-threaded.wasm?url'
 import ortMjsUrl from '../assets/vad/ort-wasm-simd-threaded.mjs?url'
 
@@ -17,6 +23,7 @@ type Phase = 'loading' | 'ready' | 'calibrating' | 'countdown' | 'singing' | 'pa
 const EMPTY_FRAME: SingingFrame = { db: -100, pitch: 0, clarity: 0, vadProbability: 0, isSinging: false }
 
 export default function SingRoomPerformancePage() {
+  const { songId = 'trajectory' } = useParams()
   const navigate = useNavigate()
   const settings = useRef(loadSettings()).current
   const [phase, setPhaseState] = useState<Phase>('loading')
@@ -34,7 +41,7 @@ export default function SingRoomPerformancePage() {
   const [vadError, setVadError] = useState('')
   const [recordingActive, setRecordingActive] = useState(false)
   const [applauding, setApplauding] = useState(false)
-  const [crowdReaction, setCrowdReaction] = useState('三位声友已就位 · 等你开口')
+  const [crowdReaction, setCrowdReaction] = useState('小麦已就位 · 等你开口')
   const manifestRef = useRef<SongManifest | null>(null)
   const timelineRef = useRef<SongTimeline | null>(null)
   const engineRef = useRef<SingAudioEngine | null>(null)
@@ -58,6 +65,7 @@ export default function SingRoomPerformancePage() {
   const recorderRef = useRef<MediaRecorder | null>(null)
   const recordingChunksRef = useRef<Blob[]>([])
   const finishingRef = useRef(false)
+  const referenceNotesRef = useRef<ReferenceNote[]>([])
   const applauseCountRef = useRef(0)
   const lastApplauseAtRef = useRef(-20)
   const applauseTimerRef = useRef<number | null>(null)
@@ -79,7 +87,7 @@ export default function SingRoomPerformancePage() {
     if (applauseTimerRef.current) window.clearTimeout(applauseTimerRef.current)
     if (crowdTimerRef.current) window.clearTimeout(crowdTimerRef.current)
     applauseTimerRef.current = window.setTimeout(() => setApplauding(false), duration)
-    crowdTimerRef.current = window.setTimeout(() => setCrowdReaction('三位声友正在听'), duration + 700)
+    crowdTimerRef.current = window.setTimeout(() => setCrowdReaction('小麦正在听'), duration + 700)
   }, [])
 
   const finishSession = useCallback(async () => {
@@ -95,13 +103,21 @@ export default function SingRoomPerformancePage() {
     completedEvents.push({ type: 'SONG_COMPLETED', at: end })
     eventsRef.current = completedEvents
     const recording = await stopRecording()
-    if (recording) saveSessionRecording(recording, Math.max(0, end - sessionStartRef.current))
+    if (recording && settings.retainRecording) saveSessionRecording(recording, Math.max(0, end - sessionStartRef.current))
     const relevantLines = timeline.lines.filter((line) => line.end >= sessionStartRef.current && line.start <= end)
     const recap = buildRecap(completedEvents, relevantLines, end, samplesRef.current, sessionStartRef.current)
-    recap.recordingAvailable = Boolean(recording)
+    recap.recordingAvailable = Boolean(recording && settings.retainRecording)
     saveRecap(recap)
-    navigate('/sing-room/trajectory/recap')
-  }, [navigate])
+    const report = buildLocalPracticeReport({
+      sessionId: crypto.randomUUID(), songId, lines: relevantLines,
+      noiseFloorDb: detectorRef.current?.getNoiseFloor() ?? -58,
+      notes: referenceNotesRef.current,
+      frames: samplesRef.current.map((sample) => ({ at: sample.at, db: sample.db, pitchHz: sample.pitch, clarity: sample.clarity, vadProbability: vadProbabilityRef.current, isSinging: sample.isSinging })),
+    })
+    savePracticeReport(report)
+    void saveGrowthReport(report).catch(() => undefined)
+    navigate(`/practice/${songId}/recap`)
+  }, [navigate, settings, songId])
 
   useEffect(() => {
     let cancelled = false
@@ -109,11 +125,16 @@ export default function SingRoomPerformancePage() {
     engineRef.current = engine
     engine.onEnded(() => { void finishSession() })
 
-    loadTrajectory()
+    loadPracticeSong(songId)
       .then(async ({ manifest, timeline }) => {
         if (cancelled) return
         manifestRef.current = manifest
         timelineRef.current = timeline
+        void loadPracticeManifest(songId).then(async (practiceManifest) => {
+          const response = await fetch(`${import.meta.env.BASE_URL}${practiceManifest.assets.notes}`)
+          const data = response.ok ? await response.json() as { notes?: ReferenceNote[] } : null
+          referenceNotesRef.current = data?.notes ?? []
+        }).catch(() => { referenceNotesRef.current = [] })
         await engine.load(manifest, setLoadProgress)
         if (!cancelled) setPhase('ready')
       })
@@ -133,7 +154,7 @@ export default function SingRoomPerformancePage() {
       void detectorRef.current?.dispose()
       if (vadRef.current) void vadRef.current.destroy().catch(() => undefined)
     }
-  }, [finishSession, setPhase])
+  }, [finishSession, setPhase, songId])
 
   useEffect(() => {
     if (!recordingActive) return
@@ -168,7 +189,7 @@ export default function SingRoomPerformancePage() {
     rescueActiveRef.current = true
     lastRescueAtRef.current = now
     setRescuing(true)
-    setHostMessage(source === 'manual' ? '这句阿和来，你准备好再接。' : '没关系，阿和先帮你托住。')
+    setHostMessage(source === 'manual' ? '这句小麦来，你准备好再接。' : '没关系，小麦先帮你托住。')
     addEvent({ type: 'RESCUE_STARTED', at: now, lineId: line.id, source })
   }, [addEvent])
 
@@ -404,7 +425,7 @@ export default function SingRoomPerformancePage() {
       await engine.start(offset)
       addEvent({ type: 'SONG_STARTED', at: offset })
       setSongTime(offset)
-      setHostMessage('先用手动救场试玩，点“帮我接”就把这一句交给阿和。')
+      setHostMessage('先用手动接唱试玩，点“帮我接”就把这一句交给小麦。')
       setPhase('singing')
       beginMonitor()
     } catch (reason) {
@@ -435,16 +456,15 @@ export default function SingRoomPerformancePage() {
     <main className={applauding ? 'sing-stage crowd-live' : 'sing-stage'}>
       <div className="stage-ambient" aria-hidden="true" />
       <header className="stage-topbar">
-        <div><span className="live-dot" />热闹朋友局 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
+        <div><span className="live-dot" />AI 练歌房 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
         <span>{section?.label ?? '准备中'}</span>
         <button className="stage-end" onClick={() => void finishSession()} disabled={!['singing', 'paused'].includes(phase)}>结束演唱</button>
       </header>
 
       <section className="stage-main">
-        <div className="friend-rail" aria-label="AI 声友状态">
-          <StageFriend name="小麦" label="主持" active={Boolean(hostMessage)} color="coral" />
-          <StageFriend name="阿和" label={rescuing ? '接唱中' : harmonyActiveRef.current ? '和声中' : '待命'} active={rescuing || harmonyActiveRef.current} color="teal" />
-          <StageFriend name="大声" label={applauding ? '欢呼中' : currentLine?.section === 'chorus' ? '副歌起哄' : '听众'} active={applauding || currentLine?.section === 'chorus'} color="amber" />
+        <div className="friend-rail single-companion" aria-label="小麦陪练状态">
+          <XiaoMai compact state={applauding ? 'cheering' : frame.isSinging ? 'listening' : rescuing ? 'cheering' : 'waiting'} />
+          <b>小麦</b><small>{rescuing ? '接唱中' : applauding ? '为你鼓掌' : frame.isSinging ? '正在听' : '安静陪着你'}</small>
         </div>
 
         <div className="lyric-stage">
@@ -463,13 +483,13 @@ export default function SingRoomPerformancePage() {
           </AnimatePresence>
           <div className={applauding ? 'crowd-presence active' : 'crowd-presence'} aria-live="polite">
             <span className="crowd-bars" aria-hidden="true"><i /><i /><i /><i /></span>
-            <b>气氛组</b><span>{crowdReaction}</span>
+            <b>小麦</b><span>{crowdReaction}</span>
           </div>
         </div>
 
         <div className="voice-state">
           <span className={frame.isSinging ? 'voice-orb active' : 'voice-orb'}><Mic2 size={23} /></span>
-          <div><b>{rescuing ? '阿和正在接唱' : frame.isSinging ? '听见你了' : '等你开口'}</b><small>{Math.round(frame.pitch || 0)} Hz · 清晰度 {Math.round(frame.clarity * 100)}%</small></div>
+          <div><b>{rescuing ? '小麦正在接唱' : frame.isSinging ? '小麦听见你了' : '等你开口'}</b><small>{settings.practiceMode === 'free' ? '自由唱 · 唱后再分析' : '专项练习 · 一句结束后轻提示'}</small></div>
           <span className="voice-meter"><i style={{ width: `${meter * 100}%` }} /></span>
         </div>
       </section>
@@ -498,14 +518,10 @@ export default function SingRoomPerformancePage() {
         {phase === 'ready' && <StageOverlay icon={<Headphones />} title="戴好耳机" detail="授权麦克风后会校准环境，并在演唱开始时录音" action={<button className="sing-primary-command" onClick={calibrateAndStart}>校准并录音 <Mic2 size={18} /></button>} />}
         {phase === 'calibrating' && <StageOverlay icon={<Mic2 />} title="保持安静" detail="正在记住这里的环境底噪" progress={calibrationProgress} />}
         {phase === 'countdown' && <div className="countdown-overlay"><span>看好第一句</span><motion.strong key={countdown} initial={{ opacity: 0, scale: 1.35 }} animate={{ opacity: 1, scale: 1 }}>{countdown}</motion.strong></div>}
-        {phase === 'error' && <StageOverlay icon={<Sparkles />} title="麦克风暂时不可用" detail={error || vadError || '可以先体验手动救场模式'} action={<div className="overlay-actions"><button className="icon-command" title="返回配置" onClick={() => navigate('/sing-room')}>←</button><button className="sing-primary-command" onClick={startWithoutMic}>无麦克风试玩 <Play size={18} /></button></div>} />}
+        {phase === 'error' && <StageOverlay icon={<Sparkles />} title="麦克风暂时不可用" detail={error || vadError || '可以先体验手动接唱模式'} action={<div className="overlay-actions"><button className="icon-command" title="返回配置" onClick={() => navigate(`/practice/${songId}`)}>←</button><button className="sing-primary-command" onClick={startWithoutMic}>无麦克风试玩 <Play size={18} /></button></div>} />}
       </AnimatePresence>
     </main>
   )
-}
-
-function StageFriend({ name, label, active, color }: { name: string; label: string; active: boolean; color: string }) {
-  return <div className={active ? 'stage-friend active' : 'stage-friend'}><span className={`friend-avatar ${color}`}>{name.slice(-1)}</span><b>{name}</b><small>{label}</small></div>
 }
 
 function StageOverlay({ icon, title, detail, progress, action }: { icon: React.ReactNode; title: string; detail: string; progress?: number; action?: React.ReactNode }) {

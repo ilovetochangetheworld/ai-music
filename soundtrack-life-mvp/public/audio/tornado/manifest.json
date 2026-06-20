@@ -1,0 +1,16 @@
+{
+  "songId": "tornado",
+  "title": "龙卷风",
+  "artist": "周杰伦",
+  "duration": 80.76,
+  "assets": {
+    "accompaniment": "accompaniment.mp3",
+    "rescueLead": "rescue-lead.mp3",
+    "harmony": "harmony.mp3"
+  },
+  "mix": {
+    "accompanimentGain": 0.82,
+    "rescueGain": 0.64,
+    "harmonyGain": 0.5
+  }
+}

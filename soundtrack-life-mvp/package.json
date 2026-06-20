@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "server": "node server/local-proxy.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:analysis": "PYTHONPATH=services/analysis services/analysis/.venv/bin/python -m pytest services/analysis/tests",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test:llm": "node scripts/test-llm.mjs",
-    "lint": "eslint . --ext ts,tsx",
+    "lint": "eslint src shared --ext ts,tsx",
     "audio:timeline": "node scripts/build-trajectory-timeline.mjs",
     "audio:prepare": "bash scripts/prepare-trajectory-audio.sh",
-    "audio:prepare:dsp": "bash scripts/prepare-trajectory-dsp.sh"
+    "audio:prepare:dsp": "bash scripts/prepare-trajectory-dsp.sh",
+    "audio:prepare:tornado": "bash scripts/prepare-tornado-audio.sh",
+    "audio:prepare:tornado:dsp": "bash scripts/prepare-tornado-dsp.sh",
+    "catalog:validate": "node scripts/validate-practice-catalog.mjs"
   },
   "dependencies": {
     "@ricky0123/vad-web": "^0.0.30",
@@ -27,7 +33,12 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "vitest": "^2.1.9",
     "typescript": "^5.5.3",
     "vite": "^5.4.0"
   }
