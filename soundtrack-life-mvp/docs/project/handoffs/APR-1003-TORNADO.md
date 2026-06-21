@@ -30,17 +30,17 @@ All three audio tracks are exactly 80.76s. The LRC conversion produced 23 synchr
 
 ## Processing quality
 
-The preferred Demucs model could not be downloaded because external execution quota was unavailable. The current assets use the documented local DSP fallback: stereo-side accompaniment reconstruction, center vocal extraction, and A-major diatonic harmony in chorus regions.
+The deployable assets now use the `htdemucs_ft` four-model ensemble for vocal/accompaniment separation. Chorus harmony is generated from the isolated vocal using an A-major diatonic pitch map. The local audio environment also requires `torchcodec` with current Torchaudio versions so Demucs can write its WAV stems.
 
 Measured levels:
 
-- accompaniment: mean −17.0dB, peak −0.2dB
-- rescue lead: mean −24.3dB, peak −7.3dB
-- harmony: mean −30.4dB, peak −12.3dB
+- accompaniment: mean −17.0dB, peak −1.1dB
+- rescue lead: mean −22.4dB, peak −4.0dB
+- harmony: mean −29.0dB, peak −11.1dB
+- around the 40.47s montage point, accompaniment RMS changes by approximately 1.3dB; no digital clipping is present
 
 ## Remaining review
 
 - Listen on phone speaker and headphones around the 40.47s edit point.
-- Replace DSP stems with Demucs stems when model execution is available.
 - Extract and manually review reference notes before enabling pitch scores.
-- Browser runtime loading could not be executed in this turn because the same external execution quota blocked starting the local preview server; catalog validation, typecheck, and production build passed.
+- Complete browser runtime loading and microphone-denial checks after the final mobile listening pass.

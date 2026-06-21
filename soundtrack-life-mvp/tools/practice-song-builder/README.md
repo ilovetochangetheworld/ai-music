@@ -70,3 +70,10 @@ npm run catalog:validate && npm run typecheck && npm run build
 
 - 自动音符常见整体差八度、次谐波误判、过度切碎，**必须人工核对**。
 - `bpm` 仅作展示，不参与评分。
+# Note for current Torchaudio
+
+If Demucs completes inference but fails while writing WAV files with `TorchCodec is required`, install the encoder into the audio environment:
+
+```bash
+uv pip install --python .audio-venv/bin/python torchcodec
+```
