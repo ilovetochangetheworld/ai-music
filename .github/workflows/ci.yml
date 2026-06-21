@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: soundtrack-life-mvp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: soundtrack-life-mvp/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+        env:
+          VITE_BACKEND_BASE_URL: ${{ vars.VITE_BACKEND_BASE_URL || 'https://lulu.yixin.info' }}
+      - run: npm run catalog:validate
+
+  analysis:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: soundtrack-life-mvp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r services/analysis/requirements.txt
+      # CI 不存在本地 .audio-venv，直接用临时安装的依赖跑 pytest（等价于 npm run test:analysis）
+      - run: PYTHONPATH=services/analysis python -m pytest services/analysis/tests

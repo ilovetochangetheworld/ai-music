@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          VITE_BACKEND_BASE_URL: https://lulu.yixin.info
+          VITE_BACKEND_BASE_URL: ${{ vars.VITE_BACKEND_BASE_URL || 'https://lulu.yixin.info' }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
