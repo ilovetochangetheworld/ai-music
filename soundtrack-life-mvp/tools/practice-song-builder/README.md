@@ -54,6 +54,9 @@ ffmpeg -y -i public/audio/<id>/rescue-lead.mp3 -c:a pcm_s16le /tmp/<id>-vocal.wa
   /tmp/<id>-vocal.wav public/audio/<id>/timeline.json public/catalog/<id>/notes.candidate.json
 # → 人工校正后写入 public/catalog/<id>/notes.json，reviewStatus 改为 reviewed
 
+# 审计候选：高危八度跳变、歌词归属、缺失行或低覆盖必须在人工审核时处理。
+npm run song:notes:audit -- public/catalog/<id>/notes.candidate.json public/audio/<id>/timeline.json
+
 # 4) 校验 + 构建
 npm run catalog:validate && npm run typecheck && npm run build
 ```

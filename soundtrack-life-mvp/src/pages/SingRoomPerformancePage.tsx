@@ -13,6 +13,7 @@ import { buildLocalPracticeReport } from '../features/practice-room/scoring'
 import { savePracticeReport } from '../features/practice-room/reportStore'
 import { saveGrowthReport } from '../features/practice-room/growth'
 import { loadPracticeManifest } from '../features/practice-room/catalog'
+import { reviewedReferenceNotes, type ReferenceNotesFile } from '../features/practice-room/referenceNotes'
 import type { ReferenceNote } from '../../shared/contracts'
 import XiaoMai from '../components/XiaoMai'
 import ortWasmUrl from '../assets/vad/ort-wasm-simd-threaded.wasm?url'
@@ -132,8 +133,8 @@ export default function SingRoomPerformancePage() {
         timelineRef.current = timeline
         void loadPracticeManifest(songId).then(async (practiceManifest) => {
           const response = await fetch(`${import.meta.env.BASE_URL}${practiceManifest.assets.notes}`)
-          const data = response.ok ? await response.json() as { notes?: ReferenceNote[] } : null
-          referenceNotesRef.current = data?.notes ?? []
+          const data = response.ok ? await response.json() as ReferenceNotesFile : null
+          referenceNotesRef.current = reviewedReferenceNotes(data)
         }).catch(() => { referenceNotesRef.current = [] })
         await engine.load(manifest, setLoadProgress)
         if (!cancelled) setPhase('ready')
