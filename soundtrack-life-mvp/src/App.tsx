@@ -10,6 +10,7 @@ import PracticeHighlightPage from './pages/PracticeHighlightPage'
 import GrowthPage from './pages/GrowthPage'
 import SoundtrackPage from './pages/SoundtrackPage'
 import AudioCoachPage from './pages/AudioCoachPage'
+import ReferenceReviewPage from './pages/ReferenceReviewPage'
 
 const PracticeSingPage = lazy(() => import('./pages/SingRoomPerformancePage'))
 const PracticeRecapPage = lazy(() => import('./pages/SingRoomRecapPage'))
@@ -28,6 +29,7 @@ export default function App() {
     <Route path="/growth/:sessionId" element={<PracticeReportPage />} />
     <Route path="/lab/soundtrack" element={<SoundtrackPage />} />
     <Route path="/lab/audio-coach" element={<AudioCoachPage />} />
+    <Route path="/lab/reference-review/:songId" element={<ReferenceReviewPage />} />
     <Route path="*" element={<PracticeHomePage />} />
   </Routes></Suspense></>
 }

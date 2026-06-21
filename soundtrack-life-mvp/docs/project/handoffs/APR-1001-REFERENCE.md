@@ -5,6 +5,7 @@
 - `public/catalog/trajectory/notes.candidate.json`
 - `public/catalog/tornado/notes.candidate.json`
 - `tools/practice-song-builder/audit-reference-notes.mjs`
+- `#/lab/reference-review/trajectory` 与 `#/lab/reference-review/tornado` 逐句审核台
 
 候选文件保持 `auto_generated_requires_review`；正式 `notes.json` 仍为占位状态。运行时现在只读取 `reviewStatus=reviewed` 的参考音符，防止自动候选误入音准评分。
 
@@ -22,8 +23,10 @@
 1. 按歌词行循环播放 `rescue-lead.mp3`。
 2. 删除气声、伴奏残留与错误低八度音符。
 3. 校正起止时间、MIDI、长音标记和 `lineId`。
+   审核台支持逐句播放、钢琴卷帘、±八度、精确时间/MIDI 编辑、删除与新增音符。
 4. 运行 `npm run song:notes:audit -- <candidate> <timeline>`，清除高风险异常并检查低覆盖行。
 5. 人工签字后复制为 `notes.json`，将 `reviewStatus` 改为 `reviewed`。
+   审核台只有在高风险与缺失歌词行均为 0，并勾选逐句确认后，才开放正式 JSON 导出。
 6. 用已知 ±50/±100 cents 合成样本验证评分方向，再启用音准总分。
 
 在第 5 步完成之前，产品必须继续显示“参考旋律尚未完成人工校正”。
