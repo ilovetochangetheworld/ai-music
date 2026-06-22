@@ -4,6 +4,7 @@ import SiteHeader from './components/SiteHeader'
 import PracticeHomePage from './pages/PracticeHomePage'
 import SongCatalogPage from './pages/SongCatalogPage'
 import SongImportPage from './pages/SongImportPage'
+import SongManagementPage from './pages/SongManagementPage'
 import PracticeSetupPage from './pages/PracticeSetupPage'
 import PracticeReportPage from './pages/PracticeReportPage'
 import PracticeHighlightPage from './pages/PracticeHighlightPage'
@@ -20,6 +21,7 @@ export default function App() {
     <Route path="/" element={<PracticeHomePage />} />
     <Route path="/songs" element={<SongCatalogPage />} />
     <Route path="/songs/import" element={<SongImportPage />} />
+    <Route path="/songs/manage" element={<SongManagementPage />} />
     <Route path="/practice/:songId" element={<PracticeSetupPage />} />
     <Route path="/practice/:songId/sing" element={<PracticeSingPage />} />
     <Route path="/practice/:songId/recap" element={<PracticeRecapPage />} />

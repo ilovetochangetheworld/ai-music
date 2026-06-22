@@ -4,6 +4,7 @@ import { ArrowLeft, Download, Pause, Play, Plus, Save, Trash2 } from 'lucide-rea
 import type { ReferenceNote } from '../../shared/contracts'
 import type { SongTimeline } from '../features/sing-room/types'
 import { loadPracticeManifest } from '../features/practice-room/catalog'
+import { autoAdjustReferenceNotes } from '../features/practice-room/referenceNoteAdjustment'
 
 interface CandidateFile { version: string; reviewStatus: string; generator?: string; notes: ReferenceNote[] }
 
@@ -18,6 +19,7 @@ export default function ReferenceReviewPage() {
   const [lineIndex, setLineIndex] = useState(0)
   const [confirmed, setConfirmed] = useState(false)
   const [beforeFold, setBeforeFold] = useState<ReferenceNote[] | null>(null)
+  const [adjustmentSummary, setAdjustmentSummary] = useState('')
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -26,10 +28,12 @@ export default function ReferenceReviewPage() {
       loadPracticeManifest(songId),
       fetch(`${import.meta.env.BASE_URL}audio/${songId}/timeline.json`).then((response) => response.json() as Promise<SongTimeline>),
       fetch(`${import.meta.env.BASE_URL}catalog/${songId}/notes.candidate.json`).then((response) => response.json() as Promise<CandidateFile>),
-    ]).then(([manifest, nextTimeline, candidate]) => {
+    ]).then(async ([manifest, nextTimeline, candidate]) => {
       if (cancelled) return
+      const formalResponse = await fetch(`${import.meta.env.BASE_URL}${manifest.assets.notes}`)
+      const formal = formalResponse.ok ? await formalResponse.json() as CandidateFile : null
       setTimeline(nextTimeline)
-      setNotes(candidate.notes ?? [])
+      setNotes(formal?.reviewStatus === 'reviewed' ? formal.notes ?? [] : candidate.notes ?? [])
       setAudioUrl(`${import.meta.env.BASE_URL}${manifest.assets.rescueLead}`)
     }).catch((reason) => setError(reason instanceof Error ? reason.message : '审核素材加载失败'))
     return () => { cancelled = true; if (stopTimerRef.current) window.clearTimeout(stopTimerRef.current) }
@@ -61,11 +65,15 @@ export default function ReferenceReviewPage() {
     setConfirmed(false)
     setNotes((current) => [...current, { startSec: start, endSec: Math.min(line.end, start + .3), midi: median(lineNotes.map((note) => note.midi)) ?? 60, lineId: line.id, sustained: false }].sort((a, b) => a.startSec - b.startSec))
   }
-  function foldOctaves() {
-    const center = median(notes.map((note) => note.midi).sort((a, b) => a - b)) ?? 60
+  function autoAdjust() {
+    if (!timeline) return
+    const riskLineIds = new Set([...riskIndexes].map((index) => notes[index]?.lineId).filter((lineId): lineId is string => Boolean(lineId)))
+    const adjustment = autoAdjustReferenceNotes(notes, timeline, riskLineIds)
+    if (!adjustment.changedCount) { setAdjustmentSummary('当前没有可自动修正的高风险项。'); return }
     setBeforeFold(notes)
     setConfirmed(false)
-    setNotes((current) => current.map((note) => ({ ...note, midi: nearestOctave(note.midi, center) })))
+    setNotes(adjustment.notes)
+    setAdjustmentSummary(`已生成建议稿：自动调整 ${adjustment.changedCount} 个音符。请逐句试听后再确认。`)
   }
   function jumpToLowCoverage() {
     if (!timeline || !lowCoverageLines.length) return
@@ -85,7 +93,7 @@ export default function ReferenceReviewPage() {
   return <main className="practice-mobile reference-review-page">
     <header className="practice-top"><button onClick={() => navigate('/songs')}><ArrowLeft size={19} /></button><b>参考旋律审核</b><span /></header>
     <section className="review-summary"><div><small>歌曲</small><b>{timeline.title}</b></div><div><small>候选</small><b>{notes.length}</b></div><div><small>高风险</small><b className={riskCount ? 'danger' : ''}>{riskCount}</b></div><div><small>低覆盖行</small><b className={lowCoverageLines.length ? 'danger' : ''}>{lowCoverageLines.length}</b></div><div><small>缺失行</small><b className={missingLines ? 'danger' : ''}>{missingLines}</b></div></section>
-    <section className="review-bulk"><p>极低音通常是半频或四分频误判。先生成八度归一建议稿，再逐句试听；不会自动完成签字。</p><button onClick={foldOctaves}>按中位音高归一八度</button>{beforeFold && <button onClick={() => { setNotes(beforeFold); setBeforeFold(null); setConfirmed(false) }}>撤销归一</button>}<button disabled={!lowCoverageLines.length} onClick={jumpToLowCoverage}>跳到下一低覆盖行</button></section>
+    <section className="review-bulk"><p>自动调整会逐句选择最平滑的等价八度，并把音符裁回歌词窗口；不会补造低覆盖音符，也不会自动签字。</p><button onClick={autoAdjust}>自动调整高风险</button>{beforeFold && <button onClick={() => { setNotes(beforeFold); setBeforeFold(null); setConfirmed(false); setAdjustmentSummary('已撤销自动调整。') }}>撤销调整</button>}<button disabled={!lowCoverageLines.length} onClick={jumpToLowCoverage}>跳到下一低覆盖行</button>{adjustmentSummary && <small>{adjustmentSummary}</small>}</section>
     <audio ref={audioRef} src={audioUrl} controls preload="metadata" />
     <section className="review-line-picker"><button disabled={lineIndex === 0} onClick={() => setLineIndex((value) => value - 1)}>上一句</button><span>{lineIndex + 1}/{timeline.lines.length}</span><button disabled={lineIndex === timeline.lines.length - 1} onClick={() => setLineIndex((value) => value + 1)}>下一句</button></section>
     <section className="review-line"><small>{format(line.start)}–{format(line.end)} · {line.id} · 音符覆盖 {Math.round(coverage(lineNotes, line) * 100)}%</small><h1>{line.text}</h1><button onClick={playLine}><Play size={16} />循环试听本句</button><button onClick={() => audioRef.current?.pause()}><Pause size={16} />暂停</button></section>
@@ -106,6 +114,5 @@ function auditIndexes(notes: ReferenceNote[], timeline: SongTimeline | null): Se
   return risks
 }
 function median(values: number[]): number | null { return values.length ? values[Math.floor(values.length / 2)] : null }
-function nearestOctave(midi: number, center: number): number { let best = midi; for (let octave = -3; octave <= 3; octave += 1) { const candidate = midi + octave * 12; if (candidate >= 48 && candidate <= 72 && Math.abs(candidate - center) < Math.abs(best - center)) best = candidate } return best }
 function coverage(notes: ReferenceNote[], line: SongTimeline['lines'][number]): number { return notes.reduce((sum, note) => sum + Math.max(0, note.endSec - note.startSec), 0) / Math.max(.01, line.end - line.start) }
 function format(seconds: number): string { return `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}` }
