@@ -4,12 +4,14 @@ import SiteHeader from './components/SiteHeader'
 import PracticeHomePage from './pages/PracticeHomePage'
 import SongCatalogPage from './pages/SongCatalogPage'
 import SongImportPage from './pages/SongImportPage'
+import SongManagementPage from './pages/SongManagementPage'
 import PracticeSetupPage from './pages/PracticeSetupPage'
 import PracticeReportPage from './pages/PracticeReportPage'
 import PracticeHighlightPage from './pages/PracticeHighlightPage'
 import GrowthPage from './pages/GrowthPage'
 import SoundtrackPage from './pages/SoundtrackPage'
 import AudioCoachPage from './pages/AudioCoachPage'
+import ReferenceReviewPage from './pages/ReferenceReviewPage'
 
 const PracticeSingPage = lazy(() => import('./pages/SingRoomPerformancePage'))
 const PracticeRecapPage = lazy(() => import('./pages/SingRoomRecapPage'))
@@ -19,6 +21,7 @@ export default function App() {
     <Route path="/" element={<PracticeHomePage />} />
     <Route path="/songs" element={<SongCatalogPage />} />
     <Route path="/songs/import" element={<SongImportPage />} />
+    <Route path="/songs/manage" element={<SongManagementPage />} />
     <Route path="/practice/:songId" element={<PracticeSetupPage />} />
     <Route path="/practice/:songId/sing" element={<PracticeSingPage />} />
     <Route path="/practice/:songId/recap" element={<PracticeRecapPage />} />
@@ -28,6 +31,7 @@ export default function App() {
     <Route path="/growth/:sessionId" element={<PracticeReportPage />} />
     <Route path="/lab/soundtrack" element={<SoundtrackPage />} />
     <Route path="/lab/audio-coach" element={<AudioCoachPage />} />
+    <Route path="/lab/reference-review/:songId" element={<ReferenceReviewPage />} />
     <Route path="*" element={<PracticeHomePage />} />
   </Routes></Suspense></>
 }

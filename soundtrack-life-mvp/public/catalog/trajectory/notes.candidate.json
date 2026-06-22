@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "reviewStatus": "reviewed",
-  "reviewerConfirmedAt": "2026-06-22T03:23:44.994Z",
+  "reviewStatus": "auto_generated_requires_review",
+  "generator": "practice-song-builder/generate-reference-notes.py",
   "notes": [
     {
       "startSec": 0.28,
@@ -703,5 +703,10 @@
       "lineId": "trajectory-line-40",
       "sustained": true
     }
-  ]
+  ],
+  "normalization": {
+    "method": "per_line_minimum_octave_jump",
+    "changedNotes": 39,
+    "requiresManualReview": true
+  }
 }

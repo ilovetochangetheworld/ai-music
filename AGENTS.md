@@ -24,6 +24,28 @@ soundtrack 与长音频实验仅保留在 `/lab` 下。
 
 若以上来源相互冲突，**停下来**并在 `docs/project/DECISIONS.md` 记录决策；不得擅自扩大范围。
 
+文档总索引见 `soundtrack-life-mvp/docs/README.md`，具体更新规则见
+`soundtrack-life-mvp/docs/project/DOCUMENT_WORKFLOW.md`。
+
+## 文档工作流与更新时机
+
+- **需求进入、编码之前**：用户旅程、产品范围或验收标准变化时先更新 PRD；任务拆分或依赖变化时
+  更新 ROADMAP。
+- **方案设计、编码之前**：路由、数据流、评分、隐私或服务边界变化时先更新技术架构；JSON/API
+  契约必须先更新 Schema。跨模块且难以逆转的选择先写入 DECISIONS。
+- **开工时**：认领 GitHub Issue；不可用时从 TASK_TEMPLATE 创建 `docs/project/handoffs/APR-*.md`，
+  写明负责人、分支、允许修改模块、验收标准和预计同步的文档。
+- **编码过程中**：行为、接口、命令或环境变量一旦变化，当场同步对应文档和 handoff，不依赖对话记忆
+  留到任务末尾。
+- **提交 PR 前**：确认代码、Schema、PRD/架构/部署说明一致，并在交接中记录测试证据、风险、
+  未完成项及 base/head SHA。若无需改文档，PR 中必须说明原因。
+- **合并后**：只有集成负责人更新 STATUS；分支中或计划中的能力不得提前写成已交付。
+- **发布前后**：发布负责人更新 DEPLOYMENT、启动命令、环境变量和线上验证结果。
+- **方向废弃时**：旧文档迁入 `docs/archive/` 并从主线索引移除，不保留两份并行事实源。
+
+主线文档与协作说明使用简体中文；代码标识符、协议字段、路径和命令保留原文。不得在 `docs/`
+根目录随意新增零散方案，新增文档前先确认现有权威文档无法承载该信息。
+
 ## 仓库结构
 
 - `soundtrack-life-mvp/src/features/practice-room/`：当前在用的 Web 产品。

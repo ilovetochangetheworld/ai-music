@@ -11,7 +11,7 @@ export interface MatchContext {
 }
 
 /**
- * 纯本地规则匹配（无需 LLM）。优先级遵循 docs/technical-design.md：
+ * 纯本地规则匹配（无需 LLM）。旧 Lab 优先级见 docs/archive/life-soundtrack/technical-design.md：
  * 1. scene 命中  2. mood 命中  3. energy 距离最小  4. 用户语言偏好加权  5. 避免同歌手连续出现
  */
 export function matchSongs(

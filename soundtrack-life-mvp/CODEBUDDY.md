@@ -1,3 +1,3 @@
-# CodeBuddy compatibility note
+# CodeBuddy 兼容入口
 
-All agents must follow the repository-level [`AGENTS.md`](../AGENTS.md). Product, architecture, task, and quality guidance lives there and in the linked AI 练歌房 documents; this file intentionally contains no separate rules.
+所有智能体必须遵守仓库根目录的 [`AGENTS.md`](../AGENTS.md)。产品、架构、任务和质量规范均以该文件及其链接的 AI 练歌房文档为准；本文件不维护第二套规则。

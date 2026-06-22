@@ -18,7 +18,8 @@ for (const song of catalog.songs ?? []) {
       try { await access(path.join(publicDir, relative)) } catch { errors.push(`${song.id}: missing ${key} asset ${relative}`) }
     }
     const notes = JSON.parse(await readFile(path.join(publicDir, manifest.assets.notes), 'utf8'))
-    if (!Array.isArray(notes.notes) || notes.notes.length === 0) warnings.push(`${song.id}: reference notes still require manual review`)
+    if (notes.reviewStatus !== 'reviewed') warnings.push(`${song.id}: reference notes status is ${notes.reviewStatus || 'missing'}, expected reviewed`)
+    else if (!Array.isArray(notes.notes) || notes.notes.length === 0) errors.push(`${song.id}: reviewed reference notes are empty`)
   } catch (error) {
     errors.push(`${song.id}: ${error instanceof Error ? error.message : String(error)}`)
   }

@@ -13,6 +13,7 @@ import { buildLocalPracticeReport } from '../features/practice-room/scoring'
 import { savePracticeReport } from '../features/practice-room/reportStore'
 import { saveGrowthReport } from '../features/practice-room/growth'
 import { loadPracticeManifest } from '../features/practice-room/catalog'
+import { reviewedReferenceNotes, type ReferenceNotesFile } from '../features/practice-room/referenceNotes'
 import type { ReferenceNote } from '../../shared/contracts'
 import XiaoMai from '../components/XiaoMai'
 import ortWasmUrl from '../assets/vad/ort-wasm-simd-threaded.wasm?url'
@@ -40,6 +41,7 @@ export default function SingRoomPerformancePage() {
   const [error, setError] = useState('')
   const [vadError, setVadError] = useState('')
   const [recordingActive, setRecordingActive] = useState(false)
+  const [referenceNotes, setReferenceNotes] = useState<ReferenceNote[]>([])
   const [applauding, setApplauding] = useState(false)
   const [crowdReaction, setCrowdReaction] = useState('小麦已就位 · 等你开口')
   const manifestRef = useRef<SongManifest | null>(null)
@@ -132,9 +134,10 @@ export default function SingRoomPerformancePage() {
         timelineRef.current = timeline
         void loadPracticeManifest(songId).then(async (practiceManifest) => {
           const response = await fetch(`${import.meta.env.BASE_URL}${practiceManifest.assets.notes}`)
-          const data = response.ok ? await response.json() as { notes?: ReferenceNote[] } : null
-          referenceNotesRef.current = data?.notes ?? []
-        }).catch(() => { referenceNotesRef.current = [] })
+          const data = response.ok ? await response.json() as ReferenceNotesFile : null
+          referenceNotesRef.current = reviewedReferenceNotes(data)
+          setReferenceNotes(referenceNotesRef.current)
+        }).catch(() => { referenceNotesRef.current = []; setReferenceNotes([]) })
         await engine.load(manifest, setLoadProgress)
         if (!cancelled) setPhase('ready')
       })
@@ -451,6 +454,7 @@ export default function SingRoomPerformancePage() {
   const section = timeline?.sections.find((item) => songTime >= item.start && songTime < item.end)
   const progress = duration ? songTime / duration : 0
   const meter = Math.max(0, Math.min(1, (frame.db + 58) / 42))
+  const currentReferenceNotes = currentLine ? referenceNotes.filter((note) => note.lineId === currentLine.id) : []
 
   return (
     <main className={applauding ? 'sing-stage crowd-live' : 'sing-stage'}>
@@ -474,6 +478,7 @@ export default function SingRoomPerformancePage() {
             </motion.p>
           </AnimatePresence>
           <p className="next-lyric">{nextLine?.text ?? ' '}</p>
+          <ReferenceGuide line={currentLine} notes={currentReferenceNotes} />
           <AnimatePresence>
             {hostMessage && phase !== 'loading' && (
               <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
@@ -522,6 +527,12 @@ export default function SingRoomPerformancePage() {
       </AnimatePresence>
     </main>
   )
+}
+
+function ReferenceGuide({ line, notes }: { line: LyricLine | null; notes: ReferenceNote[] }) {
+  if (!line || !notes.length) return <div className="reference-guide empty"><span>原唱参考</span><small>等待歌词进入</small></div>
+  const low = Math.min(...notes.map((note) => note.midi)); const high = Math.max(...notes.map((note) => note.midi)); const span = Math.max(1, high - low)
+  return <div className="reference-guide"><span>原唱参考</span><div>{notes.map((note) => <i key={`${note.startSec}-${note.midi}`} style={{ left: `${((note.startSec - line.start) / (line.end - line.start)) * 100}%`, width: `${Math.max(3, ((note.endSec - note.startSec) / (line.end - line.start)) * 100)}%`, bottom: `${10 + ((note.midi - low) / span) * 70}%` }} />)}</div></div>
 }
 
 function StageOverlay({ icon, title, detail, progress, action }: { icon: React.ReactNode; title: string; detail: string; progress?: number; action?: React.ReactNode }) {

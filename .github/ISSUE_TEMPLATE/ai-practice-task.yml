@@ -1,20 +1,26 @@
-name: AI practice room task
-description: Decision-complete implementation task for an agent or engineer
+name: AI 练歌房开发任务
+description: 提供给智能体或工程师的、决策完整的实施任务
 title: "[APR-XXXX] "
 labels: ["ready"]
 body:
   - type: textarea
     id: objective
-    attributes: { label: Objective }
+    attributes: { label: 目标 }
     validations: { required: true }
   - type: textarea
     id: dependencies
-    attributes: { label: Dependencies and allowed modules }
+    attributes: { label: 依赖与允许修改的模块 }
   - type: textarea
     id: acceptance
-    attributes: { label: Acceptance criteria }
+    attributes: { label: 验收标准 }
     validations: { required: true }
   - type: textarea
     id: tests
-    attributes: { label: Required tests and evidence }
+    attributes: { label: 必需测试与证据 }
+    validations: { required: true }
+  - type: textarea
+    id: docs
+    attributes:
+      label: 需同步的文档
+      description: 填写 PRD、技术架构、Schema、部署说明、handoff；若无需更新请说明理由。
     validations: { required: true }

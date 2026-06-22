@@ -1,4 +1,4 @@
-// ── 核心数据模型，遵循 docs/data-model.md 与 prompts/* 契约 ──
+// ── 旧 Lab 核心数据模型；历史设计见 docs/archive/life-soundtrack/data-model.md ──
 
 export type MoodKey =
   | 'warm' | 'soft' | 'romantic' | 'hopeful' | 'release'

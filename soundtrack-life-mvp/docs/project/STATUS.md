@@ -1,18 +1,18 @@
-# Merged product status
+# 已合并产品状态
 
-Last updated: 2026-06-20
+最后更新：2026-06-20
 
-## Delivered on main
+## `main` 已交付
 
-- Existing sing-room prototype: synchronized audio, VAD/pitch telemetry, recording, rescue, recap, Pages deployment.
-- One prototype song package (`trajectory`) with manually aligned lyrics and sections.
+- 现有练歌房原型：同步音频、VAD/音高遥测、录音、救场、唱后手记和 Pages 部署。
+- 一个原型歌曲包（`trajectory`），包含人工对齐的歌词和段落。
 
-## Active milestone
+## 当前里程碑
 
-M0 — collaboration foundation and product reset.
+M0——协作基础与产品重置。
 
-## Not yet delivered
+## 尚未交付
 
-- Validated reference-note schema, three reviewed songs, authoritative five-dimension backend analysis, IndexedDB growth, and GPU tuning quality gate.
+- 已校验参考音符 Schema、三首审核歌曲、权威五维后端分析、IndexedDB 成长档案和 GPU 修音质量门禁。
 
-Only the integration owner updates this file after merge. Active work belongs in GitHub issues/PRs or task handoffs.
+仅集成负责人在合并后更新本文件。进行中的工作应记录在 GitHub Issue/PR 或任务交接文档中。

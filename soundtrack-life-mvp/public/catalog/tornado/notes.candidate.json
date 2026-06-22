@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "reviewStatus": "reviewed",
-  "reviewerConfirmedAt": "2026-06-22T03:28:38.965Z",
+  "reviewStatus": "auto_generated_requires_review",
+  "generator": "practice-song-builder/generate-reference-notes.py",
   "notes": [
     {
       "startSec": 0.08,
@@ -836,5 +836,11 @@
       "lineId": "tornado-line-23",
       "sustained": false
     }
-  ]
+  ],
+  "normalization": {
+    "method": "per_line_minimum_octave_jump",
+    "targetCenterMidi": 59,
+    "changedNotes": 32,
+    "requiresManualReview": true
+  }
 }

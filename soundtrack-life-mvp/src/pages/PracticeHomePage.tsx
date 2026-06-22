@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, BarChart3, Mic2, Sparkles } from 'lucide-react'
+import { BarChart3, BookOpen, Headphones, Home, Mic2, RefreshCw, Search, Sparkles } from 'lucide-react'
 import XiaoMai from '../components/XiaoMai'
 import { loadCatalog, metricLabels, type CatalogSongSummary } from '../features/practice-room/catalog'
 
@@ -8,21 +8,27 @@ export default function PracticeHomePage() {
   const navigate = useNavigate()
   const [songs, setSongs] = useState<CatalogSongSummary[]>([])
   useEffect(() => { loadCatalog().then(setSongs).catch(() => setSongs([])) }, [])
-  const ready = songs.find((song) => song.availability === 'ready')
+  const recommended = songs.slice(0, 3)
   return (
-    <main className="practice-mobile practice-home">
-      <header className="practice-top"><b>AI 练歌房</b><button onClick={() => navigate('/growth')}><BarChart3 size={18} />成长档案</button></header>
-      <section className="practice-companion-hero">
-        <XiaoMai state="ready" />
-        <span>小麦</span><h1>今天想怎么练？</h1><p>我会认真听完，再把真正有用的地方告诉你。</p>
+    <main className="practice-mobile practice-home warm-room-page">
+      <section className="home-room-hero">
+        <header><div><h1>AI练歌房</h1><p>小麦陪你，唱得更好听</p></div><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长档案</span></button></header>
+        <div className="room-music-note one">♪</div><div className="room-music-note two">♫</div>
+        <div className="xiaomai-home"><div className="companion-speech">想唱什么歌？<br />我来帮你练</div><XiaoMai state="ready" /></div>
       </section>
-      <div className="practice-goals"><button>轻松唱</button><button className="active">认真练</button><button>挑战一下</button></div>
-      <section className="practice-card featured">
-        <div><span className="practice-kicker"><Sparkles size={14} /> 小麦推荐</span><h2>{ready?.title ?? '轨迹'}</h2><p>{ready?.artist ?? '周杰伦'} · 适合练习长句、音高和稳定性</p><div className="focus-tags">{ready?.focus.map((key) => <i key={key}>{metricLabels[key]}</i>)}</div></div>
-        <button disabled={!ready} onClick={() => ready && navigate(`/practice/${ready.id}`)}><Mic2 size={19} />开始练 <ArrowRight size={17} /></button>
+      <section className="home-song-panel">
+        <div className="home-search"><button className="home-search-main" onClick={() => navigate('/songs')}><Search /><span>搜索已准备歌曲或歌手</span></button></div>
+        <div className="section-title"><h2>为你推荐 <Sparkles /></h2><button onClick={() => navigate('/songs')}><RefreshCw />换一组</button></div>
+        <div className="home-recommendations">{recommended.map((song, index) => <button key={song.id} className="home-song-item" disabled={song.availability !== 'ready'} onClick={() => navigate(`/practice/${song.id}`)}>
+          <span className={`song-art art-${index + 1}`}><b>{String(index + 1).padStart(2, '0')}</b><MusicGlyph /></span>
+          <div><h3>{song.title}</h3><p>{song.artist} · {song.focus.slice(0, 2).map((key) => metricLabels[key]).join(' · ')}</p><i>{Array.from({ length: 5 }).map((_, level) => <em className={level < song.difficulty ? 'on' : ''} key={level} />)}</i></div>
+          <span className="song-start"><Mic2 />{song.availability === 'ready' ? '开始练' : '准备中'}</span>
+        </button>)}</div>
       </section>
-      <button className="practice-wide-link" onClick={() => navigate('/songs')}>查看全部可练歌曲 <ArrowRight size={18} /></button>
-      <section className="practice-note"><b>专业分析，陪伴表达</b><p>唱中不打断，唱后从音高、节奏、呼吸、表达和一致性给出证据。</p></section>
+      <section className="home-shortcuts"><button onClick={() => navigate('/growth')}><span><BookOpen /></span><b>小麦练歌手记</b><small>你的专属练歌记录本</small></button><button disabled><span><Sparkles /></span><b>AI修音实验室</b><small>原声永远保留</small><i>研究中</i></button></section>
+      <nav className="practice-bottom-nav"><button className="active"><Home /><span>首页</span></button><button onClick={() => navigate('/songs')}><Headphones /><span>练歌</span></button><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长</span></button></nav>
     </main>
   )
 }
+
+function MusicGlyph() { return <span aria-hidden="true">♪</span> }

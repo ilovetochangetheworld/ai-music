@@ -31,4 +31,4 @@ npm run catalog:validate
 npm run build
 ```
 
-非主线实验保留在 `#/lab/soundtrack` 与 `#/lab/audio-coach`。项目协作规范以根目录 [`AGENTS.md`](../AGENTS.md) 为准，产品与技术方案见 `docs/product/AI_PRACTICE_ROOM_PRD.md` 和 `docs/architecture/AI_PRACTICE_ROOM_TECH.md`。
+非主线实验保留在 `#/lab/soundtrack` 与 `#/lab/audio-coach`。项目协作规范以根目录 [`AGENTS.md`](../AGENTS.md) 为准，文档入口见 [`docs/README.md`](docs/README.md)。

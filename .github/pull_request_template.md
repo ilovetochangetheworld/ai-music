@@ -1,22 +1,31 @@
-## Task
+## 任务
 
 APR-XXXX
 
-## Behavior changed
+## 行为变更
 
 -
 
-## Verification
+## 验证
 
 - [ ] typecheck
 - [ ] lint
-- [ ] unit / contract tests
-- [ ] production build
-- [ ] mobile screenshot or audio evidence when applicable
+- [ ] 单元测试 / 契约测试
+- [ ] 生产构建
+- [ ] 适用时附移动端截图或音频证据
 
-## Handoff
+## 文档同步
+
+- [ ] PRD（产品范围或体验变化时）
+- [ ] 技术架构 / Schema（接口、评分或模块边界变化时）
+- [ ] 部署 / README（命令、环境变量或发布流程变化时）
+- [ ] 任务 handoff 已补充测试证据和未完成项
+- [ ] `STATUS.md` 未提前记录未合并能力
+- 无需更新的文档及原因：
+
+## 交接
 
 - Base SHA:
 - Head SHA:
-- Risks / unfinished work:
-- Privacy, scoring, or asset implications:
+- 风险 / 未完成项：
+- 隐私、评分或歌曲资产影响：
