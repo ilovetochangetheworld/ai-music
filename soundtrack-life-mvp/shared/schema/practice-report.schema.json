@@ -44,6 +44,8 @@
         "vocalCoverage": { "type": "number", "minimum": 0, "maximum": 1 },
         "pitchConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
         "noiseFloorDb": { "type": "number" },
+        "latencyCorrectionMs": { "type": "number", "minimum": 0, "maximum": 250 },
+        "latencyConfidence": { "enum": ["high", "medium", "low"] },
         "reasons": { "type": "array", "items": { "type": "string" } }
       },
       "additionalProperties": false

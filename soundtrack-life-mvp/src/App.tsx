@@ -12,6 +12,7 @@ import GrowthPage from './pages/GrowthPage'
 import SoundtrackPage from './pages/SoundtrackPage'
 import AudioCoachPage from './pages/AudioCoachPage'
 import ReferenceReviewPage from './pages/ReferenceReviewPage'
+import LatencyCalibrationPage from './pages/LatencyCalibrationPage'
 
 const PracticeSingPage = lazy(() => import('./pages/SingRoomPerformancePage'))
 const PracticeRecapPage = lazy(() => import('./pages/SingRoomRecapPage'))
@@ -23,6 +24,7 @@ export default function App() {
     <Route path="/songs/import" element={<SongImportPage />} />
     <Route path="/songs/manage" element={<SongManagementPage />} />
     <Route path="/practice/:songId" element={<PracticeSetupPage />} />
+    <Route path="/practice/:songId/latency-calibration" element={<LatencyCalibrationPage />} />
     <Route path="/practice/:songId/sing" element={<PracticeSingPage />} />
     <Route path="/practice/:songId/recap" element={<PracticeRecapPage />} />
     <Route path="/practice/:songId/report" element={<PracticeReportPage />} />

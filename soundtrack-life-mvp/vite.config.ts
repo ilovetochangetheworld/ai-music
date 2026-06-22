@@ -7,6 +7,7 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/ai-music/' : '/',
   plugins: [react()],
   server: {
+    host: '127.0.0.1',
     port: 5173,
     open: false,
   },

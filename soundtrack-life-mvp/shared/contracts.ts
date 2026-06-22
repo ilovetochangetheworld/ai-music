@@ -2,6 +2,19 @@ export type PracticeMode = 'free' | 'pitch' | 'rhythm' | 'breath'
 export type MetricKey = 'pitch' | 'rhythm' | 'breath' | 'expression' | 'consistency'
 export type MetricStatus = 'ok' | 'insufficient_data'
 
+export interface DeviceLatencyCalibration {
+  version: '1.0'
+  method: 'user_tap'
+  offsetMs: number
+  jitterMs: number
+  sampleCount: number
+  confidence: 'high' | 'medium' | 'low'
+  status: 'valid' | 'low_confidence'
+  sampleRateHz: number
+  createdAt: string
+  expiresAt: string
+}
+
 export interface ReferenceNote {
   id?: string
   startSec: number
@@ -77,6 +90,7 @@ export interface PracticeSessionPayload {
   mode: PracticeMode
   startedAt: string
   noiseFloorDb: number
+  deviceLatencyCalibration?: DeviceLatencyCalibration
   frames: PracticeTelemetryFrame[]
   events: Array<{ type: string; at: number; [key: string]: unknown }>
 }
@@ -108,6 +122,8 @@ export interface PracticeReport {
     vocalCoverage: number
     pitchConfidence: number
     noiseFloorDb: number
+    latencyCorrectionMs?: number
+    latencyConfidence?: DeviceLatencyCalibration['confidence']
     reasons: string[]
   }
   metrics: MetricScore[]

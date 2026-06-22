@@ -16,6 +16,7 @@ import { loadPracticeManifest } from '../features/practice-room/catalog'
 import { reviewedReferenceNotes, type ReferenceNotesFile } from '../features/practice-room/referenceNotes'
 import { buildEstimatedReferenceTrack } from '../features/practice-room/referenceTrack'
 import { RealtimeGuidanceTracker, type GuidanceResult, type PitchGuidanceState } from '../features/practice-room/realtimeGuidance'
+import { effectiveLatencySec, loadLatencyCalibration } from '../features/practice-room/latencyCalibration'
 import type { ReferenceNote, ReferenceTrack } from '../../shared/contracts'
 import XiaoMai from '../components/XiaoMai'
 import ortWasmUrl from '../assets/vad/ort-wasm-simd-threaded.wasm?url'
@@ -31,6 +32,7 @@ export default function SingRoomPerformancePage() {
   const { songId = 'trajectory' } = useParams()
   const navigate = useNavigate()
   const settings = useRef(loadSettings()).current
+  const latencyCalibration = useRef(loadLatencyCalibration()).current
   const [phase, setPhaseState] = useState<Phase>('loading')
   const phaseRef = useRef<Phase>('loading')
   const [loadProgress, setLoadProgress] = useState(0)
@@ -122,12 +124,13 @@ export default function SingRoomPerformancePage() {
       sessionId: crypto.randomUUID(), songId, lines: relevantLines,
       noiseFloorDb: detectorRef.current?.getNoiseFloor() ?? -58,
       notes: referenceNotesRef.current,
+      latencyCalibration,
       frames: samplesRef.current.map((sample) => ({ at: sample.at, db: sample.db, pitchHz: sample.pitch, clarity: sample.clarity, vadProbability: vadProbabilityRef.current, isSinging: sample.isSinging })),
     })
     savePracticeReport(report)
     void saveGrowthReport(report).catch(() => undefined)
     navigate(`/practice/${songId}/recap`)
-  }, [navigate, settings, songId])
+  }, [latencyCalibration, navigate, settings, songId])
 
   useEffect(() => {
     let cancelled = false
@@ -346,7 +349,7 @@ export default function SingRoomPerformancePage() {
       const engine = engineRef.current
       if (!engine) throw new Error('音频尚未加载')
       const [stream] = await Promise.all([detector.start(), engine.preparePlayback()])
-      guidanceTrackerRef.current.setLatencyCompensation(detector.getEstimatedInputLatencySec())
+      guidanceTrackerRef.current.setLatencyCompensation(effectiveLatencySec(latencyCalibration, detector.getEstimatedInputLatencySec()))
       deleteSessionRecording()
       detector.beginCalibration()
       void startOptionalVad()
