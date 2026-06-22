@@ -6,14 +6,14 @@
     {
       "startSec": 0.28,
       "endSec": 0.66,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-27",
       "sustained": false
     },
     {
       "startSec": 3.5,
       "endSec": 3.68,
-      "midi": 55,
+      "midi": 43,
       "lineId": "trajectory-line-27",
       "sustained": false
     },
@@ -27,7 +27,7 @@
     {
       "startSec": 7.06,
       "endSec": 7.26,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-28",
       "sustained": false
     },
@@ -39,16 +39,16 @@
       "sustained": false
     },
     {
-      "startSec": 8.62,
+      "startSec": 8.68,
       "endSec": 8.78,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-29",
       "sustained": false
     },
     {
       "startSec": 9.4,
       "endSec": 9.52,
-      "midi": 38,
+      "midi": 50,
       "lineId": "trajectory-line-29",
       "sustained": false
     },
@@ -62,28 +62,28 @@
     {
       "startSec": 10.18,
       "endSec": 10.36,
-      "midi": 45,
+      "midi": 57,
       "lineId": "trajectory-line-29",
       "sustained": false
     },
     {
       "startSec": 12.88,
-      "endSec": 13.0,
-      "midi": 42,
+      "endSec": 13,
+      "midi": 54,
       "lineId": "trajectory-line-30",
       "sustained": false
     },
     {
       "startSec": 13.02,
       "endSec": 13.26,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-30",
       "sustained": false
     },
     {
       "startSec": 13.64,
       "endSec": 13.84,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-30",
       "sustained": false
     },
@@ -97,41 +97,41 @@
     {
       "startSec": 14.64,
       "endSec": 14.84,
-      "midi": 38,
+      "midi": 50,
       "lineId": "trajectory-line-30",
       "sustained": false
     },
     {
       "startSec": 15.36,
       "endSec": 15.5,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-30",
       "sustained": false
     },
     {
       "startSec": 17.2,
       "endSec": 17.32,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-31",
       "sustained": false
     },
     {
       "startSec": 19.04,
       "endSec": 19.16,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-32",
       "sustained": false
     },
     {
       "startSec": 19.54,
       "endSec": 19.66,
-      "midi": 52,
+      "midi": 40,
       "lineId": "trajectory-line-32",
       "sustained": false
     },
     {
       "startSec": 19.88,
-      "endSec": 20.0,
+      "endSec": 20,
       "midi": 42,
       "lineId": "trajectory-line-32",
       "sustained": false
@@ -167,7 +167,7 @@
     {
       "startSec": 22.66,
       "endSec": 22.82,
-      "midi": 52,
+      "midi": 40,
       "lineId": "trajectory-line-32",
       "sustained": false
     },
@@ -195,7 +195,7 @@
     {
       "startSec": 24.14,
       "endSec": 24.28,
-      "midi": 52,
+      "midi": 40,
       "lineId": "trajectory-line-32",
       "sustained": false
     },
@@ -207,9 +207,9 @@
       "sustained": false
     },
     {
-      "startSec": 25.1,
+      "startSec": 25.3,
       "endSec": 25.48,
-      "midi": 40,
+      "midi": 52,
       "lineId": "trajectory-line-33",
       "sustained": false
     },
@@ -258,12 +258,12 @@
     {
       "startSec": 31.28,
       "endSec": 31.46,
-      "midi": 42,
+      "midi": 54,
       "lineId": "trajectory-line-33",
       "sustained": false
     },
     {
-      "startSec": 31.48,
+      "startSec": 31.55,
       "endSec": 31.68,
       "midi": 40,
       "lineId": "trajectory-line-34",
@@ -279,14 +279,14 @@
     {
       "startSec": 32.36,
       "endSec": 32.6,
-      "midi": 57,
+      "midi": 45,
       "lineId": "trajectory-line-34",
       "sustained": false
     },
     {
       "startSec": 32.74,
       "endSec": 32.86,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-34",
       "sustained": false
     },
@@ -314,7 +314,7 @@
     {
       "startSec": 37.96,
       "endSec": 38.1,
-      "midi": 45,
+      "midi": 57,
       "lineId": "trajectory-line-35",
       "sustained": false
     },
@@ -335,7 +335,7 @@
     {
       "startSec": 44.78,
       "endSec": 44.9,
-      "midi": 57,
+      "midi": 45,
       "lineId": "trajectory-line-36",
       "sustained": false
     },
@@ -384,14 +384,14 @@
     {
       "startSec": 56.2,
       "endSec": 57.06,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-37",
       "sustained": true
     },
     {
       "startSec": 57.66,
       "endSec": 57.98,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
@@ -405,40 +405,40 @@
     {
       "startSec": 59.3,
       "endSec": 59.48,
-      "midi": 46,
+      "midi": 58,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
     {
       "startSec": 59.64,
       "endSec": 59.8,
-      "midi": 41,
+      "midi": 53,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
     {
       "startSec": 59.84,
       "endSec": 59.96,
-      "midi": 44,
+      "midi": 56,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
     {
       "startSec": 59.98,
       "endSec": 60.26,
-      "midi": 41,
+      "midi": 53,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
     {
       "startSec": 60.44,
       "endSec": 60.56,
-      "midi": 46,
+      "midi": 58,
       "lineId": "trajectory-line-37",
       "sustained": false
     },
     {
-      "startSec": 60.8,
+      "startSec": 60.86,
       "endSec": 61.12,
       "midi": 44,
       "lineId": "trajectory-line-38",
@@ -475,7 +475,7 @@
     {
       "startSec": 63.26,
       "endSec": 63.44,
-      "midi": 37,
+      "midi": 49,
       "lineId": "trajectory-line-38",
       "sustained": false
     },
@@ -503,21 +503,21 @@
     {
       "startSec": 65.18,
       "endSec": 65.58,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-38",
       "sustained": false
     },
     {
       "startSec": 65.62,
       "endSec": 65.78,
-      "midi": 55,
+      "midi": 43,
       "lineId": "trajectory-line-38",
       "sustained": false
     },
     {
       "startSec": 65.84,
       "endSec": 66.16,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-38",
       "sustained": false
     },
@@ -559,14 +559,14 @@
     {
       "startSec": 68.94,
       "endSec": 69.26,
-      "midi": 56,
+      "midi": 44,
       "lineId": "trajectory-line-39",
       "sustained": false
     },
     {
       "startSec": 69.64,
       "endSec": 70.1,
-      "midi": 54,
+      "midi": 42,
       "lineId": "trajectory-line-39",
       "sustained": false
     },
@@ -601,7 +601,7 @@
     {
       "startSec": 72.34,
       "endSec": 72.56,
-      "midi": 42,
+      "midi": 54,
       "lineId": "trajectory-line-39",
       "sustained": false
     },
@@ -627,7 +627,7 @@
       "sustained": false
     },
     {
-      "startSec": 73.9,
+      "startSec": 74.01,
       "endSec": 74.14,
       "midi": 49,
       "lineId": "trajectory-line-40",
@@ -657,7 +657,7 @@
     {
       "startSec": 75.88,
       "endSec": 76.02,
-      "midi": 42,
+      "midi": 54,
       "lineId": "trajectory-line-40",
       "sustained": false
     },
@@ -678,7 +678,7 @@
     {
       "startSec": 77.08,
       "endSec": 77.5,
-      "midi": 45,
+      "midi": 57,
       "lineId": "trajectory-line-40",
       "sustained": false
     },
@@ -699,9 +699,14 @@
     {
       "startSec": 78.36,
       "endSec": 79.1,
-      "midi": 44,
+      "midi": 56,
       "lineId": "trajectory-line-40",
       "sustained": true
     }
-  ]
+  ],
+  "normalization": {
+    "method": "per_line_minimum_octave_jump",
+    "changedNotes": 39,
+    "requiresManualReview": true
+  }
 }
