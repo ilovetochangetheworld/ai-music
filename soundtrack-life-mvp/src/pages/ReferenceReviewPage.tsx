@@ -87,8 +87,8 @@ export default function ReferenceReviewPage() {
     window.setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
 
-  if (error) return <main className="practice-mobile practice-empty"><p>{error}</p></main>
-  if (!timeline || !line) return <main className="practice-mobile practice-empty"><p>正在加载参考旋律审核台…</p></main>
+  if (error) return <main className="practice-mobile practice-empty reference-review-page"><p>{error}</p></main>
+  if (!timeline || !line) return <main className="practice-mobile practice-empty reference-review-page"><p>正在加载参考旋律审核台…</p></main>
 
   return <main className="practice-mobile reference-review-page">
     <header className="practice-top"><button onClick={() => navigate('/songs')}><ArrowLeft size={19} /></button><b>参考旋律审核</b><span /></header>
