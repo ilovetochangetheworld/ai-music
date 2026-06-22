@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BarChart3, BookOpen, Heart, Headphones, Home, Mic2, RefreshCw, Search, Sparkles, UserRound } from 'lucide-react'
+import { BarChart3, BookOpen, Heart, Headphones, Home, Mic2, RefreshCw, Search, Sparkles } from 'lucide-react'
 import XiaoMai from '../components/XiaoMai'
 import { loadCatalog, metricLabels, type CatalogSongSummary } from '../features/practice-room/catalog'
 
@@ -27,7 +27,7 @@ export default function PracticeHomePage() {
         </article>)}</div>
       </section>
       <section className="home-shortcuts"><button onClick={() => navigate('/growth')}><span><BookOpen /></span><b>小麦练歌手记</b><small>你的专属练歌记录本</small></button><button disabled><span><Sparkles /></span><b>AI修音实验室</b><small>原声永远保留</small><i>研究中</i></button></section>
-      <nav className="practice-bottom-nav"><button className="active"><Home /><span>首页</span></button><button onClick={() => navigate('/songs')}><Headphones /><span>练歌</span></button><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长</span></button><button disabled><UserRound /><span>我的</span></button></nav>
+      <nav className="practice-bottom-nav"><button className="active"><Home /><span>首页</span></button><button onClick={() => navigate('/songs')}><Headphones /><span>练歌</span></button><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长</span></button></nav>
     </main>
   )
 }
