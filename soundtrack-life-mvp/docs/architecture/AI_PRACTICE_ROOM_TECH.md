@@ -25,6 +25,13 @@ React/Vite Web 应用部署在 GitHub Pages。Web Audio 提供统一音乐时钟
 
 有效覆盖低于 20%、校准质量差或音高置信度不足时返回 `insufficient_data`。LLM 输出不得改变任何数值事实。
 
+## 实时视觉辅助
+
+- V2 参考轨使用 `LyricToken + ReferenceNote` 映射；旧行级资源通过兼容适配器生成 `estimated_requires_review`，只能用于旋律预览。
+- 浏览器继续使用 Pitchy 识别实时 F0；稳定偏差超过 150ms 才显示高低，起音、转音和低置信度区间不作判断。
+- 设备延迟初值由 Web Audio `baseLatency` 与分析窗口中心估算；唱后权威评分后续增加全局偏移与约束 DTW。
+- 实时结果只驱动视觉轨迹，不进入总分；逐字快慢只在映射状态为 `reviewed` 时启用。
+
 ## 服务职责
 
 - Node BFF：CORS、25MB multipart 限制、不透明 ID、限流、TTL 清理和可选 LLM 文案。

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reference-track.schema.json",
+  "title": "ReferenceTrack",
+  "type": "object",
+  "required": ["version", "mappingStatus", "notes", "tokens"],
+  "properties": {
+    "version": { "const": "2.0" },
+    "mappingStatus": { "enum": ["estimated_requires_review", "reviewed"] },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "startSec", "endSec", "midi", "lineId", "tokenIds", "kind", "scoreable", "toleranceCents", "sustained"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "startSec": { "type": "number", "minimum": 0 },
+          "endSec": { "type": "number", "exclusiveMinimum": 0 },
+          "midi": { "type": "number", "minimum": 0, "maximum": 127 },
+          "lineId": { "type": "string", "minLength": 1 },
+          "tokenIds": { "type": "array", "items": { "type": "string" } },
+          "kind": { "enum": ["stable", "slide", "grace", "transition"] },
+          "scoreable": { "type": "boolean" },
+          "toleranceCents": { "type": "number", "minimum": 0, "maximum": 300 },
+          "sustained": { "type": "boolean" }
+        }
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "lineId", "text", "startSec", "endSec", "type", "noteIds"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "lineId": { "type": "string", "minLength": 1 },
+          "text": { "type": "string" },
+          "startSec": { "type": "number", "minimum": 0 },
+          "endSec": { "type": "number", "exclusiveMinimum": 0 },
+          "type": { "enum": ["syllable", "word", "punctuation"] },
+          "noteIds": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

@@ -3,11 +3,33 @@ export type MetricKey = 'pitch' | 'rhythm' | 'breath' | 'expression' | 'consiste
 export type MetricStatus = 'ok' | 'insufficient_data'
 
 export interface ReferenceNote {
+  id?: string
   startSec: number
   endSec: number
   midi: number
   lineId: string
+  tokenIds?: string[]
+  kind?: 'stable' | 'slide' | 'grace' | 'transition'
+  scoreable?: boolean
+  toleranceCents?: number
   sustained: boolean
+}
+
+export interface LyricToken {
+  id: string
+  lineId: string
+  text: string
+  startSec: number
+  endSec: number
+  type: 'syllable' | 'word' | 'punctuation'
+  noteIds: string[]
+}
+
+export interface ReferenceTrack {
+  version: '2.0'
+  mappingStatus: 'estimated_requires_review' | 'reviewed'
+  notes: ReferenceNote[]
+  tokens: LyricToken[]
 }
 
 export interface ReferencePhrase {

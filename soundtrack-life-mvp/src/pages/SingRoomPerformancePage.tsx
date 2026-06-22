@@ -14,7 +14,9 @@ import { savePracticeReport } from '../features/practice-room/reportStore'
 import { saveGrowthReport } from '../features/practice-room/growth'
 import { loadPracticeManifest } from '../features/practice-room/catalog'
 import { reviewedReferenceNotes, type ReferenceNotesFile } from '../features/practice-room/referenceNotes'
-import type { ReferenceNote } from '../../shared/contracts'
+import { buildEstimatedReferenceTrack } from '../features/practice-room/referenceTrack'
+import { RealtimeGuidanceTracker, type GuidanceResult, type PitchGuidanceState } from '../features/practice-room/realtimeGuidance'
+import type { ReferenceNote, ReferenceTrack } from '../../shared/contracts'
 import XiaoMai from '../components/XiaoMai'
 import ortWasmUrl from '../assets/vad/ort-wasm-simd-threaded.wasm?url'
 import ortMjsUrl from '../assets/vad/ort-wasm-simd-threaded.mjs?url'
@@ -22,6 +24,8 @@ import ortMjsUrl from '../assets/vad/ort-wasm-simd-threaded.mjs?url'
 type Phase = 'loading' | 'ready' | 'calibrating' | 'countdown' | 'singing' | 'paused' | 'error'
 
 const EMPTY_FRAME: SingingFrame = { db: -100, pitch: 0, clarity: 0, vadProbability: 0, isSinging: false }
+const EMPTY_GUIDANCE: GuidanceResult = { pitchState: 'idle', pitchLabel: '等你开口', timingState: 'unavailable', timingLabel: '逐字节奏待审核', centsError: null, normalizedMidi: null, targetNoteId: null, confidence: 0 }
+interface PitchTrailPoint { at: number; midi: number; state: PitchGuidanceState }
 
 export default function SingRoomPerformancePage() {
   const { songId = 'trajectory' } = useParams()
@@ -41,7 +45,9 @@ export default function SingRoomPerformancePage() {
   const [error, setError] = useState('')
   const [vadError, setVadError] = useState('')
   const [recordingActive, setRecordingActive] = useState(false)
-  const [referenceNotes, setReferenceNotes] = useState<ReferenceNote[]>([])
+  const [referenceTrack, setReferenceTrack] = useState<ReferenceTrack | null>(null)
+  const [guidance, setGuidance] = useState<GuidanceResult>(EMPTY_GUIDANCE)
+  const [pitchTrail, setPitchTrail] = useState<PitchTrailPoint[]>([])
   const [applauding, setApplauding] = useState(false)
   const [crowdReaction, setCrowdReaction] = useState('小麦已就位 · 等你开口')
   const manifestRef = useRef<SongManifest | null>(null)
@@ -68,6 +74,8 @@ export default function SingRoomPerformancePage() {
   const recordingChunksRef = useRef<Blob[]>([])
   const finishingRef = useRef(false)
   const referenceNotesRef = useRef<ReferenceNote[]>([])
+  const referenceTrackRef = useRef<ReferenceTrack | null>(null)
+  const guidanceTrackerRef = useRef(new RealtimeGuidanceTracker(.12))
   const applauseCountRef = useRef(0)
   const lastApplauseAtRef = useRef(-20)
   const applauseTimerRef = useRef<number | null>(null)
@@ -136,8 +144,9 @@ export default function SingRoomPerformancePage() {
           const response = await fetch(`${import.meta.env.BASE_URL}${practiceManifest.assets.notes}`)
           const data = response.ok ? await response.json() as ReferenceNotesFile : null
           referenceNotesRef.current = reviewedReferenceNotes(data)
-          setReferenceNotes(referenceNotesRef.current)
-        }).catch(() => { referenceNotesRef.current = []; setReferenceNotes([]) })
+          referenceTrackRef.current = buildEstimatedReferenceTrack(referenceNotesRef.current, timeline.lines)
+          setReferenceTrack(referenceTrackRef.current)
+        }).catch(() => { referenceNotesRef.current = []; referenceTrackRef.current = null; setReferenceTrack(null) })
         await engine.load(manifest, setLoadProgress)
         if (!cancelled) setPhase('ready')
       })
@@ -212,6 +221,12 @@ export default function SingRoomPerformancePage() {
       const line = lineIndex >= 0 ? timeline.lines[lineIndex] : null
       setSongTime(now)
       setFrame(nextFrame)
+      const nextGuidance = referenceTrackRef.current ? guidanceTrackerRef.current.update({ songTime: now, pitchHz: nextFrame.pitch, clarity: nextFrame.clarity, isSinging: nextFrame.isSinging }, referenceTrackRef.current) : EMPTY_GUIDANCE
+      setGuidance(nextGuidance)
+      setPitchTrail((current) => {
+        const recent = current.filter((point) => point.at >= now - 1.1)
+        return nextGuidance.normalizedMidi === null ? recent : [...recent, { at: now, midi: nextGuidance.normalizedMidi, state: nextGuidance.pitchState }]
+      })
       if (detector) samplesRef.current.push({ at: now, db: nextFrame.db, pitch: nextFrame.pitch, clarity: nextFrame.clarity, isSinging: nextFrame.isSinging })
       setCurrentLine(line)
       currentLineRef.current = line
@@ -331,6 +346,7 @@ export default function SingRoomPerformancePage() {
       const engine = engineRef.current
       if (!engine) throw new Error('音频尚未加载')
       const [stream] = await Promise.all([detector.start(), engine.preparePlayback()])
+      guidanceTrackerRef.current.setLatencyCompensation(detector.getEstimatedInputLatencySec())
       deleteSessionRecording()
       detector.beginCalibration()
       void startOptionalVad()
@@ -454,7 +470,6 @@ export default function SingRoomPerformancePage() {
   const section = timeline?.sections.find((item) => songTime >= item.start && songTime < item.end)
   const progress = duration ? songTime / duration : 0
   const meter = Math.max(0, Math.min(1, (frame.db + 58) / 42))
-  const currentReferenceNotes = currentLine ? referenceNotes.filter((note) => note.lineId === currentLine.id) : []
 
   return (
     <main className={applauding ? 'sing-stage crowd-live' : 'sing-stage'}>
@@ -478,7 +493,7 @@ export default function SingRoomPerformancePage() {
             </motion.p>
           </AnimatePresence>
           <p className="next-lyric">{nextLine?.text ?? ' '}</p>
-          <ReferenceGuide line={currentLine} notes={currentReferenceNotes} />
+          <ReferenceGuide at={songTime} track={referenceTrack} trail={pitchTrail} guidance={guidance} />
           <AnimatePresence>
             {hostMessage && phase !== 'loading' && (
               <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
@@ -529,10 +544,22 @@ export default function SingRoomPerformancePage() {
   )
 }
 
-function ReferenceGuide({ line, notes }: { line: LyricLine | null; notes: ReferenceNote[] }) {
-  if (!line || !notes.length) return <div className="reference-guide empty"><span>原唱参考</span><small>等待歌词进入</small></div>
-  const low = Math.min(...notes.map((note) => note.midi)); const high = Math.max(...notes.map((note) => note.midi)); const span = Math.max(1, high - low)
-  return <div className="reference-guide"><span>原唱参考</span><div>{notes.map((note) => <i key={`${note.startSec}-${note.midi}`} style={{ left: `${((note.startSec - line.start) / (line.end - line.start)) * 100}%`, width: `${Math.max(3, ((note.endSec - note.startSec) / (line.end - line.start)) * 100)}%`, bottom: `${10 + ((note.midi - low) / span) * 70}%` }} />)}</div></div>
+function ReferenceGuide({ at, track, trail, guidance }: { at: number; track: ReferenceTrack | null; trail: PitchTrailPoint[]; guidance: GuidanceResult }) {
+  if (!track?.notes.length) return <div className="reference-guide empty"><span>原唱参考</span><small>参考旋律尚未准备好</small></div>
+  const windowStart = Math.max(0, at - 1); const windowEnd = at + 4; const windowDuration = windowEnd - windowStart
+  const notes = track.notes.filter((note) => note.endSec >= windowStart && note.startSec <= windowEnd)
+  const tokens = track.tokens.filter((token) => token.endSec >= windowStart && token.startSec <= windowEnd && token.type !== 'punctuation')
+  const pitches = [...notes.map((note) => note.midi), ...trail.map((point) => point.midi)]
+  const low = Math.min(...pitches, 48) - 1; const high = Math.max(...pitches, 60) + 1; const span = Math.max(1, high - low)
+  return <div className={`reference-guide guidance-${guidance.pitchState}`}>
+    <header><span>原唱参考</span><b>{guidance.pitchLabel}</b><small>{guidance.centsError === null ? '' : `${guidance.centsError > 0 ? '+' : ''}${Math.round(guidance.centsError)} cents`}</small></header>
+    <div className="melody-window"><i className="melody-cursor" />
+      {notes.map((note) => <span className={note.id === guidance.targetNoteId ? 'reference-note active' : 'reference-note'} key={note.id} style={{ left: `${((note.startSec - windowStart) / windowDuration) * 100}%`, width: `${Math.max(2, ((note.endSec - note.startSec) / windowDuration) * 100)}%`, bottom: `${8 + ((note.midi - low) / span) * 78}%` }} />)}
+      {trail.map((point) => <i className={`user-pitch-point ${point.state}`} key={`${point.at}-${point.midi}`} style={{ left: `${((point.at - windowStart) / windowDuration) * 100}%`, bottom: `${8 + ((point.midi - low) / span) * 78}%` }} />)}
+    </div>
+    <div className="melody-tokens">{tokens.map((token) => <span key={token.id} style={{ left: `${((token.startSec - windowStart) / windowDuration) * 100}%`, width: `${Math.max(3, ((token.endSec - token.startSec) / windowDuration) * 100)}%` }}>{token.text}</span>)}</div>
+    <footer><span className={`timing-${guidance.timingState}`}>{guidance.timingLabel}</span>{track.mappingStatus !== 'reviewed' && <small>逐字映射为预览，审核后开放快慢判断</small>}</footer>
+  </div>
 }
 
 function StageOverlay({ icon, title, detail, progress, action }: { icon: React.ReactNode; title: string; detail: string; progress?: number; action?: React.ReactNode }) {
