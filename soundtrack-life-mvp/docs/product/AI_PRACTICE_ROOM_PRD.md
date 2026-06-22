@@ -1,38 +1,39 @@
 # AI 练歌房 PRD
 
-## Positioning
+## 产品定位
 
 **AI 练歌房——听你唱，也陪你唱得更好。**
 
-The product is a mobile-first, companion-led intelligent singing practice room. 小麦 is the only companion. Professional analysis is the capability; companionship is the delivery style.
+这是一个移动端优先、以陪伴式成长为核心的智能练歌空间。“小麦”是唯一陪练。专业分析是底层能力，轻松陪伴是表达方式。
 
-## Core journey
+## 核心旅程
 
 ```text
-select prepared song -> choose free/focus practice -> calibrate -> sing
--> companion recap -> evidence clips -> five-dimension report
--> retry / next recommendation -> local growth history
+选择已准备歌曲 → 选择自由唱或专项练 → 设备校准 → 演唱
+→ 小麦练歌手记 → 证据片段 → 五维报告
+→ 重唱或下一首推荐 → 本地成长档案
 ```
 
-## V1 behavior
+## V1 产品行为
 
-- Every visible song is a complete practice package, not a generic playback item.
-- Free mode never interrupts a phrase. Focus mode may show one silent hint after a line ends.
-- The first lyric remains visible under a transparent countdown.
-- The post-song first screen leads with one factual summary and a highlight, not a score wall.
-- Detailed report covers pitch, rhythm, breath-control proxy, expression dynamics, and consistency.
-- Overall score appears only in the detailed report and represents this session, not ability.
-- Original recordings remain available for playback and deletion. Tuning is an explicit A/B experiment and never replaces the original.
+- 所有可见歌曲必须是完整练习资源包，不是普通播放条目。
+- 自由唱不在乐句中打断用户；专项练可在一句结束后显示一次静默提示。
+- 透明倒计时蒙层下仍能看到第一句歌词。
+- 唱后首屏先展示一条事实总结和一个高光，不做分数墙。
+- 详细报告覆盖音高、节奏、呼吸控制信号、情感表达和一致性。
+- 总分只出现在详细报告，表示本次表现，不等同于用户能力。
+- 原始录音可回放、可删除；修音是明确的 A/B 实验，绝不替换原声。
+- 成长档案可重新打开完整表现报告和证据片段，而非只保留五维数字。
 
-## Out of scope
+## 暂不纳入范围
 
-- QQ Music login, playlist import, broad music playback, rankings, voice cloning, arbitrary-song instant analysis, and spoken real-time correction.
-- Legacy soundtrack and audio-coach experiences remain under `/lab` and are not primary navigation.
+- QQ 音乐登录、歌单导入、泛音乐播放、排行榜、声音克隆、任意歌曲即时专业分析和唱中语音纠错。
+- 旧人生原声机和长音频实验保留在 `/lab`，不进入主导航。
 
-## V1 success criteria
+## V1 成功标准
 
-- Mobile journey completes on three validated song packages.
-- Pitch/rhythm scoring is reference-backed and insufficient data suppresses false scores.
-- Report evidence opens the matching recording segment.
-- Public web remains usable when analysis or LLM service is unavailable through factual local fallback.
-- Growth history can be deleted and is local-only in V1.
+- 三首完成校验的歌曲能走通移动端完整旅程。
+- 音高与节奏评分有参考数据支撑；数据不足时不生成虚假分数。
+- 报告证据可打开对应录音片段。
+- 分析服务或 LLM 不可用时，公网 Web 仍可通过基于事实的本地降级继续使用。
+- V1 成长历史仅保存在本地且可删除。

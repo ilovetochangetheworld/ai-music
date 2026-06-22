@@ -1,17 +1,17 @@
-# AI 练歌房 roadmap
+# AI 练歌房路线图
 
-| Milestone | Tasks | Exit condition |
+| 里程碑 | 任务 | 退出条件 |
 | --- | --- | --- |
-| M0 Collaboration/reset | APR-0001..0003 | governance, routes, schemas, first catalog package |
-| M1 Reference/capture | APR-1001..1003 | validated reference data and stable telemetry |
-| M2 Analysis backend | APR-2001..2005 | deterministic report API with confidence/evidence |
-| M3 Mobile loop | APR-3001..3004 | select, sing, recap, report, growth at 390×844 |
-| M4 Tuning research | APR-4001..4003 | local A/B spike and go/no-go record |
-| M5 Release | APR-5001..5003 | performance, privacy, real-device and deploy gates |
+| M0 协作与产品重置 | APR-0001..0003 | 治理规范、路由、Schema 和首个曲库资源包完成 |
+| M1 参考数据与采集 | APR-1001..1003 | 参考数据已校验，遥测稳定 |
+| M2 分析后端 | APR-2001..2005 | 确定性报告 API 包含置信度和证据 |
+| M3 移动端闭环 | APR-3001..3004 | 390×844 下走通选歌、演唱、手记、报告与成长档案 |
+| M4 修音研究 | APR-4001..4003 | 完成本地 A/B 验证并记录 go/no-go 决策 |
+| M5 稳定与发布 | APR-5001..5003 | 通过性能、隐私、真机和部署门禁 |
 
-Dependencies: schema and one reviewed reference package precede scoring; report integration follows contract freeze. Capture, backend skeleton, and static mobile UI may proceed in parallel when they do not share files.
+依赖关系：Schema 和至少一个已审核参考资源包必须先于评分实现；报告接入必须等待契约冻结。采集、后端骨架和静态移动端界面在不共享文件时可以并行。
 
-Additional tasks:
+补充任务：
 
-- APR-1004: local song/LRC import, draft timeline conversion, timing-review tooling, and future server preprocessing handoff.
-- APR-3005: persistent historical reports and professional five-dimension trend archive.
+- APR-1004：本地歌曲/LRC 导入、时间轴草稿转换、时间审核工具及未来服务端预处理交接。
+- APR-3005：持久化历史报告和专业五维趋势档案。

@@ -1,40 +1,40 @@
-# AI 练歌房 technical architecture
+# AI 练歌房技术架构
 
-## Runtime
+## 运行时
 
-The React/Vite web app runs on GitHub Pages. Web Audio provides a single music clock, microphone telemetry, recording, and companion state. The public Node BFF accepts consented session uploads and proxies an internal FastAPI CPU analyzer. Local GPU tuning is experimental and disabled in production.
+React/Vite Web 应用部署在 GitHub Pages。Web Audio 提供统一音乐时钟、麦克风遥测、录音和陪练状态。公开 Node BFF 只接收用户明确同意上传的会话，并代理内部 FastAPI CPU 分析服务。本地 GPU 修音属于实验能力，生产环境默认关闭。
 
-## Data flow
+## 数据流
 
 ```text
-validated song package
-  -> browser playback + 80 ms telemetry + MediaRecorder
-  -> POST session (recording + telemetry + manifest version)
-  -> Python analysis (alignment + deterministic metrics + evidence)
-  -> Node report response + optional grounded LLM wording
-  -> recap/report UI + IndexedDB growth snapshot
+已校验歌曲包
+  → 浏览器播放 + 80ms 遥测 + MediaRecorder
+  → 提交会话（录音 + 遥测 + manifest 版本）
+  → Python 分析（对齐 + 确定性指标 + 证据）
+  → Node 返回报告 + 可选的事实约束 LLM 文案
+  → 练歌手记/报告界面 + IndexedDB 成长快照
 ```
 
-## Scoring
+## 五维评分
 
-- Pitch 30%: octave-tolerant cents error, accurate-frame coverage, sustained-note drift.
-- Rhythm 25%: phrase onset/end and voiced-window timing against lyrics/beats.
-- Breath 15%: phrase completion, unexpected gaps, sustained-note duration/decay; always labeled as a signal-based proxy.
-- Expression 15%: section-level dynamic contrast and phrase energy; omit assertions at low confidence.
-- Consistency 15%: variance across similar sections and first/second half.
+- 音高 30%：允许八度等价的音分误差、准确帧覆盖率、长音漂移。
+- 节奏 25%：乐句开口/结束与连续发声窗口相对歌词、节拍的偏差。
+- 呼吸 15%：乐句完成率、非预期停顿、长音时长与衰减；必须标注为信号推测。
+- 表达 15%：段落动态对比和乐句能量；低置信度时不输出确定结论。
+- 一致性 15%：相似段落以及前后半段之间的表现方差。
 
-Coverage below 20%, poor calibration, or low pitch confidence produces `insufficient_data`. LLM output never changes numeric facts.
+有效覆盖低于 20%、校准质量差或音高置信度不足时返回 `insufficient_data`。LLM 输出不得改变任何数值事实。
 
-## Services
+## 服务职责
 
-- Node BFF: CORS, 25 MB multipart limit, opaque IDs, rate limits, TTL cleanup, optional LLM wording.
-- Python analyzer: schema validation, ffmpeg decode, deterministic scoring, evidence and highlight selection.
-- Local tuning spike: 8–12 second enhancement, correction limited to ±100 cents, A/B artifact and processing log. Production flag defaults off.
+- Node BFF：CORS、25MB multipart 限制、不透明 ID、限流、TTL 清理和可选 LLM 文案。
+- Python 分析服务：Schema 校验、ffmpeg 解码、确定性评分、证据和高光选择。
+- 本地修音验证：处理 8–12 秒片段，校正限制为 ±100 cents，输出 A/B 文件和处理日志；生产开关默认关闭。
 
-## Storage and privacy
+## 存储与隐私
 
-Anonymous server sessions expire in 24 hours. V1 long-term history uses IndexedDB and stores report summaries, not raw recordings. Upload requires an explicit UI consent action.
+匿名服务端会话在 24 小时内过期。V1 长期历史使用 IndexedDB，保存结构化报告，不永久保存原始录音。上传必须由界面中的明确同意动作触发。
 
-## Deployment
+## 部署
 
-Pages hosts the web build. `lulu.yixin.info` hosts Node BFF and an internal loopback FastAPI service under systemd. The GPU spike is local-only until the documented quality gate passes.
+GitHub Pages 托管 Web 构建产物。`lulu.yixin.info` 通过 systemd 运行 Node BFF 和仅监听回环地址的 FastAPI 服务。GPU 修音在通过质量门禁前仅限本地使用。

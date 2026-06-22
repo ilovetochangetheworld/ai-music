@@ -1,12 +1,13 @@
-# APR-XXXX task handoff
+# APR-XXXX 任务交接
 
-- Objective:
-- Owner / agent:
-- Base SHA / branch:
-- Dependencies:
-- Allowed modules:
-- Acceptance criteria:
-- Commands run:
-- Evidence:
-- Risks / unfinished work:
-- Head SHA / PR:
+- 目标：
+- 负责人 / 智能体：
+- Base SHA / 分支：
+- 依赖：
+- 允许修改的模块：
+- 验收标准：
+- 需同步的文档：
+- 已运行命令：
+- 验证证据：
+- 风险 / 未完成项：
+- Head SHA / PR：

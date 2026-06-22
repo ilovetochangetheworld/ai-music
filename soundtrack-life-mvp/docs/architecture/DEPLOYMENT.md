@@ -1,15 +1,15 @@
-# Pages + VPS deployment
+# Pages + VPS 部署
 
-## Web
+## Web 前端
 
-`npm run build` produces the GitHub Pages bundle under `dist/` with `/ai-music/` as its base. Production tuning remains disabled unless `VITE_ENABLE_TUNING_DEMO=true` is explicitly set.
+`npm run build` 在 `dist/` 生成 GitHub Pages 产物，基础路径为 `/ai-music/`。除非明确设置 `VITE_ENABLE_TUNING_DEMO=true`，生产修音功能保持关闭。
 
 ## VPS
 
-1. Install the repository at `/opt/ai-practice-room` and create `services/analysis/.venv` from `services/analysis/requirements.txt`.
-2. Put secrets and origins in `/etc/ai-practice-room/bff.env`; set `ANALYSIS_BASE_URL=http://127.0.0.1:8790`.
-3. Install `ops/systemd/ai-practice-analysis.service` and `ops/systemd/ai-practice-bff.service`.
-4. Reverse proxy only the Node BFF. Keep FastAPI bound to loopback.
-5. Verify `/health`, a 25MB rejection, a damaged request, and 24-hour expiry before enabling production traffic.
+1. 将仓库安装到 `/opt/ai-practice-room`，按 `services/analysis/requirements.txt` 创建 `services/analysis/.venv`。
+2. 将密钥和允许来源写入 `/etc/ai-practice-room/bff.env`，设置 `ANALYSIS_BASE_URL=http://127.0.0.1:8790`。
+3. 安装 `ops/systemd/ai-practice-analysis.service` 和 `ops/systemd/ai-practice-bff.service`。
+4. 只反向代理 Node BFF；FastAPI 仅绑定回环地址。
+5. 开放生产流量前验证 `/health`、25MB 超限拒绝、损坏请求和 24 小时过期清理。
 
-The current web client keeps recordings on-device. A future upload UI must obtain explicit consent before calling the BFF.
+当前 Web 客户端将录音保留在设备端。未来上传界面必须先取得明确同意，才能调用 BFF。

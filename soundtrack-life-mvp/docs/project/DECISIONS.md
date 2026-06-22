@@ -1,10 +1,11 @@
-# Decision log
+# 决策记录
 
-| ID | Decision | Status |
+| ID | 决策 | 状态 |
 | --- | --- | --- |
-| ADR-001 | Continue the existing React/Vite repository and Pages URL. | Accepted |
-| ADR-002 | Remove QQ Music; move non-QQ legacy experiences under `/lab`. | Accepted |
-| ADR-003 | Use deterministic five-dimension scoring; LLM wording is grounded and optional. | Accepted |
-| ADR-004 | Deploy CPU analysis on the existing VPS; keep GPU tuning local and production-disabled. | Accepted |
-| ADR-005 | GitHub issues/PRs track active work; STATUS tracks merged capability. | Accepted |
-| ADR-006 | User-imported audio and lyrics remain in browser IndexedDB; first version is original-song sing-along, not automatic source separation. | Accepted |
+| ADR-001 | 继续使用现有 React/Vite 仓库和 Pages 地址。 | 已接受 |
+| ADR-002 | 移除 QQ 音乐；非主线旧体验迁入 `/lab`。 | 已接受 |
+| ADR-003 | 五维分数采用确定性计算；LLM 文案必须基于事实且为可选能力。 | 已接受 |
+| ADR-004 | CPU 分析部署在现有 VPS；GPU 修音保留在本地且生产禁用。 | 已接受 |
+| ADR-005 | GitHub Issue/PR 跟踪进行中工作；STATUS 只记录已合并能力。 | 已接受 |
+| ADR-006 | 用户导入的音频和歌词保存在浏览器 IndexedDB；首版是原唱跟唱，不自动分轨。 | 已接受 |
+| ADR-007 | 主线文档按产品、架构、项目分层；旧产品方案统一迁入 `docs/archive/`。 | 已接受 |
