@@ -1,5 +1,707 @@
 {
   "version": "1.0",
-  "reviewStatus": "placeholder_requires_manual_review",
-  "notes": []
+  "reviewStatus": "reviewed",
+  "reviewerConfirmedAt": "2026-06-22T03:23:44.994Z",
+  "notes": [
+    {
+      "startSec": 0.28,
+      "endSec": 0.66,
+      "midi": 49,
+      "lineId": "trajectory-line-27",
+      "sustained": false
+    },
+    {
+      "startSec": 3.5,
+      "endSec": 3.68,
+      "midi": 43,
+      "lineId": "trajectory-line-27",
+      "sustained": false
+    },
+    {
+      "startSec": 6.64,
+      "endSec": 6.8,
+      "midi": 45,
+      "lineId": "trajectory-line-28",
+      "sustained": false
+    },
+    {
+      "startSec": 7.06,
+      "endSec": 7.26,
+      "midi": 44,
+      "lineId": "trajectory-line-28",
+      "sustained": false
+    },
+    {
+      "startSec": 7.92,
+      "endSec": 8.04,
+      "midi": 45,
+      "lineId": "trajectory-line-28",
+      "sustained": false
+    },
+    {
+      "startSec": 8.68,
+      "endSec": 8.78,
+      "midi": 44,
+      "lineId": "trajectory-line-29",
+      "sustained": false
+    },
+    {
+      "startSec": 9.4,
+      "endSec": 9.52,
+      "midi": 50,
+      "lineId": "trajectory-line-29",
+      "sustained": false
+    },
+    {
+      "startSec": 9.58,
+      "endSec": 9.7,
+      "midi": 52,
+      "lineId": "trajectory-line-29",
+      "sustained": false
+    },
+    {
+      "startSec": 10.18,
+      "endSec": 10.36,
+      "midi": 57,
+      "lineId": "trajectory-line-29",
+      "sustained": false
+    },
+    {
+      "startSec": 12.88,
+      "endSec": 13,
+      "midi": 54,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 13.02,
+      "endSec": 13.26,
+      "midi": 49,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 13.64,
+      "endSec": 13.84,
+      "midi": 49,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 14.36,
+      "endSec": 14.5,
+      "midi": 47,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 14.64,
+      "endSec": 14.84,
+      "midi": 50,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 15.36,
+      "endSec": 15.5,
+      "midi": 49,
+      "lineId": "trajectory-line-30",
+      "sustained": false
+    },
+    {
+      "startSec": 17.2,
+      "endSec": 17.32,
+      "midi": 44,
+      "lineId": "trajectory-line-31",
+      "sustained": false
+    },
+    {
+      "startSec": 19.04,
+      "endSec": 19.16,
+      "midi": 44,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 19.54,
+      "endSec": 19.66,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 19.88,
+      "endSec": 20,
+      "midi": 42,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 20.58,
+      "endSec": 20.72,
+      "midi": 45,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 20.9,
+      "endSec": 21.32,
+      "midi": 45,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 21.82,
+      "endSec": 22.24,
+      "midi": 49,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 22.28,
+      "endSec": 22.58,
+      "midi": 45,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 22.66,
+      "endSec": 22.82,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 22.84,
+      "endSec": 23.4,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 23.44,
+      "endSec": 23.56,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 23.82,
+      "endSec": 24.08,
+      "midi": 45,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 24.14,
+      "endSec": 24.28,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 24.94,
+      "endSec": 25.06,
+      "midi": 40,
+      "lineId": "trajectory-line-32",
+      "sustained": false
+    },
+    {
+      "startSec": 25.3,
+      "endSec": 25.48,
+      "midi": 52,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 26.24,
+      "endSec": 26.48,
+      "midi": 49,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 26.94,
+      "endSec": 27.08,
+      "midi": 45,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 28.3,
+      "endSec": 28.44,
+      "midi": 49,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 28.58,
+      "endSec": 28.74,
+      "midi": 50,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 28.88,
+      "endSec": 29.74,
+      "midi": 49,
+      "lineId": "trajectory-line-33",
+      "sustained": true
+    },
+    {
+      "startSec": 30.14,
+      "endSec": 30.32,
+      "midi": 49,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 31.28,
+      "endSec": 31.46,
+      "midi": 54,
+      "lineId": "trajectory-line-33",
+      "sustained": false
+    },
+    {
+      "startSec": 31.55,
+      "endSec": 31.68,
+      "midi": 40,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 31.78,
+      "endSec": 32.14,
+      "midi": 42,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 32.36,
+      "endSec": 32.6,
+      "midi": 45,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 32.74,
+      "endSec": 32.86,
+      "midi": 44,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 33.72,
+      "endSec": 34.26,
+      "midi": 42,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 34.68,
+      "endSec": 35.06,
+      "midi": 45,
+      "lineId": "trajectory-line-34",
+      "sustained": false
+    },
+    {
+      "startSec": 35.62,
+      "endSec": 36.56,
+      "midi": 45,
+      "lineId": "trajectory-line-34",
+      "sustained": true
+    },
+    {
+      "startSec": 37.96,
+      "endSec": 38.1,
+      "midi": 57,
+      "lineId": "trajectory-line-35",
+      "sustained": false
+    },
+    {
+      "startSec": 38.16,
+      "endSec": 39.02,
+      "midi": 52,
+      "lineId": "trajectory-line-35",
+      "sustained": true
+    },
+    {
+      "startSec": 41.74,
+      "endSec": 42.14,
+      "midi": 50,
+      "lineId": "trajectory-line-35",
+      "sustained": false
+    },
+    {
+      "startSec": 44.78,
+      "endSec": 44.9,
+      "midi": 45,
+      "lineId": "trajectory-line-36",
+      "sustained": false
+    },
+    {
+      "startSec": 45.08,
+      "endSec": 45.22,
+      "midi": 41,
+      "lineId": "trajectory-line-36",
+      "sustained": false
+    },
+    {
+      "startSec": 45.46,
+      "endSec": 45.72,
+      "midi": 41,
+      "lineId": "trajectory-line-36",
+      "sustained": false
+    },
+    {
+      "startSec": 46.64,
+      "endSec": 47.04,
+      "midi": 41,
+      "lineId": "trajectory-line-36",
+      "sustained": false
+    },
+    {
+      "startSec": 48.16,
+      "endSec": 49.3,
+      "midi": 45,
+      "lineId": "trajectory-line-36",
+      "sustained": true
+    },
+    {
+      "startSec": 49.68,
+      "endSec": 50.48,
+      "midi": 40,
+      "lineId": "trajectory-line-36",
+      "sustained": true
+    },
+    {
+      "startSec": 54.78,
+      "endSec": 54.98,
+      "midi": 44,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 56.2,
+      "endSec": 57.06,
+      "midi": 49,
+      "lineId": "trajectory-line-37",
+      "sustained": true
+    },
+    {
+      "startSec": 57.66,
+      "endSec": 57.98,
+      "midi": 49,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 58.64,
+      "endSec": 58.84,
+      "midi": 53,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 59.3,
+      "endSec": 59.48,
+      "midi": 58,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 59.64,
+      "endSec": 59.8,
+      "midi": 53,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 59.84,
+      "endSec": 59.96,
+      "midi": 56,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 59.98,
+      "endSec": 60.26,
+      "midi": 53,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 60.44,
+      "endSec": 60.56,
+      "midi": 58,
+      "lineId": "trajectory-line-37",
+      "sustained": false
+    },
+    {
+      "startSec": 60.86,
+      "endSec": 61.12,
+      "midi": 44,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 61.3,
+      "endSec": 61.52,
+      "midi": 44,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 61.72,
+      "endSec": 61.94,
+      "midi": 44,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 62.12,
+      "endSec": 62.24,
+      "midi": 46,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 62.6,
+      "endSec": 62.9,
+      "midi": 49,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 63.26,
+      "endSec": 63.44,
+      "midi": 49,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 63.6,
+      "endSec": 63.76,
+      "midi": 48,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 64.14,
+      "endSec": 64.3,
+      "midi": 46,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 64.6,
+      "endSec": 64.88,
+      "midi": 46,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 65.18,
+      "endSec": 65.58,
+      "midi": 44,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 65.62,
+      "endSec": 65.78,
+      "midi": 43,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 65.84,
+      "endSec": 66.16,
+      "midi": 44,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 66.22,
+      "endSec": 66.48,
+      "midi": 49,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 66.64,
+      "endSec": 67.16,
+      "midi": 49,
+      "lineId": "trajectory-line-38",
+      "sustained": false
+    },
+    {
+      "startSec": 67.64,
+      "endSec": 67.76,
+      "midi": 44,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 68.14,
+      "endSec": 68.26,
+      "midi": 44,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 68.4,
+      "endSec": 68.74,
+      "midi": 44,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 68.94,
+      "endSec": 69.26,
+      "midi": 44,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 69.64,
+      "endSec": 70.1,
+      "midi": 42,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 71.2,
+      "endSec": 71.38,
+      "midi": 44,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 71.44,
+      "endSec": 71.62,
+      "midi": 46,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 71.62,
+      "endSec": 71.9,
+      "midi": 51,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 72.2,
+      "endSec": 72.32,
+      "midi": 54,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 72.34,
+      "endSec": 72.56,
+      "midi": 54,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 72.56,
+      "endSec": 72.84,
+      "midi": 54,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 72.88,
+      "endSec": 73.1,
+      "midi": 53,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 73.22,
+      "endSec": 73.54,
+      "midi": 53,
+      "lineId": "trajectory-line-39",
+      "sustained": false
+    },
+    {
+      "startSec": 74.01,
+      "endSec": 74.14,
+      "midi": 49,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 74.78,
+      "endSec": 75.06,
+      "midi": 49,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 75.38,
+      "endSec": 75.54,
+      "midi": 45,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 75.66,
+      "endSec": 75.84,
+      "midi": 49,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 75.88,
+      "endSec": 76.02,
+      "midi": 54,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 76.14,
+      "endSec": 76.26,
+      "midi": 49,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 76.6,
+      "endSec": 76.74,
+      "midi": 52,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 77.08,
+      "endSec": 77.5,
+      "midi": 57,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 77.62,
+      "endSec": 77.94,
+      "midi": 53,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 77.98,
+      "endSec": 78.22,
+      "midi": 52,
+      "lineId": "trajectory-line-40",
+      "sustained": false
+    },
+    {
+      "startSec": 78.36,
+      "endSec": 79.1,
+      "midi": 56,
+      "lineId": "trajectory-line-40",
+      "sustained": true
+    }
+  ]
 }

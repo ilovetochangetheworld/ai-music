@@ -1,5 +1,840 @@
 {
   "version": "1.0",
-  "reviewStatus": "placeholder_requires_manual_review",
-  "notes": []
+  "reviewStatus": "reviewed",
+  "reviewerConfirmedAt": "2026-06-22T03:28:38.965Z",
+  "notes": [
+    {
+      "startSec": 0.08,
+      "endSec": 0.3,
+      "midi": 59,
+      "lineId": "tornado-line-01",
+      "sustained": false
+    },
+    {
+      "startSec": 0.66,
+      "endSec": 0.86,
+      "midi": 59,
+      "lineId": "tornado-line-01",
+      "sustained": false
+    },
+    {
+      "startSec": 0.9,
+      "endSec": 1.28,
+      "midi": 61,
+      "lineId": "tornado-line-01",
+      "sustained": false
+    },
+    {
+      "startSec": 3.18,
+      "endSec": 3.3,
+      "midi": 62,
+      "lineId": "tornado-line-02",
+      "sustained": false
+    },
+    {
+      "startSec": 3.48,
+      "endSec": 3.68,
+      "midi": 64,
+      "lineId": "tornado-line-02",
+      "sustained": false
+    },
+    {
+      "startSec": 4.22,
+      "endSec": 4.38,
+      "midi": 59,
+      "lineId": "tornado-line-02",
+      "sustained": false
+    },
+    {
+      "startSec": 9.94,
+      "endSec": 10.16,
+      "midi": 60,
+      "lineId": "tornado-line-03",
+      "sustained": false
+    },
+    {
+      "startSec": 10.16,
+      "endSec": 10.32,
+      "midi": 61,
+      "lineId": "tornado-line-03",
+      "sustained": false
+    },
+    {
+      "startSec": 13.04,
+      "endSec": 13.16,
+      "midi": 62,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 13.2,
+      "endSec": 13.34,
+      "midi": 59,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 13.66,
+      "endSec": 13.86,
+      "midi": 63,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 13.96,
+      "endSec": 14.24,
+      "midi": 61,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 14.28,
+      "endSec": 14.46,
+      "midi": 61,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 14.54,
+      "endSec": 14.66,
+      "midi": 66,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 15.34,
+      "endSec": 15.68,
+      "midi": 62,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 15.92,
+      "endSec": 16.32,
+      "midi": 61,
+      "lineId": "tornado-line-04",
+      "sustained": false
+    },
+    {
+      "startSec": 16.67,
+      "endSec": 16.76,
+      "midi": 57,
+      "lineId": "tornado-line-05",
+      "sustained": false
+    },
+    {
+      "startSec": 17.08,
+      "endSec": 17.24,
+      "midi": 60,
+      "lineId": "tornado-line-05",
+      "sustained": false
+    },
+    {
+      "startSec": 17.62,
+      "endSec": 17.76,
+      "midi": 61,
+      "lineId": "tornado-line-05",
+      "sustained": false
+    },
+    {
+      "startSec": 18.66,
+      "endSec": 18.92,
+      "midi": 57,
+      "lineId": "tornado-line-05",
+      "sustained": false
+    },
+    {
+      "startSec": 19.52,
+      "endSec": 19.62,
+      "midi": 57,
+      "lineId": "tornado-line-05",
+      "sustained": false
+    },
+    {
+      "startSec": 20.16,
+      "endSec": 20.42,
+      "midi": 58,
+      "lineId": "tornado-line-06",
+      "sustained": false
+    },
+    {
+      "startSec": 21.04,
+      "endSec": 21.16,
+      "midi": 59,
+      "lineId": "tornado-line-06",
+      "sustained": false
+    },
+    {
+      "startSec": 21.2,
+      "endSec": 21.34,
+      "midi": 64,
+      "lineId": "tornado-line-06",
+      "sustained": false
+    },
+    {
+      "startSec": 21.8,
+      "endSec": 22.04,
+      "midi": 69,
+      "lineId": "tornado-line-06",
+      "sustained": false
+    },
+    {
+      "startSec": 24.06,
+      "endSec": 24.18,
+      "midi": 57,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 24.78,
+      "endSec": 24.96,
+      "midi": 56,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 25.06,
+      "endSec": 25.34,
+      "midi": 57,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 25.38,
+      "endSec": 25.56,
+      "midi": 59,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 25.78,
+      "endSec": 26.08,
+      "midi": 59,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 26.1,
+      "endSec": 26.52,
+      "midi": 62,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 26.6,
+      "endSec": 26.76,
+      "midi": 60,
+      "lineId": "tornado-line-07",
+      "sustained": false
+    },
+    {
+      "startSec": 27.1,
+      "endSec": 27.3,
+      "midi": 61,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 27.44,
+      "endSec": 27.56,
+      "midi": 60,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 27.72,
+      "endSec": 27.86,
+      "midi": 61,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 28.42,
+      "endSec": 28.58,
+      "midi": 57,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 28.72,
+      "endSec": 29,
+      "midi": 62,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 29.5,
+      "endSec": 29.62,
+      "midi": 61,
+      "lineId": "tornado-line-08",
+      "sustained": false
+    },
+    {
+      "startSec": 30.52,
+      "endSec": 30.68,
+      "midi": 62,
+      "lineId": "tornado-line-09",
+      "sustained": false
+    },
+    {
+      "startSec": 31.48,
+      "endSec": 31.62,
+      "midi": 62,
+      "lineId": "tornado-line-09",
+      "sustained": false
+    },
+    {
+      "startSec": 33.54,
+      "endSec": 33.7,
+      "midi": 59,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 33.78,
+      "endSec": 33.94,
+      "midi": 60,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 34.1,
+      "endSec": 34.26,
+      "midi": 62,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 35.18,
+      "endSec": 35.34,
+      "midi": 58,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 35.38,
+      "endSec": 35.5,
+      "midi": 59,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 35.56,
+      "endSec": 35.72,
+      "midi": 61,
+      "lineId": "tornado-line-10",
+      "sustained": false
+    },
+    {
+      "startSec": 38.7,
+      "endSec": 38.88,
+      "midi": 59,
+      "lineId": "tornado-line-11",
+      "sustained": false
+    },
+    {
+      "startSec": 38.88,
+      "endSec": 39.02,
+      "midi": 61,
+      "lineId": "tornado-line-11",
+      "sustained": false
+    },
+    {
+      "startSec": 39.12,
+      "endSec": 39.36,
+      "midi": 62,
+      "lineId": "tornado-line-11",
+      "sustained": false
+    },
+    {
+      "startSec": 39.42,
+      "endSec": 39.7,
+      "midi": 64,
+      "lineId": "tornado-line-11",
+      "sustained": false
+    },
+    {
+      "startSec": 40.7,
+      "endSec": 40.82,
+      "midi": 63,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 41.04,
+      "endSec": 41.38,
+      "midi": 61,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 41.56,
+      "endSec": 41.74,
+      "midi": 61,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 41.86,
+      "endSec": 42.04,
+      "midi": 62,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 42.16,
+      "endSec": 42.34,
+      "midi": 57,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 42.56,
+      "endSec": 42.94,
+      "midi": 62,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 43.02,
+      "endSec": 43.18,
+      "midi": 61,
+      "lineId": "tornado-line-12",
+      "sustained": false
+    },
+    {
+      "startSec": 43.94,
+      "endSec": 44.18,
+      "midi": 64,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 44.4,
+      "endSec": 44.54,
+      "midi": 62,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 44.76,
+      "endSec": 45.12,
+      "midi": 61,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 45.5,
+      "endSec": 45.84,
+      "midi": 64,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 45.84,
+      "endSec": 45.98,
+      "midi": 62,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 46.12,
+      "endSec": 46.28,
+      "midi": 62,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 46.6,
+      "endSec": 46.7,
+      "midi": 61,
+      "lineId": "tornado-line-13",
+      "sustained": false
+    },
+    {
+      "startSec": 47.22,
+      "endSec": 47.34,
+      "midi": 58,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 47.34,
+      "endSec": 47.48,
+      "midi": 59,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 47.56,
+      "endSec": 47.76,
+      "midi": 60,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 48.2,
+      "endSec": 48.34,
+      "midi": 65,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 48.66,
+      "endSec": 48.8,
+      "midi": 68,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 48.92,
+      "endSec": 49.12,
+      "midi": 70,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 49.14,
+      "endSec": 49.3,
+      "midi": 71,
+      "lineId": "tornado-line-14",
+      "sustained": false
+    },
+    {
+      "startSec": 50.52,
+      "endSec": 50.66,
+      "midi": 58,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 50.98,
+      "endSec": 51.4,
+      "midi": 57,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 51.8,
+      "endSec": 52.2,
+      "midi": 56,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 52.26,
+      "endSec": 52.54,
+      "midi": 58,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 52.64,
+      "endSec": 52.86,
+      "midi": 61,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 52.86,
+      "endSec": 53.24,
+      "midi": 59,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 53.24,
+      "endSec": 53.72,
+      "midi": 62,
+      "lineId": "tornado-line-15",
+      "sustained": false
+    },
+    {
+      "startSec": 53.82,
+      "endSec": 53.92,
+      "midi": 61,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 54,
+      "endSec": 54.12,
+      "midi": 61,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 54.18,
+      "endSec": 54.52,
+      "midi": 62,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 54.78,
+      "endSec": 54.98,
+      "midi": 62,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 55.2,
+      "endSec": 55.4,
+      "midi": 62,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 55.52,
+      "endSec": 55.88,
+      "midi": 63,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 56.02,
+      "endSec": 56.22,
+      "midi": 62,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 56.26,
+      "endSec": 56.4,
+      "midi": 60,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 56.56,
+      "endSec": 56.7,
+      "midi": 61,
+      "lineId": "tornado-line-16",
+      "sustained": false
+    },
+    {
+      "startSec": 57.42,
+      "endSec": 57.54,
+      "midi": 62,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 57.54,
+      "endSec": 57.7,
+      "midi": 63,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 57.72,
+      "endSec": 57.84,
+      "midi": 62,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 58.26,
+      "endSec": 58.38,
+      "midi": 61,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 58.62,
+      "endSec": 58.74,
+      "midi": 62,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 59.08,
+      "endSec": 59.22,
+      "midi": 63,
+      "lineId": "tornado-line-17",
+      "sustained": false
+    },
+    {
+      "startSec": 60.32,
+      "endSec": 60.46,
+      "midi": 57,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 60.6,
+      "endSec": 60.8,
+      "midi": 59,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 60.94,
+      "endSec": 61.06,
+      "midi": 61,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 61.12,
+      "endSec": 61.34,
+      "midi": 63,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 61.42,
+      "endSec": 61.6,
+      "midi": 64,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 62.38,
+      "endSec": 62.7,
+      "midi": 60,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 62.88,
+      "endSec": 63.22,
+      "midi": 63,
+      "lineId": "tornado-line-18",
+      "sustained": false
+    },
+    {
+      "startSec": 63.66,
+      "endSec": 63.8,
+      "midi": 57,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 63.88,
+      "endSec": 64,
+      "midi": 59,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 65.58,
+      "endSec": 65.86,
+      "midi": 59,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 65.86,
+      "endSec": 66.1,
+      "midi": 61,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 66.16,
+      "endSec": 66.44,
+      "midi": 62,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 66.58,
+      "endSec": 66.8,
+      "midi": 57,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 66.96,
+      "endSec": 67.3,
+      "midi": 56,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 67.44,
+      "endSec": 67.93,
+      "midi": 57,
+      "lineId": "tornado-line-19",
+      "sustained": false
+    },
+    {
+      "startSec": 68.08,
+      "endSec": 69.48,
+      "midi": 57,
+      "lineId": "tornado-line-20",
+      "sustained": true
+    },
+    {
+      "startSec": 69.52,
+      "endSec": 70.02,
+      "midi": 57,
+      "lineId": "tornado-line-20",
+      "sustained": false
+    },
+    {
+      "startSec": 70.1,
+      "endSec": 70.22,
+      "midi": 57,
+      "lineId": "tornado-line-20",
+      "sustained": false
+    },
+    {
+      "startSec": 70.78,
+      "endSec": 70.9,
+      "midi": 56,
+      "lineId": "tornado-line-21",
+      "sustained": false
+    },
+    {
+      "startSec": 71.7,
+      "endSec": 71.82,
+      "midi": 59,
+      "lineId": "tornado-line-21",
+      "sustained": false
+    },
+    {
+      "startSec": 71.86,
+      "endSec": 72.08,
+      "midi": 57,
+      "lineId": "tornado-line-21",
+      "sustained": false
+    },
+    {
+      "startSec": 73.04,
+      "endSec": 73.18,
+      "midi": 57,
+      "lineId": "tornado-line-21",
+      "sustained": false
+    },
+    {
+      "startSec": 74.14,
+      "endSec": 74.32,
+      "midi": 57,
+      "lineId": "tornado-line-22",
+      "sustained": false
+    },
+    {
+      "startSec": 76.28,
+      "endSec": 76.42,
+      "midi": 61,
+      "lineId": "tornado-line-22",
+      "sustained": false
+    },
+    {
+      "startSec": 77.64,
+      "endSec": 77.76,
+      "midi": 55,
+      "lineId": "tornado-line-23",
+      "sustained": false
+    },
+    {
+      "startSec": 78.68,
+      "endSec": 78.8,
+      "midi": 52,
+      "lineId": "tornado-line-23",
+      "sustained": false
+    }
+  ]
 }
