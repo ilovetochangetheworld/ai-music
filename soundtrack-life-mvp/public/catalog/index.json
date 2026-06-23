@@ -6,7 +6,11 @@
       "title": "轨迹",
       "artist": "周杰伦",
       "difficulty": 3,
-      "focus": ["pitch", "breath", "consistency"],
+      "focus": [
+        "pitch",
+        "breath",
+        "consistency"
+      ],
       "manifestUrl": "catalog/trajectory/manifest.json",
       "availability": "ready"
     },
@@ -15,8 +19,27 @@
       "title": "龙卷风",
       "artist": "周杰伦",
       "difficulty": 4,
-      "focus": ["rhythm", "breath", "expression", "consistency"],
+      "focus": [
+        "rhythm",
+        "breath",
+        "expression",
+        "consistency"
+      ],
       "manifestUrl": "catalog/tornado/manifest.json",
+      "availability": "ready"
+    },
+    {
+      "id": "suddenly",
+      "title": "忽然之间",
+      "artist": "莫文蔚",
+      "difficulty": 3,
+      "focus": [
+        "breath",
+        "expression",
+        "consistency",
+        "pitch"
+      ],
+      "manifestUrl": "catalog/suddenly/manifest.json",
       "availability": "ready"
     },
     {
@@ -24,7 +47,9 @@
       "title": "待准备歌曲 C",
       "artist": "练歌资源准备中",
       "difficulty": 4,
-      "focus": ["expression"],
+      "focus": [
+        "expression"
+      ],
       "availability": "preparing"
     }
   ]

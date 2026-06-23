@@ -1,0 +1,38 @@
+{
+  "id": "suddenly",
+  "title": "忽然之间",
+  "artist": "莫文蔚",
+  "bpm": 72,
+  "difficulty": 3,
+  "focus": ["breath", "expression", "consistency", "pitch"],
+  "demoCueSec": 0,
+  "rightsNote": "User-provided prototype asset; commercial/public rights are not established.",
+
+  "lrc": "../../../music/忽然之间-莫文蔚.lrc",
+  "encoding": "utf-8",
+  "lyricFilter": ["^(词|曲|编曲|演唱)", "^忽然之间 -"],
+  "minLineSec": 0.9,
+
+  "crossfade": 0.15,
+  "segments": [
+    { "start": 16.12, "end": 70.40 },
+    { "start": 156.93, "end": 183.60 }
+  ],
+
+  "sections": [
+    { "id": "verse-1", "type": "verse", "label": "第一段主歌", "startSec": 0, "endSec": 29.70, "harmonyEnabled": false },
+    { "id": "chorus-1", "type": "chorus", "label": "第一段副歌", "startSec": 29.70, "endSec": 54.28, "harmonyEnabled": true },
+    { "id": "chorus-final", "type": "chorus", "label": "最终副歌", "startSec": 54.13, "endSec": 80.80, "harmonyEnabled": true }
+  ],
+
+  "breathProtectionMs": { "chorus": 480, "default": 680 },
+  "mix": { "accompanimentGain": 0.82, "rescueGain": 0.58, "harmonyGain": 0.45 },
+
+  "audio": {
+    "mix": "../../../music/忽然之间-莫文蔚.mp3",
+    "preclipped": false,
+    "demucsModel": "htdemucs_ft",
+    "encodeVolume": { "accompaniment": 1.0, "rescueLead": 0.58, "harmony": 0.45 },
+    "harmony": { "regions": "45.82:70.40,156.93:183.60" }
+  }
+}
