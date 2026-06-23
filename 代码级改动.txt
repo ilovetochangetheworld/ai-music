@@ -1,8 +1,0 @@
-功能：原唱参考从静态音符条升级为带播放游标、输入音高圆点和命中高亮的实时参考视图。
-模块：src/pages/SingRoomPerformancePage.tsx 调整 ReferenceGuide，传入 songTime/frame，计算当前参考音、输入 pitch 对应 midi、圆点位置和命中状态。
-模块：src/pages/SingRoomPerformancePage.tsx 新增 stableInputMidi、matchesReferencePitch、hzToMidi、nearestOctaveDistance，用于稳定输入音高和八度等价命中判断。
-模块：src/sing-room.css 增加 reference-cursor、reference-input-pitch 样式，强化 matched 音符条与圆点光圈，并为圆点预留上下安全边距。
-文档：docs/product/AI_PRACTICE_ROOM_PRD.md 同步说明参考音符时值、播放游标、输入音高圆点和命中高亮规则。
-功能：唱歌页顶部从“头像 + 右侧状态卡片 + 悬浮气泡”调整为“小麦头像 + 聊天气泡”居中组合。
-模块：src/pages/SingRoomPerformancePage.tsx 移除 voice-state 卡片和 meter 计算，并将 host-bubble 从歌词区移到小麦头像后。
-模块：src/sing-room.css 调整 stage-main、friend-rail.single-companion、host-bubble 和移动端布局，使头像右移、气泡左对齐并与头像保持间隙。
