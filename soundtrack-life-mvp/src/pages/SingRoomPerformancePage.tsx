@@ -437,31 +437,30 @@ export default function SingRoomPerformancePage() {
     }
   }
 
-  async function togglePause() {
-    if (phase === 'singing') {
-      await engineRef.current?.pause()
-      if (recorderRef.current?.state === 'recording') recorderRef.current.pause()
-      setPhase('paused')
-    } else if (phase === 'paused') {
-      await engineRef.current?.resume()
-      if (recorderRef.current?.state === 'paused') recorderRef.current.resume()
-      setPhase('singing')
-    }
+  async function pauseSession() {
+    if (phase !== 'singing') return
+    await engineRef.current?.pause()
+    if (recorderRef.current?.state === 'recording') recorderRef.current.pause()
+    setPhase('paused')
+  }
+
+  async function resumeSession() {
+    if (phase !== 'paused') return
+    await engineRef.current?.resume()
+    if (recorderRef.current?.state === 'paused') recorderRef.current.resume()
+    setPhase('singing')
   }
 
   const timeline = timelineRef.current
   const duration = timeline?.duration ?? manifestRef.current?.duration ?? 0
-  const section = timeline?.sections.find((item) => songTime >= item.start && songTime < item.end)
   const progress = duration ? songTime / duration : 0
-  const meter = Math.max(0, Math.min(1, (frame.db + 58) / 42))
   const currentReferenceNotes = currentLine ? referenceNotes.filter((note) => note.lineId === currentLine.id) : []
 
   return (
     <main className={applauding ? 'sing-stage crowd-live' : 'sing-stage'}>
       <div className="stage-ambient" aria-hidden="true" />
       <header className="stage-topbar">
-        <div><span className="live-dot" />AI 练歌房 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
-        <span>{section?.label ?? '准备中'}</span>
+        <div className="stage-brand"><span className="live-dot" />AI 练歌房 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
         <button className="stage-end" onClick={() => void finishSession()} disabled={!['singing', 'paused'].includes(phase)}>结束演唱</button>
       </header>
 
@@ -471,6 +470,14 @@ export default function SingRoomPerformancePage() {
           <b>小麦</b><small>{rescuing ? '接唱中' : applauding ? '为你鼓掌' : frame.isSinging ? '正在听' : '安静陪着你'}</small>
         </div>
 
+        <AnimatePresence>
+          {hostMessage && phase !== 'loading' && (
+            <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
+              <b>小麦</b>{hostMessage}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="lyric-stage">
           <AnimatePresence mode="wait">
             <motion.p key={currentLine?.id ?? 'waiting'} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="current-lyric">
@@ -478,42 +485,34 @@ export default function SingRoomPerformancePage() {
             </motion.p>
           </AnimatePresence>
           <p className="next-lyric">{nextLine?.text ?? ' '}</p>
-          <ReferenceGuide line={currentLine} notes={currentReferenceNotes} />
-          <AnimatePresence>
-            {hostMessage && phase !== 'loading' && (
-              <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
-                <b>小麦</b>{hostMessage}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <ReferenceGuide line={currentLine} notes={currentReferenceNotes} songTime={songTime} frame={frame} />
+
           <div className={applauding ? 'crowd-presence active' : 'crowd-presence'} aria-live="polite">
             <span className="crowd-bars" aria-hidden="true"><i /><i /><i /><i /></span>
             <b>小麦</b><span>{crowdReaction}</span>
           </div>
         </div>
 
-        <div className="voice-state">
-          <span className={frame.isSinging ? 'voice-orb active' : 'voice-orb'}><Mic2 size={23} /></span>
-          <div><b>{rescuing ? '小麦正在接唱' : frame.isSinging ? '小麦听见你了' : '等你开口'}</b><small>{settings.practiceMode === 'free' ? '自由唱 · 唱后再分析' : '专项练习 · 一句结束后轻提示'}</small></div>
-          <span className="voice-meter"><i style={{ width: `${meter * 100}%` }} /></span>
-        </div>
+
       </section>
 
       <footer className="stage-controls">
         <div className="stage-progress"><i style={{ width: `${progress * 100}%` }} /></div>
         <div className="stage-time mono"><span>{formatTime(songTime)}</span><span>{formatTime(duration)}</span></div>
         <div className="stage-command-row">
-          <button className="icon-command" title={phase === 'paused' ? '继续' : '暂停'} onClick={togglePause} disabled={!['singing', 'paused'].includes(phase)}>
-            {phase === 'paused' ? <Play size={20} /> : <Pause size={20} />}
-          </button>
           <button className={rescuing ? 'rescue-command active' : 'rescue-command'} onClick={() => rescuing ? stopRescue(true) : startRescue('manual')} disabled={phase !== 'singing'}>
             <SkipForward size={20} /><span>{rescuing ? '我来接回' : '帮我接'}</span>
           </button>
-          <button className="icon-command" title="切换和声" onClick={() => {
+          <div className="transport-controls" aria-label="播放控制">
+            <button className={phase === 'paused' ? 'icon-command transport-toggle active' : 'icon-command transport-toggle'} title={phase === 'paused' ? '继续' : '暂停'} onClick={() => phase === 'paused' ? void resumeSession() : void pauseSession()} disabled={!['singing', 'paused'].includes(phase)}>
+              {phase === 'paused' ? <Play size={28} /> : <Pause size={28} />}
+            </button>
+          </div>
+          <button className={harmonyActiveRef.current ? 'harmony-command active' : 'harmony-command'} title="切换和声陪唱" onClick={() => {
             harmonyActiveRef.current = !harmonyActiveRef.current
             engineRef.current?.setHarmonyLevel(harmonyActiveRef.current ? settings.harmonyLevel : 0)
           }} disabled={phase !== 'singing'}>
-            {harmonyActiveRef.current ? <Volume2 size={20} /> : <Volume1 size={20} />}
+            {harmonyActiveRef.current ? <Volume2 size={18} /> : <Volume1 size={18} />}<span>和声陪唱</span>
           </button>
         </div>
       </footer>
@@ -529,12 +528,67 @@ export default function SingRoomPerformancePage() {
   )
 }
 
-function ReferenceGuide({ line, notes }: { line: LyricLine | null; notes: ReferenceNote[] }) {
+function ReferenceGuide({ line, notes, songTime, frame }: { line: LyricLine | null; notes: ReferenceNote[]; songTime: number; frame: SingingFrame }) {
   if (!line || !notes.length) return <div className="reference-guide empty"><span>原唱参考</span><small>等待歌词进入</small></div>
-  const low = Math.min(...notes.map((note) => note.midi)); const high = Math.max(...notes.map((note) => note.midi)); const span = Math.max(1, high - low)
-  return <div className="reference-guide"><span>原唱参考</span><div>{notes.map((note) => <i key={`${note.startSec}-${note.midi}`} style={{ left: `${((note.startSec - line.start) / (line.end - line.start)) * 100}%`, width: `${Math.max(3, ((note.endSec - note.startSec) / (line.end - line.start)) * 100)}%`, bottom: `${10 + ((note.midi - low) / span) * 70}%` }} />)}</div></div>
+  const lineDuration = Math.max(0.1, line.end - line.start)
+  const referenceLow = Math.min(...notes.map((note) => note.midi))
+  const referenceHigh = Math.max(...notes.map((note) => note.midi))
+  const low = referenceLow - 1
+  const high = referenceHigh + 1
+  const span = Math.max(1, high - low)
+  const progress = Math.max(0, Math.min(1, (songTime - line.start) / lineDuration))
+  const activeNote = notes.find((note) => songTime >= note.startSec && songTime < note.endSec)
+  const inputMidi = stableInputMidi(frame)
+  const inputPitchMin = 16
+  const inputPitchMax = 84
+  const inputPitchPosition = typeof inputMidi === 'number'
+    ? Math.max(inputPitchMin, Math.min(inputPitchMax, 12 + ((inputMidi - low) / span) * 72))
+    : null
+  const matchedNote = activeNote && typeof inputMidi === 'number' && matchesReferencePitch(inputMidi, activeNote) ? activeNote : null
+  return (
+    <div className="reference-guide" aria-label="原唱参考音符">
+      <span>原唱参考</span>
+      <div>
+        <em className="reference-cursor" style={{ left: `${progress * 100}%` }} />
+        {inputPitchPosition !== null && <b className={matchedNote ? 'reference-input-pitch matched' : 'reference-input-pitch'} style={{ left: `${progress * 100}%`, bottom: `${inputPitchPosition}%` }} />}
+        {notes.map((note, index) => {
+          const isActive = note === activeNote
+          const isMatched = note === matchedNote
+          return (
+            <i
+              key={`${note.lineId}-${note.startSec}-${note.endSec}-${note.midi}-${index}`}
+              className={isMatched ? 'matched' : isActive ? 'active' : undefined}
+              style={{
+                left: `${Math.max(0, ((note.startSec - line.start) / lineDuration) * 100)}%`,
+                width: `${Math.max(3.5, ((note.endSec - note.startSec) / lineDuration) * 100)}%`,
+                bottom: `${12 + ((note.midi - low) / span) * 72}%`,
+              }}
+            />
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
+function stableInputMidi(frame: SingingFrame): number | null {
+  if (!frame.isSinging || frame.pitch <= 0 || frame.clarity < 0.72) return null
+  return hzToMidi(frame.pitch)
+}
+
+function matchesReferencePitch(inputMidi: number, note: ReferenceNote): boolean {
+  return nearestOctaveDistance(inputMidi, note.midi) <= 0.65
+}
+
+function hzToMidi(hz: number): number {
+  return 69 + 12 * Math.log2(hz / 440)
+}
+
+function nearestOctaveDistance(actualMidi: number, referenceMidi: number): number {
+  const raw = Math.abs(actualMidi - referenceMidi)
+  const octaveFolded = raw % 12
+  return Math.min(octaveFolded, 12 - octaveFolded)
+}
 function StageOverlay({ icon, title, detail, progress, action }: { icon: React.ReactNode; title: string; detail: string; progress?: number; action?: React.ReactNode }) {
   return (
     <motion.div className="stage-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

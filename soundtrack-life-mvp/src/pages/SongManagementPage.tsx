@@ -28,7 +28,7 @@ export default function SongManagementPage() {
   }, [])
 
   const reviewed = songs.filter((song) => song.reviewStatus === 'reviewed').length
-  return <main className="practice-mobile song-management-page">
+  return <main className="practice-mobile song-management-page warm-room-page">
     <header className="practice-top"><button onClick={() => navigate('/songs')}><ArrowLeft size={19} /></button><b>歌曲管理</b><button onClick={() => navigate('/songs/import')} aria-label="导入歌曲"><Upload size={17} /></button></header>
     <section className="management-summary"><Settings2 /><div><h1>{songs.length} 首歌曲</h1><p>{reviewed} 首参考旋律已审核，可进入音准评分</p></div></section>
     <section className="management-list">{songs.map((song) => {

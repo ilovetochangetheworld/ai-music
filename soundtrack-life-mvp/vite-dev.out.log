@@ -1,0 +1,47 @@
+Re-optimizing dependencies because lockfile has changed
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m800[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5174[22m/[39m
+[2m21:00:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:02:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css[22m
+[2m21:13:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:16:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css[22m
+[2m21:28:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:29:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css[22m
+[2m21:29:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:30:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:38:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:38:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:39:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css[22m
+[2m21:45:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomPerformancePage.tsx[22m
+[2m21:46:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css[22m
+[2m21:54:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomRecapPage.tsx[22m
+[2m21:55:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SingRoomRecapPage.tsx[22m
+[2m21:55:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css, /src/sing-room.css?t=bottom-controls[22m
+[2m21:55:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m22:26:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:26:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SongCatalogPage.tsx[22m
+[2m22:26:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SongImportPage.tsx[22m
+[2m22:26:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SongManagementPage.tsx[22m
+[2m22:26:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/GrowthPage.tsx[22m
+[2m22:26:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:27:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:29:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m22:29:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css, /src/sing-room.css?t=bottom-controls, /src/sing-room.css?t=white-border[22m
+[2m22:35:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:35:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m22:35:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:36:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m22:36:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m22:40:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/sing-room.css, /src/sing-room.css?t=bottom-controls, /src/sing-room.css?t=white-border[22m
+[2m23:17:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m23:23:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m23:26:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeHomePage.tsx[22m
+[2m23:35:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m23:45:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeReportPage.tsx[22m
+[2m23:45:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m23:46:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PracticeReportPage.tsx[22m
+[2m23:52:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/GrowthPage.tsx[22m
+[2m23:53:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/practice-room.css[22m
+[2m23:54:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/GrowthPage.tsx[22m
