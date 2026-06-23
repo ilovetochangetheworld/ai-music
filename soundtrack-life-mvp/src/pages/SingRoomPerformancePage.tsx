@@ -15,6 +15,7 @@ import { saveGrowthReport } from '../features/practice-room/growth'
 import { loadPracticeManifest } from '../features/practice-room/catalog'
 import { reviewedReferenceNotes, type ReferenceNotesFile } from '../features/practice-room/referenceNotes'
 import { buildEstimatedReferenceTrack } from '../features/practice-room/referenceTrack'
+import { buildVisibleReferenceGuideSegments } from '../features/practice-room/referenceGuide'
 import { RealtimeGuidanceTracker, type GuidanceResult, type PitchGuidanceState } from '../features/practice-room/realtimeGuidance'
 import { effectiveLatencySec, loadLatencyCalibration } from '../features/practice-room/latencyCalibration'
 import type { ReferenceNote, ReferenceTrack } from '../../shared/contracts'
@@ -550,14 +551,14 @@ export default function SingRoomPerformancePage() {
 function ReferenceGuide({ at, track, trail, guidance }: { at: number; track: ReferenceTrack | null; trail: PitchTrailPoint[]; guidance: GuidanceResult }) {
   if (!track?.notes.length) return <div className="reference-guide empty"><span>原唱参考</span><small>参考旋律尚未准备好</small></div>
   const windowStart = Math.max(0, at - 1); const windowEnd = at + 4; const windowDuration = windowEnd - windowStart
-  const notes = track.notes.filter((note) => note.endSec >= windowStart && note.startSec <= windowEnd)
+  const guideSegments = buildVisibleReferenceGuideSegments(track, windowStart, windowEnd)
   const tokens = track.tokens.filter((token) => token.endSec >= windowStart && token.startSec <= windowEnd && token.type !== 'punctuation')
-  const pitches = [...notes.map((note) => note.midi), ...trail.map((point) => point.midi)]
+  const pitches = [...guideSegments.map((segment) => segment.midi), ...trail.map((point) => point.midi)]
   const low = Math.min(...pitches, 48) - 1; const high = Math.max(...pitches, 60) + 1; const span = Math.max(1, high - low)
   return <div className={`reference-guide guidance-${guidance.pitchState}`}>
     <header><span>原唱参考</span><b>{guidance.pitchLabel}</b><small>{guidance.centsError === null ? '' : `${guidance.centsError > 0 ? '+' : ''}${Math.round(guidance.centsError)} cents`}</small></header>
     <div className="melody-window"><i className="melody-cursor" />
-      {notes.map((note) => <span className={note.id === guidance.targetNoteId ? 'reference-note active' : 'reference-note'} key={note.id} style={{ left: `${((note.startSec - windowStart) / windowDuration) * 100}%`, width: `${Math.max(2, ((note.endSec - note.startSec) / windowDuration) * 100)}%`, bottom: `${8 + ((note.midi - low) / span) * 78}%` }} />)}
+      {guideSegments.map((segment) => <span className={[segment.noteIds.includes(guidance.targetNoteId ?? '') ? 'reference-note active' : 'reference-note', segment.source === 'estimated' ? 'estimated' : ''].filter(Boolean).join(' ')} key={segment.id} style={{ left: `${((segment.startSec - windowStart) / windowDuration) * 100}%`, width: `${Math.max(3, ((segment.endSec - segment.startSec) / windowDuration) * 100)}%`, bottom: `${8 + ((segment.midi - low) / span) * 78}%` }} />)}
       {trail.map((point) => <i className={`user-pitch-point ${point.state}`} key={`${point.at}-${point.midi}`} style={{ left: `${((point.at - windowStart) / windowDuration) * 100}%`, bottom: `${8 + ((point.midi - low) / span) * 78}%` }} />)}
     </div>
     <div className="melody-tokens">{tokens.map((token) => <span key={token.id} style={{ left: `${((token.startSec - windowStart) / windowDuration) * 100}%`, width: `${Math.max(3, ((token.endSec - token.startSec) / windowDuration) * 100)}%` }}>{token.text}</span>)}</div>
