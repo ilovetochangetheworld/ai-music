@@ -6,6 +6,8 @@ node_modules/
 dist/
 .vite/
 .vite-dev.log
+*.tsbuildinfo
+vite-dev*.log
 
 # 本地密钥
 .env
