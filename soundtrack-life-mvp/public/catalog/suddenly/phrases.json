@@ -1,0 +1,267 @@
+{
+  "version": "1.0",
+  "reviewStatus": "derived_from_lrc_requires_manual_review",
+  "phrases": [
+    {
+      "id": "phrase-suddenly-line-01",
+      "startSec": 0,
+      "endSec": 3.38,
+      "lineIds": [
+        "suddenly-line-01"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-02",
+      "startSec": 3.46,
+      "endSec": 6.78,
+      "lineIds": [
+        "suddenly-line-02"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-03",
+      "startSec": 6.86,
+      "endSec": 8.62,
+      "lineIds": [
+        "suddenly-line-03"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-04",
+      "startSec": 8.7,
+      "endSec": 13.58,
+      "lineIds": [
+        "suddenly-line-04"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-05",
+      "startSec": 13.66,
+      "endSec": 17.05,
+      "lineIds": [
+        "suddenly-line-05"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-06",
+      "startSec": 17.13,
+      "endSec": 20.3,
+      "lineIds": [
+        "suddenly-line-06"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-07",
+      "startSec": 20.38,
+      "endSec": 21.93,
+      "lineIds": [
+        "suddenly-line-07"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-08",
+      "startSec": 22.01,
+      "endSec": 25.9,
+      "lineIds": [
+        "suddenly-line-08"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-09",
+      "startSec": 25.98,
+      "endSec": 29.62,
+      "lineIds": [
+        "suddenly-line-09"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-10",
+      "startSec": 29.7,
+      "endSec": 31.15,
+      "lineIds": [
+        "suddenly-line-10"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-11",
+      "startSec": 31.23,
+      "endSec": 34.47,
+      "lineIds": [
+        "suddenly-line-11"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-12",
+      "startSec": 34.55,
+      "endSec": 37.94,
+      "lineIds": [
+        "suddenly-line-12"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-13",
+      "startSec": 38.02,
+      "endSec": 39.75,
+      "lineIds": [
+        "suddenly-line-13"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-14",
+      "startSec": 39.83,
+      "endSec": 43.3,
+      "lineIds": [
+        "suddenly-line-14"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-15",
+      "startSec": 43.38,
+      "endSec": 44.94,
+      "lineIds": [
+        "suddenly-line-15"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-16",
+      "startSec": 45.02,
+      "endSec": 48.42,
+      "lineIds": [
+        "suddenly-line-16"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-17",
+      "startSec": 48.5,
+      "endSec": 51.92,
+      "lineIds": [
+        "suddenly-line-17"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-18",
+      "startSec": 52,
+      "endSec": 53.59,
+      "lineIds": [
+        "suddenly-line-18"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-19",
+      "startSec": 53.67,
+      "endSec": 54.28,
+      "lineIds": [
+        "suddenly-line-19"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-20",
+      "startSec": 54.13,
+      "endSec": 55.74,
+      "lineIds": [
+        "suddenly-line-20"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-21",
+      "startSec": 55.82,
+      "endSec": 59.12,
+      "lineIds": [
+        "suddenly-line-21"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-22",
+      "startSec": 59.2,
+      "endSec": 62.66,
+      "lineIds": [
+        "suddenly-line-22"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-23",
+      "startSec": 62.74,
+      "endSec": 64.43,
+      "lineIds": [
+        "suddenly-line-23"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-24",
+      "startSec": 64.51,
+      "endSec": 67.91,
+      "lineIds": [
+        "suddenly-line-24"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-25",
+      "startSec": 67.99,
+      "endSec": 69.64,
+      "lineIds": [
+        "suddenly-line-25"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-26",
+      "startSec": 69.72,
+      "endSec": 73.08,
+      "lineIds": [
+        "suddenly-line-26"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-27",
+      "startSec": 73.16,
+      "endSec": 76.58,
+      "lineIds": [
+        "suddenly-line-27"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-28",
+      "startSec": 76.66,
+      "endSec": 78.27,
+      "lineIds": [
+        "suddenly-line-28"
+      ],
+      "breathWindows": []
+    },
+    {
+      "id": "phrase-suddenly-line-29",
+      "startSec": 78.35,
+      "endSec": 80.72,
+      "lineIds": [
+        "suddenly-line-29"
+      ],
+      "breathWindows": []
+    }
+  ]
+}

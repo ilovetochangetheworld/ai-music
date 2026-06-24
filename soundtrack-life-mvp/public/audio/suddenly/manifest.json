@@ -1,0 +1,16 @@
+{
+  "songId": "suddenly",
+  "title": "忽然之间",
+  "artist": "莫文蔚",
+  "duration": 80.8,
+  "assets": {
+    "accompaniment": "accompaniment.mp3",
+    "rescueLead": "rescue-lead.mp3",
+    "harmony": "harmony.mp3"
+  },
+  "mix": {
+    "accompanimentGain": 0.82,
+    "rescueGain": 0.58,
+    "harmonyGain": 0.45
+  }
+}

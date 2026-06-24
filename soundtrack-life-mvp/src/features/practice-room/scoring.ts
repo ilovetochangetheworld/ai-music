@@ -1,5 +1,5 @@
 import type { LyricLine } from '../sing-room/types'
-import type { MetricKey, MetricScore, PracticeReport, PracticeTelemetryFrame, ReferenceNote } from '../../../shared/contracts'
+import type { DeviceLatencyCalibration, MetricKey, MetricScore, PracticeReport, PracticeTelemetryFrame, ReferenceNote } from '../../../shared/contracts'
 
 const labels: Record<MetricKey, string> = {
   pitch: '音高准确度', rhythm: '节奏贴合度', breath: '呼吸控制', expression: '情感表达', consistency: '一致性',
@@ -12,6 +12,7 @@ export function buildLocalPracticeReport(input: {
   lines: LyricLine[]
   notes?: ReferenceNote[]
   noiseFloorDb: number
+  latencyCalibration?: DeviceLatencyCalibration | null
 }): PracticeReport {
   const active = input.frames.filter((frame) => frame.isSinging)
   const expectedDuration = input.lines.reduce((sum, line) => sum + Math.max(0, line.end - line.start), 0)
@@ -22,8 +23,10 @@ export function buildLocalPracticeReport(input: {
   if (pitchConfidence < 0.45) reasons.push('音高检测置信度不足')
   const valid = reasons.length === 0
 
-  const pitch = scorePitch(input.frames, input.notes ?? [], valid)
-  const rhythm = scoreRhythm(input.frames, input.lines, valid)
+  const latencyCorrectionSec = input.latencyCalibration?.status === 'valid' ? input.latencyCalibration.offsetMs / 1000 : 0
+  const alignedFrames = latencyCorrectionSec ? input.frames.map((frame) => ({ ...frame, at: Math.max(0, frame.at - latencyCorrectionSec) })) : input.frames
+  const pitch = scorePitch(alignedFrames, input.notes ?? [], valid)
+  const rhythm = scoreRhythm(alignedFrames, input.lines, valid)
   const breath = scoreBreath(input.frames, input.lines, valid)
   const expression = scoreExpression(input.frames, input.lines, valid)
   const consistency = scoreConsistency(input.frames, valid)
@@ -39,7 +42,11 @@ export function buildLocalPracticeReport(input: {
   return {
     version: '1.0', sessionId: input.sessionId, songId: input.songId,
     status: overallScore === null ? 'insufficient_data' : 'complete', overallScore,
-    dataQuality: { vocalCoverage, pitchConfidence, noiseFloorDb: input.noiseFloorDb, reasons },
+    dataQuality: {
+      vocalCoverage, pitchConfidence, noiseFloorDb: input.noiseFloorDb, reasons,
+      latencyCorrectionMs: latencyCorrectionSec ? Math.round(latencyCorrectionSec * 1000) : undefined,
+      latencyConfidence: input.latencyCalibration?.confidence,
+    },
     metrics,
     highlights: highlightLine ? [{ startSec: highlightLine.start, endSec: highlightLine.end, lineId: highlightLine.id }] : [],
     headline: overallScore === null ? '这次的数据还不够稳定，小麦先帮你保留真实录音。' : '这次演唱已经记录下来，下面每项反馈都能回到对应片段。',

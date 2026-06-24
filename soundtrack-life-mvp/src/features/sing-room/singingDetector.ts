@@ -75,6 +75,12 @@ export class SingingDetector {
     return this.noiseFloor
   }
 
+  getEstimatedInputLatencySec(): number {
+    if (!this.context || !this.analyser) return .12
+    const analysisWindowCenter = this.analyser.fftSize / this.context.sampleRate / 2
+    return Math.max(.06, this.context.baseLatency + analysisWindowCenter)
+  }
+
   async dispose(): Promise<void> {
     this.source?.disconnect()
     this.stream?.getTracks().forEach((track) => track.stop())

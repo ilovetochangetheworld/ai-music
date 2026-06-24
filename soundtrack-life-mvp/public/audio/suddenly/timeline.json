@@ -1,0 +1,329 @@
+{
+  "songId": "suddenly",
+  "title": "忽然之间",
+  "artist": "莫文蔚",
+  "duration": 80.8,
+  "bpm": 72,
+  "demoCueSec": 0,
+  "sections": [
+    {
+      "id": "verse-1",
+      "type": "verse",
+      "label": "第一段主歌",
+      "start": 0,
+      "end": 29.7,
+      "vocalExpected": true,
+      "harmonyEnabled": false
+    },
+    {
+      "id": "chorus-1",
+      "type": "chorus",
+      "label": "第一段副歌",
+      "start": 29.7,
+      "end": 54.28,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    },
+    {
+      "id": "chorus-final",
+      "type": "chorus",
+      "label": "最终副歌",
+      "start": 54.13,
+      "end": 80.8,
+      "vocalExpected": true,
+      "harmonyEnabled": true
+    }
+  ],
+  "lines": [
+    {
+      "id": "suddenly-line-01",
+      "start": 0,
+      "end": 3.38,
+      "text": "忽然之间",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-02",
+      "start": 3.46,
+      "end": 6.78,
+      "text": "天昏地暗",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-03",
+      "start": 6.86,
+      "end": 8.62,
+      "text": "世界可以忽然",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-04",
+      "start": 8.7,
+      "end": 13.58,
+      "text": "什么都没有",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-05",
+      "start": 13.66,
+      "end": 17.05,
+      "text": "我想起了你",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-06",
+      "start": 17.13,
+      "end": 20.3,
+      "text": "再想到自己",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-07",
+      "start": 20.38,
+      "end": 21.93,
+      "text": "我为什么总在",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-08",
+      "start": 22.01,
+      "end": 25.9,
+      "text": "非常脆弱的时候",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-09",
+      "start": 25.98,
+      "end": 29.62,
+      "text": "怀念你",
+      "section": "verse",
+      "rescuable": true,
+      "harmonyEnabled": false,
+      "breathProtectionMs": 680
+    },
+    {
+      "id": "suddenly-line-10",
+      "start": 29.7,
+      "end": 31.15,
+      "text": "我明白",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-11",
+      "start": 31.23,
+      "end": 34.47,
+      "text": "太放不开你的爱",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-12",
+      "start": 34.55,
+      "end": 37.94,
+      "text": "太熟悉你的关怀",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-13",
+      "start": 38.02,
+      "end": 39.75,
+      "text": "分不开",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-14",
+      "start": 39.83,
+      "end": 43.3,
+      "text": "想你算是安慰还是悲哀",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-15",
+      "start": 43.38,
+      "end": 44.94,
+      "text": "而现在",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-16",
+      "start": 45.02,
+      "end": 48.42,
+      "text": "就算时针都停摆",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-17",
+      "start": 48.5,
+      "end": 51.92,
+      "text": "就算生命像尘埃",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-18",
+      "start": 52,
+      "end": 53.59,
+      "text": "分不开",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-19",
+      "start": 53.67,
+      "end": 54.28,
+      "text": "我们也许反而更相信爱",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-20",
+      "start": 54.13,
+      "end": 55.74,
+      "text": "我明白",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-21",
+      "start": 55.82,
+      "end": 59.12,
+      "text": "太放不开你的爱",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-22",
+      "start": 59.2,
+      "end": 62.66,
+      "text": "太熟悉你的关怀",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-23",
+      "start": 62.74,
+      "end": 64.43,
+      "text": "分不开",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-24",
+      "start": 64.51,
+      "end": 67.91,
+      "text": "想你算是安慰还是悲哀",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-25",
+      "start": 67.99,
+      "end": 69.64,
+      "text": "而现在",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-26",
+      "start": 69.72,
+      "end": 73.08,
+      "text": "就算时针都停摆",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-27",
+      "start": 73.16,
+      "end": 76.58,
+      "text": "就算生命像尘埃",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-28",
+      "start": 76.66,
+      "end": 78.27,
+      "text": "分不开",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    },
+    {
+      "id": "suddenly-line-29",
+      "start": 78.35,
+      "end": 80.72,
+      "text": "我们也许反而更相信爱",
+      "section": "chorus",
+      "rescuable": true,
+      "harmonyEnabled": true,
+      "breathProtectionMs": 480
+    }
+  ]
+}

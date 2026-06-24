@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "id": "suddenly",
+  "title": "忽然之间",
+  "artist": "莫文蔚",
+  "durationSec": 80.8,
+  "difficulty": 3,
+  "focus": [
+    "breath",
+    "expression",
+    "consistency",
+    "pitch"
+  ],
+  "assets": {
+    "accompaniment": "audio/suddenly/accompaniment.mp3",
+    "rescueLead": "audio/suddenly/rescue-lead.mp3",
+    "harmony": "audio/suddenly/harmony.mp3",
+    "timeline": "audio/suddenly/timeline.json",
+    "notes": "catalog/suddenly/notes.json",
+    "phrases": "catalog/suddenly/phrases.json"
+  },
+  "rights": {
+    "status": "prototype",
+    "note": "User-provided prototype asset; commercial/public rights are not established."
+  }
+}
