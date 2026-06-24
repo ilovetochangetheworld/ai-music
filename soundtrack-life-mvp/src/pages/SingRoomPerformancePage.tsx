@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+﻿import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MicVAD } from '@ricky0123/vad-web'
@@ -130,7 +130,7 @@ export default function SingRoomPerformancePage() {
     })
     savePracticeReport(report)
     void saveGrowthReport(report).catch(() => undefined)
-    navigate(`/practice/${songId}/recap`)
+    navigate(`/practice/${songId}/report`)
   }, [latencyCalibration, navigate, settings, songId])
 
   useEffect(() => {
@@ -377,7 +377,7 @@ export default function SingRoomPerformancePage() {
       currentLineRef.current = firstLine
       setNextLine(firstLineIndex >= 0 ? timeline.lines[firstLineIndex + 1] ?? null : null)
       setHostMessage('第一句看好了，倒数后你先来。')
-      setCrowdReaction('安静一下 · 主唱要开口了')
+      setCrowdReaction('')
       setPhase('countdown')
       for (let value = 3; value > 0; value -= 1) {
         setCountdown(value)
@@ -572,3 +572,5 @@ function StageOverlay({ icon, title, detail, progress, action }: { icon: React.R
     </motion.div>
   )
 }
+
+

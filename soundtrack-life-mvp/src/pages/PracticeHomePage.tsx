@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BarChart3, Headphones, Home, ListMusic, Mic2, RefreshCw, Search, Sparkles } from 'lucide-react'
+import { BarChart3, Home, ListMusic, Mic2, RefreshCw, Search, Sparkles } from 'lucide-react'
 import XiaoMai from '../components/XiaoMai'
 import { loadCatalog, metricLabels, type CatalogSongSummary } from '../features/practice-room/catalog'
 
@@ -21,14 +21,19 @@ export default function PracticeHomePage() {
         <div className="section-title"><h2>为你推荐 <Sparkles /></h2><button onClick={() => navigate('/songs')}><RefreshCw />换一组</button></div>
         <div className="home-recommendations">{recommended.map((song, index) => <button key={song.id} className="home-song-item" disabled={song.availability !== 'ready'} onClick={() => navigate(`/practice/${song.id}`)}>
           <span className={`song-art art-${index + 1}`}><b>{String(index + 1).padStart(2, '0')}</b><MusicGlyph /></span>
-          <div><h3>{song.title}</h3><p>{song.artist} · {song.focus.slice(0, 2).map((key) => metricLabels[key]).join(' · ')}</p><i>{Array.from({ length: 5 }).map((_, level) => <em className={level < song.difficulty ? 'on' : ''} key={level} />)}</i></div>
+          <div><span className="song-heading"><h3>{song.title}</h3><small>{song.artist}</small></span><p className="song-focus-tags">{song.focus.slice(0, 2).map((key) => <em key={key}>{metricLabels[key]}</em>)}</p><span className="song-difficulty"><i>{Array.from({ length: 5 }).map((_, level) => <em className={level < song.difficulty ? 'on' : ''} key={level} />)}</i><small>{song.difficulty}级</small></span></div>
           <span className="song-start"><Mic2 />{song.availability === 'ready' ? '开始练' : '准备中'}</span>
         </button>)}</div>
       </section>
-      <section className="home-shortcuts"><button onClick={() => navigate('/songs')}><span><ListMusic /></span><b>可练歌曲</b><small>选择已准备好的歌曲开始练习</small></button><button disabled><span><Sparkles /></span><b>AI修音实验室</b><small>原声永远保留</small><i>研究中</i></button></section>
-      <nav className="practice-bottom-nav"><button className="active"><Home /><span>首页</span></button><button onClick={() => navigate('/songs')}><Headphones /><span>练歌</span></button><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长</span></button></nav>
+      <section className="home-shortcuts"><button onClick={() => navigate('/songs')}><span><ListMusic /></span><b>可练歌曲</b></button><button disabled><span><Sparkles /></span><b>AI修音实验室</b><i>研究中</i></button></section>
+      <nav className="practice-bottom-nav"><button className="active"><Home /><span>首页</span></button><button onClick={() => navigate('/growth')}><BarChart3 /><span>成长</span></button></nav>
     </main>
   )
 }
 
 function MusicGlyph() { return <span aria-hidden="true">♪</span> }
+
+
+
+
+

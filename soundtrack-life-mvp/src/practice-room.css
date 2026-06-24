@@ -32,7 +32,7 @@
 .management-entry{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:10px;padding:15px;color:#68aba4;border:1px solid rgba(104,171,164,.28);border-radius:13px;background:rgba(104,171,164,.07);text-align:left}.management-entry span b,.management-entry span small{display:block}.management-entry span small{margin-top:3px;color:#8f8478;font-size:10px}.management-summary{display:flex;align-items:center;gap:14px;padding:18px;margin-bottom:16px;border-radius:15px;background:linear-gradient(145deg,#272019,#181513)}.management-summary>svg{width:34px;height:34px;color:#f0b44f}.management-summary h1{font-family:var(--font-display);font-size:27px}.management-summary p{color:#91877d;font-size:10px}.management-list{display:grid;gap:10px;margin-bottom:18px}.management-list article{display:grid;grid-template-columns:50px 1fr;gap:11px;padding:13px;border:1px solid rgba(255,255,255,.09);border-radius:13px;background:#191614}.management-cover{width:50px;height:50px;display:grid;place-items:center;color:#f0b44f;border-radius:10px;background:#30261e}.management-info b,.management-info small,.management-info>span{display:block}.management-info small{color:#887e75;font-size:9px}.management-info>span{display:flex;align-items:center;gap:4px;margin-top:7px;font-size:9px}.management-info>span svg{width:13px}.management-info .reviewed{color:#68aba4}.management-info .pending{color:#d09569}.management-actions{grid-column:1/-1;display:flex;gap:7px}.management-actions button{flex:1;display:flex;align-items:center;justify-content:space-between;padding:9px 10px;color:#dcd2c7;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:#211d1a;font-size:10px}.management-actions button svg{width:13px}
 @media(max-width:620px){.practice-site-header .nav .lab-link{display:none}.practice-site-header{padding:10px 14px}.practice-site-header .brand .sub{display:none}.practice-site-header .btn{padding:8px;font-size:11px}.reference-review-page{padding-top:76px}}
 
-/* 2026 暖色练歌房视觉系统 */
+/* 2026 鏆栬壊缁冩瓕鎴胯瑙夌郴缁?*/
 .reference-review-page{padding-top:92px}
 .warm-room-page{--warm-ink:#2c203d;--warm-muted:#887d79;--pink:#ff6794;--pink-dark:#f2497f;--cream:#fffaf2;width:min(100%,520px);min-height:100svh;padding:0 18px 96px;color:var(--warm-ink);background:radial-gradient(circle at 50% 0,#ffe8a9 0,transparent 28%),linear-gradient(180deg,#fff6e7,#fffaf5 58%,#fff4df)}
 .warm-room-page button{color:inherit}.warm-page-header{height:78px;display:grid;grid-template-columns:44px 1fr 44px;align-items:center}.warm-page-header button{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(103,76,73,.12);border-radius:50%;background:rgba(255,255,255,.72);box-shadow:0 8px 24px rgba(130,87,63,.1)}.warm-page-header h1{text-align:center;font-size:25px}.warm-page-header svg{width:21px}
@@ -55,7 +55,7 @@
 @media(max-width:420px){.home-room-hero{min-height:400px}.xiaomai-home .xiaomai{width:215px;height:172px}.home-song-panel{margin-left:10px;margin-right:10px}.home-shortcuts{margin-left:10px;margin-right:10px}.recap-room-scene{height:400px}.report-metric-bars article{grid-template-columns:34px 48px 1fr 26px;gap:6px}}
 @media(max-width:620px){.reference-review-page{padding-top:76px}}
 
-/* 2026 粉紫糖果练歌房视觉升级 */
+/* 2026 绮夌传绯栨灉缁冩瓕鎴胯瑙夊崌绾?*/
 .warm-room-page {
   --warm-ink: #342044;
   --warm-muted: #8b7590;
@@ -345,7 +345,7 @@
   .xiaomai-home .xiaomai { width: 218px; height: 174px; }
 }
 
-/* 结算页小麦：自然摇摆一次后静止约 10 秒 */
+/* 缁撶畻椤靛皬楹︼細鑷劧鎽囨憜涓€娆″悗闈欐绾?10 绉?*/
 .recap-room-scene .xiaomai {
   animation: none !important;
   transform: translateX(-50%);
@@ -371,7 +371,7 @@
   5.8% { transform: translateX(3px) scaleX(.92); opacity: .82; }
   11.4% { transform: translateX(-1px) scaleX(.98); opacity: .95; }
 }
-/* 首页快捷入口与底部导览优化 */
+/* 棣栭〉蹇嵎鍏ュ彛涓庡簳閮ㄥ瑙堜紭鍖?*/
 .practice-home .home-shortcuts {
   grid-template-columns: .86fr 1.14fr;
   align-items: stretch;
@@ -464,7 +464,7 @@
   .practice-home .home-shortcuts button:nth-child(2) { padding: 18px 16px; }
   .practice-home .practice-bottom-nav { width: min(calc(100% - 20px), 492px); }
 }
-/* 成长报告：轻量陪练反馈版 */
+/* 鎴愰暱鎶ュ憡锛氳交閲忛櫔缁冨弽棣堢増 */
 .coaching-report-sheet {
   display: grid;
   gap: 14px;
@@ -599,7 +599,7 @@
   .evidence-card { padding: 15px; }
   .report-metric-bars.compact article { grid-template-columns: 32px 52px 1fr 28px; }
 }
-/* 成长档案：练习日历、歌曲分组、下次练什么 */
+/* 鎴愰暱妗ｆ锛氱粌涔犳棩鍘嗐€佹瓕鏇插垎缁勩€佷笅娆＄粌浠€涔?*/
 .coaching-growth-page {
   display: grid;
   gap: 14px;
@@ -810,7 +810,7 @@
   .next-practice-card button { width: 100%; }
 }
 
-/* APR-3302 延迟校准与报告质量补充 */
+/* APR-3302 寤惰繜鏍″噯涓庢姤鍛婅川閲忚ˉ鍏?*/
 .report-quality.with-latency { grid-template-columns: repeat(4, 1fr); }
 .setup-latency {
   display: grid;
@@ -1034,4 +1034,3681 @@
   width: 16px;
   height: 16px;
   flex: 0 0 16px;
+}
+
+/* 棣栭〉绉诲姩绔細缂╁皬骞跺彸涓婄Щ鍔ㄥ皬楹﹁亰澶╂皵娉★紝閬垮厤閬尅澶村儚 */
+.practice-home .xiaomai-home .companion-speech {
+  top: -128px !important;
+  left: auto !important;
+  right: -68px !important;
+  width: 136px !important;
+  padding: 10px 14px !important;
+  border-radius: 18px !important;
+  transform: none !important;
+  font-size: 13px !important;
+  line-height: 1.35;
+  box-shadow: 0 12px 24px rgba(97, 56, 127, .12) !important;
+}
+.practice-home .xiaomai-home .companion-speech::after {
+  left: 34px !important;
+  bottom: -10px !important;
+  border-width: 6px !important;
+  transform: none !important;
+}
+@media (max-width: 420px) {
+  .practice-home .xiaomai-home .companion-speech {
+    top: -118px !important;
+    right: -58px !important;
+    width: 124px !important;
+    padding: 9px 12px !important;
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 360px) {
+  .practice-home .xiaomai-home .companion-speech {
+    right: -42px !important;
+    width: 116px !important;
+  }
+}
+/* 椤堕儴涓昏瑙夛細鐢ㄦ贰榛勮壊鍒嗙鏍囬鍖猴紝閬垮厤鐧借壊搴?鐧藉瓧铻嶅叆鑳屾櫙 */
+.practice-home .home-room-hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 232, 143, .82), transparent 24%),
+    radial-gradient(circle at 86% 22%, rgba(108, 224, 237, .76), transparent 22%),
+    linear-gradient(150deg, #ffb8d6 0%, #cf9cff 50%, #92dff2 100%) !important;
+}
+.practice-home .home-room-hero header {
+  width: max-content;
+  max-width: 72%;
+  padding: 16px 18px 15px;
+  border: 1px solid rgba(255, 236, 157, .72);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 238, 157, .88), rgba(255, 248, 202, .66));
+  box-shadow: 0 16px 34px rgba(117, 76, 137, .13);
+  backdrop-filter: blur(8px);
+}
+.practice-home .home-room-hero h1 {
+  color: #4c2b60 !important;
+  text-shadow: 0 2px 0 rgba(255,255,255,.52) !important;
+}
+.practice-home .home-room-hero header p {
+  color: #7a4f68 !important;
+  text-shadow: none !important;
+}
+.recap-room-scene,
+.report-companion-scene,
+.highlight-room-scene,
+.setup-companion,
+.latency-hero {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(255, 232, 143, .72), transparent 22%),
+    radial-gradient(circle at 88% 22%, rgba(100, 217, 236, .76), transparent 24%),
+    linear-gradient(155deg, #ffb8d5, #c89dff 52%, #91ddf0) !important;
+}
+@media (max-width: 420px) {
+  .practice-home .home-room-hero header {
+    max-width: 76%;
+    padding: 13px 15px 12px;
+    border-radius: 24px;
+  }
+  .practice-home .home-room-hero h1 { font-size: 36px !important; }
+  .practice-home .home-room-hero header p { font-size: 14px !important; }
+}
+/* 淇锛氶椤垫爣棰樹笉鍔犲崱鐗囷紝鏂囧瓧淇濇寔鐧借壊锛涗粎灏嗚儗鏅櫧鑹插厜鏂戞敼涓烘瀬娣″ザ榛?*/
+.practice-home .home-room-hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 250, 218, .46), transparent 24%),
+    radial-gradient(circle at 86% 22%, rgba(108, 224, 237, .76), transparent 22%),
+    linear-gradient(150deg, #ffb8d6 0%, #cf9cff 50%, #92dff2 100%) !important;
+}
+.practice-home .home-room-hero header {
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.practice-home .home-room-hero h1 {
+  color: #fff !important;
+  text-shadow: 0 10px 28px rgba(84, 45, 139, .22) !important;
+}
+.practice-home .home-room-hero header p {
+  color: rgba(255, 255, 255, .92) !important;
+  text-shadow: 0 6px 18px rgba(84, 45, 139, .12) !important;
+}
+.recap-room-scene,
+.report-companion-scene,
+.highlight-room-scene,
+.setup-companion,
+.latency-hero {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(255, 250, 218, .42), transparent 22%),
+    radial-gradient(circle at 88% 22%, rgba(100, 217, 236, .76), transparent 24%),
+    linear-gradient(155deg, #ffb8d5, #c89dff 52%, #91ddf0) !important;
+}
+@media (max-width: 420px) {
+  .practice-home .home-room-hero header {
+    max-width: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+  .practice-home .home-room-hero h1 { font-size: 38px !important; }
+  .practice-home .home-room-hero header p { font-size: 14px !important; }
+}
+/* 寤惰繜鏍″噯璇存槑鍗★細鎵胯浇涓昏鏄庢枃妗堬紝鏀惧ぇ骞跺彲鐖卞寲 icon */
+.latency-sheet > p {
+  display: none;
+}
+.latency-note {
+  grid-template-columns: 54px minmax(0,1fr) !important;
+  align-items: center !important;
+  margin: 24px 0 20px !important;
+  padding: 18px 20px !important;
+  border-radius: 26px !important;
+  background: linear-gradient(135deg, rgba(246,241,255,.96), rgba(255,247,252,.9)) !important;
+  box-shadow: 0 14px 28px rgba(131, 85, 146, .1);
+}
+.latency-note > span:last-child {
+  color: #5f5363;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.75;
+}
+.latency-note-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ff83ad, #8f6df4);
+  box-shadow: 0 10px 20px rgba(143, 109, 244, .22);
+  transform: rotate(-5deg);
+}
+.latency-note-icon svg {
+  width: 25px !important;
+  height: 25px !important;
+  color: white !important;
+}
+.latency-note-icon svg:last-child {
+  position: absolute;
+  right: -5px;
+  top: -6px;
+  width: 18px !important;
+  height: 18px !important;
+  padding: 3px;
+  border-radius: 50%;
+  background: #52d6cb;
+  box-shadow: 0 4px 10px rgba(82, 214, 203, .28);
+  transform: rotate(16deg);
+}
+@media (max-width: 420px) {
+  .latency-note {
+    grid-template-columns: 48px minmax(0,1fr) !important;
+    padding: 16px !important;
+  }
+  .latency-note > span:last-child {
+    font-size: 16px;
+    line-height: 1.68;
+  }
+  .latency-note-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+  }
+}
+/* 寤惰繜鏍″噯椤碉細鎴愮啛鍖栦俊鎭崱鎺掔増 */
+.latency-note {
+  grid-template-columns: 52px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: center !important;
+  max-width: 420px;
+  margin: 26px auto 22px !important;
+  padding: 18px 20px !important;
+  text-align: left;
+}
+.latency-note > span:last-child {
+  max-width: 300px;
+  color: #655a68 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.85 !important;
+  letter-spacing: 0;
+}
+.latency-note-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 17px !important;
+  transform: rotate(-4deg) !important;
+}
+.latency-note-icon svg:first-child {
+  width: 24px !important;
+  height: 24px !important;
+}
+.latency-note-icon svg:last-child {
+  right: -4px !important;
+  top: -5px !important;
+  width: 17px !important;
+  height: 17px !important;
+}
+.latency-sheet h2 {
+  margin-bottom: 18px !important;
+}
+@media (max-width: 420px) {
+  .latency-note {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    max-width: 100%;
+    padding: 16px 17px !important;
+  }
+  .latency-note > span:last-child {
+    max-width: 230px;
+    font-size: 14px !important;
+    line-height: 1.78 !important;
+  }
+}
+/* 寤惰繜鏍″噯璇存槑鍗★細鍘绘帀鍥炬爣鍚庢枃瀛楀眳涓?*/
+.latency-note {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  text-align: center !important;
+}
+.latency-note > span:last-child,
+.latency-note > span:first-child {
+  max-width: 360px !important;
+  text-align: center !important;
+}
+.latency-note-icon {
+  display: none !important;
+}
+@media (max-width: 420px) {
+  .latency-note {
+    grid-template-columns: 1fr !important;
+  }
+  .latency-note > span:last-child,
+  .latency-note > span:first-child {
+    max-width: 270px !important;
+  }
+}
+/* 寤惰繜鏍″噯璇存槑鏂囨锛氱涓€琛屽畬鏁村睍绀?*/
+.latency-note-copy {
+  max-width: none !important;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center !important;
+}
+.latency-note-line {
+  display: block;
+  color: #655a68;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.latency-note-line.main {
+  white-space: nowrap;
+  font-size: clamp(12px, 3.45vw, 15px);
+}
+@media (max-width: 420px) {
+  .latency-note-copy {
+    max-width: none !important;
+  }
+  .latency-note-line {
+    font-size: 14px;
+  }
+  .latency-note-line.main {
+    font-size: clamp(11px, 3.25vw, 14px);
+  }
+}
+/* 鍑嗗椤靛簳閮ㄧ粌涔犳彁绀?*/
+.setup-privacy {
+  margin-top: 18px !important;
+  color: #7b6c80 !important;
+  font-size: 14px !important;
+  font-weight: 800;
+  line-height: 1.45;
+  text-align: center;
+}
+.setup-privacy svg {
+  display: none;
+}
+.setup-options small {
+  font-size: 10px !important;
+}
+/* 鍙粌姝屾洸椤碉細绮捐嚧杩斿洖鎸夐挳涓庨《閮ㄧ暀鐧?*/
+.song-catalog-page .practice-top {
+  min-height: 58px;
+  margin-bottom: 18px;
+}
+.song-catalog-page .practice-top > b {
+  font-size: 17px;
+  font-weight: 900;
+}
+.song-catalog-page .practice-top > span {
+  width: 48px;
+  height: 48px;
+  justify-self: end;
+}
+.song-catalog-page .practice-top button {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #4a335a;
+  border: 1px solid rgba(255,255,255,.92) !important;
+  border-radius: 50%;
+  background: rgba(255,255,255,.72) !important;
+  box-shadow: 0 12px 24px rgba(103, 72, 134, .14), inset 0 1px 0 rgba(255,255,255,.92) !important;
+  backdrop-filter: blur(12px);
+}
+.song-catalog-page .practice-top button svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.4;
+}
+.song-catalog-page .practice-top button:active {
+  transform: scale(.96);
+}
+.song-catalog-page .import-entry {
+  margin-bottom: 20px;
+}
+/* Duolingo 椋庢牸绉诲姩绔瑙変紭鍖栵細淇濈暀鍔熻兘閫昏緫锛屽彧缁熶竴鍦嗘鼎鍗＄墖銆佸眰绾т笌棣栭〉姣斾緥 */
+.warm-room-page {
+  --duo-ink: #382246;
+  --duo-muted: #7d6d84;
+  --duo-pink: #ff5b9b;
+  --duo-purple: #8f6df4;
+  --duo-mint: #5fd7cc;
+  --duo-yellow: #ffd766;
+  --duo-card: #fffafd;
+  --duo-card-soft: #fff4fa;
+  color: var(--duo-ink) !important;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(255, 245, 173, .44), transparent 25%),
+    radial-gradient(circle at 92% 10%, rgba(122, 222, 236, .36), transparent 25%),
+    linear-gradient(180deg, #fff2fb 0%, #fff8ef 48%, #fff5fb 100%) !important;
+}
+
+.practice-home { padding-bottom: 110px !important; }
+.practice-home .home-room-hero {
+  min-height: 342px !important;
+  padding: 24px 24px 0 !important;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 250, 212, .38), transparent 23%),
+    radial-gradient(circle at 86% 18%, rgba(105, 224, 236, .58), transparent 23%),
+    linear-gradient(145deg, #ff9ecd 0%, #cf9cff 52%, #aee8f3 100%) !important;
+}
+.practice-home .home-room-hero::before {
+  left: 44px !important;
+  right: 44px !important;
+  bottom: -66px !important;
+  height: 150px !important;
+  border-radius: 50% 50% 0 0 !important;
+  background: linear-gradient(180deg, rgba(255, 222, 131, .8), rgba(255, 170, 199, .9)) !important;
+  box-shadow: 0 -10px 0 rgba(255,255,255,.18) inset !important;
+}
+.practice-home .home-room-hero::after {
+  right: -28px !important;
+  top: 86px !important;
+  width: 128px !important;
+  height: 128px !important;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7fd 0 14%, #ffd766 15% 27%, #8f6df4 28% 46%, #3f2e68 47% 54%, transparent 55%) !important;
+  opacity: .45 !important;
+}
+.practice-home .home-room-hero header { position: relative; z-index: 5; }
+.practice-home .home-room-hero h1 {
+  font-size: clamp(32px, 9vw, 40px) !important;
+  line-height: .98 !important;
+  letter-spacing: 0 !important;
+  color: #fff !important;
+  text-shadow: 0 4px 0 rgba(105, 60, 139, .12), 0 12px 24px rgba(97, 54, 132, .2) !important;
+}
+.practice-home .home-room-hero header p {
+  margin-top: 8px !important;
+  color: rgba(255,255,255,.92) !important;
+  font-size: 14px !important;
+  font-weight: 800;
+}
+.practice-home .room-music-note { color: rgba(255,255,255,.5) !important; font-size: 40px !important; }
+.practice-home .room-music-note.one { top: 96px !important; right: 88px !important; }
+.practice-home .room-music-note.two { top: 166px !important; left: 34px !important; }
+.practice-home .xiaomai-home { bottom: 4px !important; }
+.practice-home .xiaomai-home .xiaomai { width: 188px !important; height: 150px !important; }
+.practice-home .xiaomai-home .companion-speech {
+  top: -42px !important;
+  left: calc(50% + 86px) !important;
+  width: 136px !important;
+  padding: 10px 12px !important;
+  border: 2px solid rgba(255,255,255,.92);
+  border-radius: 24px !important;
+  color: #6e3c62;
+  background: #fffafd !important;
+  box-shadow: 0 5px 0 #f3d5e7, 0 14px 24px rgba(120, 78, 139, .12) !important;
+  font-size: 13px !important;
+  line-height: 1.35;
+}
+.practice-home .xiaomai-home .companion-speech::after {
+  left: 20px !important;
+  bottom: -12px !important;
+  border-width: 7px !important;
+  border-top-color: #fffafd !important;
+}
+
+.home-song-panel,
+.report-sheet,
+.latency-sheet,
+.setup-song-card,
+.practice-calendar-card,
+.next-practice-card,
+.song-growth-groups,
+.coaching-card,
+.evidence-card,
+.professional-evidence,
+.highlight-card,
+.tuning-card,
+.review-line,
+.review-export {
+  border: 2px solid rgba(255,255,255,.92) !important;
+  border-radius: 30px !important;
+  background: var(--duo-card) !important;
+  box-shadow: 0 7px 0 #efd9ea, 0 18px 34px rgba(117, 78, 139, .1) !important;
+  backdrop-filter: none !important;
+}
+.home-song-panel { margin: -8px 14px 0 !important; padding: 18px 14px 16px !important; }
+.home-search {
+  height: 54px !important;
+  padding: 0 16px !important;
+  border: 2px solid #f1dbe9;
+  border-radius: 24px !important;
+  background: #fff3fa !important;
+  box-shadow: inset 0 -2px 0 rgba(239, 217, 234, .9);
+}
+.home-search .home-search-main { color: #80677f !important; font-size: 13px !important; font-weight: 800; }
+.home-song-panel .section-title h2,
+.section-title h2 { color: var(--duo-ink); font-weight: 950; }
+.home-song-panel .section-title button {
+  padding: 8px 10px !important;
+  border-radius: 999px !important;
+  color: #6f55c8 !important;
+  background: #f1edff !important;
+  font-weight: 850;
+}
+.home-recommendations,
+.catalog-list,
+.growth-history,
+.song-growth-groups { gap: 12px !important; }
+.home-song-item,
+.catalog-song,
+.growth-history > button,
+.song-growth-groups article,
+.setup-options,
+.setup-latency,
+.setup-notice,
+.setup-headphone,
+.report-quality > div,
+.metric-list article,
+.growth-metrics article {
+  border: 2px solid #f0ddea !important;
+  border-radius: 26px !important;
+  background: #fff !important;
+  box-shadow: 0 5px 0 #ead8e6 !important;
+  backdrop-filter: none !important;
+}
+.home-song-item { min-height: 86px; padding: 12px 10px 14px !important; }
+.song-art,
+.catalog-cover,
+.management-cover { border-radius: 22px !important; box-shadow: 0 5px 0 rgba(88, 54, 112, .16); }
+.home-song-item .song-start,
+.catalog-song > i,
+.setup-song-card > span {
+  color: #2f8f72 !important;
+  border: 1px solid #c8f0df;
+  border-radius: 999px !important;
+  background: #eafff5 !important;
+  font-weight: 900;
+}
+.home-shortcuts {
+  grid-template-columns: .92fr 1.08fr !important;
+  gap: 12px !important;
+  margin: 16px 14px 0 !important;
+}
+.home-shortcuts button {
+  min-height: 110px !important;
+  padding: 16px !important;
+  border: 2px solid rgba(255,255,255,.94) !important;
+  border-radius: 30px !important;
+  background: #fffafd !important;
+  box-shadow: 0 6px 0 #efd9ea, 0 16px 26px rgba(117, 78, 139, .08) !important;
+}
+.home-shortcuts button > span {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 22px !important;
+  box-shadow: 0 5px 0 rgba(115, 64, 121, .16);
+}
+.home-shortcuts button:first-child { background: #fff7fc !important; }
+.home-shortcuts button:nth-child(2) { background: #f1fffb !important; opacity: .82; }
+.home-shortcuts b { color: var(--duo-ink); font-size: 15px !important; font-weight: 950; }
+.home-shortcuts small { color: var(--duo-muted) !important; font-size: 10px !important; line-height: 1.45; }
+.practice-bottom-nav {
+  height: 76px !important;
+  padding: 9px 10px !important;
+  border: 2px solid rgba(255,255,255,.96) !important;
+  border-radius: 32px !important;
+  background: #fffafd !important;
+  box-shadow: 0 8px 0 #efd9ea, 0 18px 34px rgba(117, 78, 139, .16) !important;
+  backdrop-filter: none !important;
+}
+.practice-bottom-nav button {
+  min-width: 0;
+  border-radius: 24px !important;
+  color: #9a86a2 !important;
+  font-size: 10px !important;
+  font-weight: 900;
+}
+.practice-bottom-nav button.active {
+  color: #fff !important;
+  background: linear-gradient(135deg, #ff7daf, #ff5b9b) !important;
+  box-shadow: inset 0 -4px 0 rgba(183, 48, 103, .2), 0 6px 14px rgba(255, 91, 155, .22);
+}
+.practice-bottom-nav svg { width: 23px !important; height: 23px !important; stroke-width: 2.8; }
+
+.warm-page-header button,
+.practice-top button,
+.song-catalog-page .practice-top button {
+  border: 2px solid rgba(255,255,255,.95) !important;
+  background: #fffafd !important;
+  box-shadow: 0 5px 0 #efd9ea, 0 12px 22px rgba(117, 78, 139, .1) !important;
+  backdrop-filter: none !important;
+}
+.setup-companion,
+.latency-hero,
+.report-companion-scene,
+.recap-room-scene,
+.highlight-room-scene {
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 250, 212, .4), transparent 24%),
+    radial-gradient(circle at 86% 20%, rgba(105, 224, 236, .54), transparent 24%),
+    linear-gradient(145deg, #ffa5cf 0%, #cf9cff 54%, #aee8f3 100%) !important;
+}
+.setup-companion { height: 190px !important; }
+.setup-companion .xiaomai { width: 178px !important; height: 138px !important; }
+.setup-song-card { margin-top: -8px !important; }
+.setup-song-card h1,
+.latency-sheet h2,
+.report-sheet h2,
+.growth-hero h1 { color: var(--duo-ink) !important; letter-spacing: 0 !important; }
+.setup-latency {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) auto !important;
+  gap: 12px !important;
+  padding: 14px !important;
+}
+.setup-latency > svg,
+.latency-main-icon,
+.growth-hero svg { color: var(--duo-pink) !important; }
+.setup-latency button,
+.latency-skip,
+.report-actions button {
+  border: 2px solid #f2dce9 !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 0 #ead8e6 !important;
+  color: #7a5f83 !important;
+  font-weight: 900;
+}
+.practice-primary,
+.latency-sheet .practice-primary,
+.setup-start {
+  min-height: 58px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #ff7daf 0%, #ff5b9b 60%, #8f6df4 100%) !important;
+  box-shadow: 0 7px 0 #cc3f81, 0 18px 26px rgba(255, 91, 155, .22) !important;
+  font-size: 16px !important;
+  font-weight: 950;
+}
+.latency-note,
+.latency-result-grid span {
+  border: 2px solid #f0ddea !important;
+  border-radius: 26px !important;
+  background: #fff4fa !important;
+  box-shadow: inset 0 -3px 0 rgba(239, 217, 234, .84) !important;
+}
+.latency-beats i {
+  border-radius: 14px !important;
+  background: #ead8e6 !important;
+  box-shadow: inset 0 -3px 0 rgba(160, 129, 155, .14);
+}
+.latency-beats i.active {
+  background: linear-gradient(180deg, #ff88b6, #ff5b9b) !important;
+  box-shadow: inset 0 -3px 0 rgba(183, 48, 103, .2), 0 8px 18px rgba(255, 91, 155, .2) !important;
+}
+.practice-calendar-card,
+.next-practice-card,
+.song-growth-groups article { padding: 18px !important; }
+.calendar-strip div,
+.song-growth-groups article div button {
+  border: 2px solid #f0ddea !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 0 #ead8e6 !important;
+}
+.calendar-strip div.active,
+.song-growth-groups article div button:hover {
+  color: #fff !important;
+  border-color: transparent !important;
+  background: linear-gradient(145deg, #ff7daf, #ff5b9b) !important;
+  box-shadow: 0 4px 0 #cc3f81 !important;
+}
+.next-practice-card button {
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #5fd7cc, #45bfb5) !important;
+  box-shadow: 0 5px 0 #2b9b92 !important;
+}
+.report-companion-scene { height: 282px !important; }
+.report-companion-scene .xiaomai { width: 210px !important; height: 160px !important; }
+.coaching-card,
+.evidence-card { background: #fff !important; }
+.professional-evidence summary { color: #7a5f83; font-weight: 950; }
+
+@media (max-width: 420px) {
+  .practice-home .home-room-hero { min-height: 328px !important; padding: 22px 20px 0 !important; }
+  .practice-home .xiaomai-home .xiaomai { width: 174px !important; height: 138px !important; }
+  .practice-home .xiaomai-home .companion-speech {
+    left: calc(50% + 74px) !important;
+    top: -38px !important;
+    width: 124px !important;
+    padding: 9px 10px !important;
+    font-size: 12px !important;
+  }
+  .home-song-panel,
+  .home-shortcuts { margin-left: 10px !important; margin-right: 10px !important; }
+  .home-song-item { grid-template-columns: 54px minmax(0, 1fr) auto !important; gap: 9px !important; }
+  .song-art { width: 54px !important; height: 54px !important; }
+  .home-song-item .song-start { padding: 7px !important; font-size: 0 !important; }
+  .home-song-item .song-start svg { width: 17px !important; height: 17px !important; }
+  .home-shortcuts { grid-template-columns: 1fr 1fr !important; }
+  .home-shortcuts button { min-height: 104px !important; padding: 14px !important; }
+  .setup-latency { grid-template-columns: 38px minmax(0, 1fr) !important; }
+  .setup-latency button { grid-column: 2; justify-self: start; margin-top: 2px; }
+}
+
+/* 绉诲姩绔€傞厤鏀跺彛锛氬浐瀹氶〉闈㈠搴︺€佺粺涓€鍗＄墖瀹藉害鍜屽懠鍚搁棿璺濓紝閬垮厤妯悜婊氬姩 */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+.practice-mobile,
+.warm-room-page {
+  width: min(100%, 430px) !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(14px, 4vw, 18px) !important;
+  padding-right: clamp(14px, 4vw, 18px) !important;
+  overflow-x: clip !important;
+}
+
+.practice-home {
+  width: min(100%, 430px) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.practice-mobile *,
+.practice-mobile *::before,
+.practice-mobile *::after,
+.sing-stage *,
+.sing-stage *::before,
+.sing-stage *::after {
+  box-sizing: border-box;
+}
+
+.practice-mobile img,
+.practice-mobile svg,
+.practice-mobile audio,
+.sing-stage img,
+.sing-stage svg,
+.sing-stage audio {
+  max-width: 100%;
+}
+
+.practice-top,
+.warm-page-header {
+  width: 100%;
+  min-height: 64px !important;
+  margin-bottom: 18px !important;
+  grid-template-columns: 48px minmax(0, 1fr) 48px !important;
+  gap: 8px !important;
+}
+.practice-top > b,
+.warm-page-header h1 {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.practice-top button,
+.warm-page-header button,
+.song-catalog-page .practice-top button {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+}
+
+.home-song-panel,
+.home-shortcuts,
+.setup-song-card,
+.setup-options,
+.setup-latency,
+.setup-notice,
+.setup-headphone,
+.latency-sheet,
+.report-sheet,
+.practice-calendar-card,
+.next-practice-card,
+.song-growth-groups,
+.catalog-list,
+.import-entry,
+.highlight-card,
+.tuning-card,
+.review-line,
+.review-export {
+  width: auto !important;
+  max-width: calc(100% - 20px) !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.catalog-list,
+.home-recommendations,
+.growth-history,
+.song-growth-groups,
+.metric-list,
+.report-metric-bars {
+  display: grid;
+  gap: 14px !important;
+}
+
+.home-song-item,
+.catalog-song,
+.import-entry,
+.growth-history > button,
+.song-growth-groups article,
+.management-list article,
+.management-entry,
+.management-summary {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.catalog-song,
+.home-song-item {
+  grid-template-columns: 54px minmax(0, 1fr) auto !important;
+  column-gap: 10px !important;
+  padding: 12px !important;
+}
+.catalog-song > span:nth-child(2),
+.home-song-item > div,
+.import-entry > span,
+.management-info,
+.song-growth-groups article span {
+  min-width: 0;
+}
+.catalog-song b,
+.catalog-song small,
+.catalog-song em,
+.home-song-item h3,
+.home-song-item p,
+.import-entry b,
+.import-entry small,
+.song-growth-groups article b,
+.song-growth-groups article small {
+  overflow-wrap: anywhere;
+}
+.catalog-song > i,
+.home-song-item .song-start {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.home-search,
+.home-search .home-search-main,
+.home-shortcuts button,
+.setup-latency,
+.next-practice-card,
+.evidence-card,
+.report-actions,
+.report-quality,
+.latency-result-grid {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.home-shortcuts {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+}
+.home-shortcuts button {
+  min-width: 0 !important;
+  overflow: hidden;
+}
+.home-shortcuts button > span {
+  float: none !important;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+.practice-bottom-nav {
+  left: 50% !important;
+  bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  width: min(calc(100% - 24px), 406px) !important;
+  height: 72px !important;
+  padding: 8px !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  transform: translateX(-50%) !important;
+}
+.practice-bottom-nav button {
+  width: 100%;
+  min-width: 0 !important;
+  min-height: 54px;
+  gap: 2px !important;
+}
+.practice-bottom-nav span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.practice-home .home-room-hero {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+.practice-home .home-room-hero::after {
+  right: -12px !important;
+  width: 110px !important;
+  height: 110px !important;
+}
+.practice-home .xiaomai-home {
+  max-width: 100% !important;
+}
+.practice-home .xiaomai-home .companion-speech {
+  left: auto !important;
+  right: -6px !important;
+  transform: none !important;
+  max-width: 128px !important;
+}
+
+.setup-companion,
+.latency-hero,
+.report-companion-scene,
+.recap-room-scene,
+.highlight-room-scene {
+  margin-left: calc(clamp(14px, 4vw, 18px) * -1) !important;
+  margin-right: calc(clamp(14px, 4vw, 18px) * -1) !important;
+  width: auto !important;
+  max-width: none !important;
+  overflow: hidden !important;
+}
+
+.calendar-strip {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+@media (max-width: 390px) {
+  .practice-mobile,
+  .warm-room-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .home-song-panel,
+  .home-shortcuts,
+  .setup-song-card,
+  .setup-options,
+  .setup-latency,
+  .setup-notice,
+  .setup-headphone,
+  .latency-sheet,
+  .report-sheet,
+  .practice-calendar-card,
+  .next-practice-card,
+  .song-growth-groups,
+  .catalog-list,
+  .import-entry,
+  .highlight-card,
+  .tuning-card,
+  .review-line,
+  .review-export {
+    max-width: calc(100% - 16px) !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+  .catalog-song,
+  .home-song-item {
+    grid-template-columns: 50px minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+  .catalog-cover,
+  .song-art {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .catalog-song > i {
+    padding: 7px 8px !important;
+    font-size: 10px !important;
+  }
+  .home-shortcuts {
+    grid-template-columns: 1fr !important;
+  }
+  .practice-bottom-nav {
+    width: min(calc(100% - 18px), 406px) !important;
+    height: 70px !important;
+  }
+}
+
+/* 椤甸潰椤堕儴瀵艰埅缁熶竴锛氬悓楂樺害銆佸悓鏍囬瀛楀彿銆佸悓鎸夐挳椋庢牸 */
+.practice-mobile > .practice-top,
+.practice-mobile > .warm-page-header {
+  height: 92px !important;
+  min-height: 92px !important;
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 56px minmax(0, 1fr) 56px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 0 14px !important;
+  padding: max(12px, env(safe-area-inset-top)) 0 14px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.practice-mobile > .practice-top > b,
+.practice-mobile > .warm-page-header > h1 {
+  justify-self: center !important;
+  align-self: center !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: #382246 !important;
+  font-family: var(--font-body) !important;
+  font-size: 28px !important;
+  font-weight: 950 !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.practice-mobile > .practice-top > button,
+.practice-mobile > .warm-page-header > button,
+.song-catalog-page .practice-top > button {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 2px solid rgba(255,255,255,.96) !important;
+  border-radius: 50% !important;
+  color: #382246 !important;
+  background: #fffafd !important;
+  box-shadow: 0 6px 0 #ead8e6, 0 14px 24px rgba(117, 78, 139, .11) !important;
+  backdrop-filter: none !important;
+}
+
+.practice-mobile > .practice-top > button:first-child,
+.practice-mobile > .warm-page-header > button:first-child {
+  justify-self: start !important;
+}
+
+.practice-mobile > .practice-top > button:last-child,
+.practice-mobile > .warm-page-header > button:last-child {
+  justify-self: end !important;
+}
+
+.practice-mobile > .practice-top > button svg,
+.practice-mobile > .warm-page-header > button svg {
+  width: 24px !important;
+  height: 24px !important;
+  stroke-width: 2.6 !important;
+}
+
+.practice-mobile > .practice-top > span,
+.practice-mobile > .warm-page-header > span {
+  width: 56px !important;
+  height: 56px !important;
+  justify-self: end !important;
+}
+
+.growth-page > .practice-top,
+.song-catalog-page > .practice-top {
+  margin-bottom: 18px !important;
+}
+
+.setup-design > .warm-page-header + .setup-companion {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 390px) {
+  .practice-mobile > .practice-top,
+  .practice-mobile > .warm-page-header {
+    height: 84px !important;
+    min-height: 84px !important;
+    grid-template-columns: 50px minmax(0, 1fr) 50px !important;
+    padding-bottom: 12px !important;
+  }
+  .practice-mobile > .practice-top > b,
+  .practice-mobile > .warm-page-header > h1 {
+    font-size: 24px !important;
+  }
+  .practice-mobile > .practice-top > button,
+  .practice-mobile > .warm-page-header > button,
+  .song-catalog-page .practice-top > button,
+  .practice-mobile > .practice-top > span,
+  .practice-mobile > .warm-page-header > span {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+/* 椤堕儴瀵艰埅闊充箰鍖栧井瑁呴グ锛氭爣棰樻洿鏈夋皼鍥达紝鎸夐挳鏇磋交宸?*/
+.practice-mobile > .practice-top,
+.practice-mobile > .warm-page-header {
+  height: 84px !important;
+  min-height: 84px !important;
+  grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+  padding-top: max(12px, env(safe-area-inset-top)) !important;
+  padding-bottom: 12px !important;
+}
+
+.practice-mobile > .practice-top::before,
+.practice-mobile > .warm-page-header::before,
+.practice-mobile > .practice-top::after,
+.practice-mobile > .warm-page-header::after {
+  content: "♪";
+  position: absolute;
+  top: calc(max(12px, env(safe-area-inset-top)) + 17px);
+  color: rgba(255, 91, 155, .28);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.practice-mobile > .practice-top::before,
+.practice-mobile > .warm-page-header::before {
+  left: clamp(82px, 24vw, 116px);
+  transform: rotate(-14deg);
+}
+
+.practice-mobile > .practice-top::after,
+.practice-mobile > .warm-page-header::after {
+  content: "♪";
+  right: clamp(82px, 24vw, 116px);
+  color: rgba(143, 109, 244, .24);
+  transform: rotate(12deg);
+}
+
+.practice-mobile > .practice-top > b,
+.practice-mobile > .warm-page-header > h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 25px !important;
+  text-shadow: 0 2px 0 rgba(255,255,255,.72);
+}
+
+.practice-mobile > .practice-top > button,
+.practice-mobile > .warm-page-header > button,
+.song-catalog-page .practice-top > button {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  border-width: 2px !important;
+  box-shadow: 0 4px 0 #ead8e6, 0 10px 18px rgba(117, 78, 139, .1) !important;
+}
+
+.practice-mobile > .practice-top > button svg,
+.practice-mobile > .warm-page-header > button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2.5 !important;
+}
+
+.practice-mobile > .practice-top > span,
+.practice-mobile > .warm-page-header > span {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+/* 婕斿敱椤甸《閮ㄦ爮涔熷悓姝ヤ竴鐐归煶涔愭皵姘涳紝浣嗕繚鎸佹帶鍒朵俊鎭竻鏅?*/
+.sing-stage .stage-topbar::before,
+.sing-stage .stage-topbar::after {
+  content: "♪";
+  position: absolute;
+  top: 22px;
+  color: rgba(255, 91, 155, .24);
+  font-size: 18px;
+  font-weight: 900;
+  pointer-events: none;
+}
+.sing-stage .stage-topbar::before {
+  left: clamp(74px, 22vw, 110px);
+  transform: rotate(-12deg);
+}
+.sing-stage .stage-topbar::after {
+  content: "♪";
+  right: clamp(74px, 22vw, 110px);
+  color: rgba(143, 109, 244, .22);
+  transform: rotate(12deg);
+}
+.sing-stage .stage-brand {
+  position: relative;
+  z-index: 1;
+}
+.sing-stage .stage-end {
+  min-height: 34px !important;
+  padding: 6px 9px !important;
+  font-size: 11px !important;
+}
+
+@media (max-width: 390px) {
+  .practice-mobile > .practice-top,
+  .practice-mobile > .warm-page-header {
+    height: 78px !important;
+    min-height: 78px !important;
+    grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+  }
+  .practice-mobile > .practice-top::before,
+  .practice-mobile > .warm-page-header::before {
+    left: 70px;
+    font-size: 18px;
+  }
+  .practice-mobile > .practice-top::after,
+  .practice-mobile > .warm-page-header::after {
+    right: 70px;
+    font-size: 18px;
+  }
+  .practice-mobile > .practice-top > b,
+  .practice-mobile > .warm-page-header > h1 {
+    font-size: 23px !important;
+  }
+  .practice-mobile > .practice-top > button,
+  .practice-mobile > .warm-page-header > button,
+  .song-catalog-page .practice-top > button,
+  .practice-mobile > .practice-top > span,
+  .practice-mobile > .warm-page-header > span {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+  }
+}
+
+/* 鍑嗗寮€鍞遍〉锛氬幓鎺夌‖鍒囩传鑹插満鏅紝璁╅《閮ㄥ拰涓昏瑙夎嚜鐒惰瀺鍚?*/
+.setup-design {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 240, 166, .38), transparent 27%),
+    radial-gradient(circle at 90% 10%, rgba(181, 235, 244, .48), transparent 30%),
+    linear-gradient(180deg, #fff8ef 0%, #fff4fb 52%, #fff8ef 100%) !important;
+}
+
+.setup-design > .warm-page-header {
+  margin-bottom: 0 !important;
+}
+
+.setup-design > .warm-page-header + .setup-companion,
+.setup-design .setup-companion {
+  height: 260px !important;
+  margin-top: 0 !important;
+  padding-top: 10px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background:
+    radial-gradient(circle at 15% 24%, rgba(255, 239, 170, .32), transparent 26%),
+    radial-gradient(circle at 86% 26%, rgba(177, 235, 245, .46), transparent 28%),
+    radial-gradient(circle at 50% 76%, rgba(255, 182, 218, .3), transparent 34%) !important;
+}
+
+.setup-design .setup-companion::before {
+  color: rgba(143, 109, 244, .18) !important;
+}
+
+.setup-design .setup-companion::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -22px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7fd 0 16%, #ffd766 17% 31%, #8f6df4 32% 49%, transparent 50%);
+  opacity: .42;
+}
+
+.setup-design .setup-companion .xiaomai {
+  width: 176px !important;
+  height: 136px !important;
+  margin-bottom: 12px;
+}
+
+.setup-design .setup-companion .companion-speech {
+  top: 26px !important;
+  background: #fffafd !important;
+}
+
+.setup-design .setup-song-card {
+  margin-top: -12px !important;
+}
+
+/* 鍑嗗寮€鍞遍〉涓昏瑙夋敹绱э細閬垮厤瑁呴グ閲嶅彔锛岄檷浣庝笂鏂瑰浘鐗囧尯鍗犳瘮 */
+.setup-design > .warm-page-header + .setup-companion,
+.setup-design .setup-companion {
+  height: 214px !important;
+  padding-top: 0 !important;
+  place-items: end center !important;
+}
+
+.setup-design .setup-companion::after {
+  display: none !important;
+  content: none !important;
+}
+
+.setup-design .setup-companion .xiaomai {
+  width: 142px !important;
+  height: 110px !important;
+  margin-bottom: 24px !important;
+}
+
+.setup-design .setup-companion .companion-speech {
+  top: 40px !important;
+  max-width: calc(100% - 88px) !important;
+  padding: 10px 18px !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+.setup-design .setup-song-card {
+  margin-top: -10px !important;
+}
+
+@media (max-width: 390px) {
+  .setup-design > .warm-page-header + .setup-companion,
+  .setup-design .setup-companion {
+    height: 198px !important;
+  }
+  .setup-design .setup-companion .xiaomai {
+    width: 132px !important;
+    height: 102px !important;
+    margin-bottom: 20px !important;
+  }
+  .setup-design .setup-companion .companion-speech {
+    top: 34px !important;
+    max-width: calc(100% - 70px) !important;
+    font-size: 14px !important;
+  }
+}
+
+/* 鎴愰暱妗ｆ椤堕儴锛氱敤灏忛害澶村儚鏇挎崲鍥炬爣锛屽苟涓婄Щ鏍稿績淇℃伅 */
+.coaching-growth-page .coaching-growth-hero {
+  padding: 4px 18px 22px !important;
+  margin-top: -8px !important;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.growth-xiaomai-avatar {
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  border: 3px solid rgba(255,255,255,.94);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 24%, rgba(255,255,255,.9), transparent 28%),
+    linear-gradient(145deg, #fff4fb, #f2edff 58%, #e8fbff);
+  box-shadow: 0 7px 0 #ead8e6, 0 18px 28px rgba(117, 78, 139, .12);
+  overflow: hidden;
+}
+
+.growth-xiaomai-avatar .xiaomai {
+  width: 92px !important;
+  height: 72px !important;
+  margin-top: 10px;
+  animation: none !important;
+}
+
+.growth-xiaomai-avatar .xiaomai img {
+  filter: drop-shadow(0 8px 12px rgba(113, 70, 73, .15)) !important;
+}
+
+.growth-xiaomai-avatar .xiaomai-shadow {
+  display: none !important;
+}
+
+.coaching-growth-page .coaching-growth-hero h1 {
+  margin-top: 4px !important;
+  font-size: 36px !important;
+  line-height: 1.08 !important;
+}
+
+.coaching-growth-page .coaching-growth-hero p {
+  margin-top: 0 !important;
+  color: #8a7690 !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 390px) {
+  .growth-xiaomai-avatar {
+    width: 78px;
+    height: 78px;
+  }
+  .growth-xiaomai-avatar .xiaomai {
+    width: 84px !important;
+    height: 66px !important;
+  }
+  .coaching-growth-page .coaching-growth-hero h1 {
+    font-size: 32px !important;
+  }
+  .coaching-growth-page .coaching-growth-hero p {
+    font-size: 15px !important;
+  }
+}
+
+/* 鍙粌姝屾洸椤碉細瀵煎叆鍏ュ彛涓庢瓕鏇插崱鐗囩粺涓€瀵归綈锛屽緟鍑嗗姝屾洸淇℃伅鏇寸畝娲?*/
+.song-catalog-page > .import-entry,
+.song-catalog-page > .catalog-list {
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.song-catalog-page > .import-entry {
+  margin-bottom: 24px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.song-catalog-page .catalog-song:disabled span:nth-child(2) {
+  align-self: center;
+}
+
+.song-catalog-page .catalog-song:disabled span:nth-child(2) b {
+  color: #a897ac !important;
+}
+
+.song-catalog-page .catalog-song:disabled small,
+.song-catalog-page .catalog-song:disabled em {
+  display: none !important;
+}
+
+@media (max-width: 390px) {
+  .song-catalog-page > .import-entry,
+  .song-catalog-page > .catalog-list {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+}
+
+/* 鎴愰暱妗ｆ鎸夋瓕鏇叉煡鐪嬶細姝屾洸鍗＄墖鍙壙杞藉垎缁勶紝鍗曟璁板綍璐熻矗璺宠浆 */
+.song-growth-groups > .section-title small {
+  color: #7f6d88 !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+}
+
+.song-growth-groups article {
+  overflow: hidden !important;
+}
+
+.song-growth-groups article > header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+}
+
+.song-growth-groups article > header span {
+  min-width: 0;
+}
+
+.song-growth-groups article > header b,
+.song-growth-groups article > header small {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.song-growth-groups article > header b {
+  color: #382246;
+  font-size: 19px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.song-growth-groups article > header small {
+  margin-top: 4px;
+  color: #8b7590;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.song-growth-groups article > header strong {
+  min-width: 44px;
+  padding: 7px 10px;
+  color: #ff5b9b;
+  border-radius: 999px;
+  background: #fff2f8;
+  font-size: 14px;
+  font-weight: 950;
+  text-align: center;
+}
+
+.song-growth-groups article > button:not(.song-session-toggle) {
+  display: none !important;
+}
+
+.song-growth-groups article > p {
+  margin-top: 12px !important;
+  padding: 11px 12px !important;
+  color: #7b6a82 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  overflow-wrap: anywhere;
+}
+
+.song-session-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 10px !important;
+  margin-top: 14px !important;
+  overflow: visible !important;
+}
+
+.song-session-list button {
+  min-width: 0 !important;
+  min-height: 54px !important;
+  display: grid !important;
+  place-items: center !important;
+  gap: 2px !important;
+  padding: 8px 6px !important;
+  color: #7a6680 !important;
+  text-align: center;
+}
+
+.song-session-list button b {
+  color: #7f6d88 !important;
+  font-size: 13px !important;
+  line-height: 1.1;
+}
+
+.song-session-list button span {
+  color: #ff5b9b !important;
+  font-size: 15px !important;
+  font-weight: 950 !important;
+  line-height: 1.1;
+}
+
+.song-session-toggle {
+  width: 100%;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #7a5f83;
+  border: 2px solid #f0ddea;
+  border-radius: 999px;
+  background: #fff7fc;
+  box-shadow: 0 4px 0 #ead8e6;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.song-session-toggle svg {
+  width: 16px;
+  height: 16px;
+  transition: transform .2s ease;
+}
+
+.song-session-toggle svg.expanded {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 390px) {
+  .song-growth-groups > .section-title small {
+    font-size: 13px !important;
+  }
+  .song-growth-groups article > header b {
+    font-size: 18px;
+  }
+  .song-session-list {
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  }
+}
+
+/* 鎴愰暱妗ｆ鍗曟璁板綍锛氬浐瀹氬搴﹀乏瀵归綈锛屾暟閲忓皯鏃惰嚜鐒剁暀鐧?*/
+.song-session-list {
+  grid-template-columns: repeat(auto-fill, 74px) !important;
+  justify-content: start !important;
+  align-items: start !important;
+  column-gap: 12px !important;
+  row-gap: 10px !important;
+}
+
+.song-session-list button {
+  width: 74px !important;
+  min-width: 74px !important;
+  max-width: 74px !important;
+}
+
+@media (max-width: 390px) {
+  .song-session-list {
+    grid-template-columns: repeat(auto-fill, 68px) !important;
+    column-gap: 10px !important;
+  }
+  .song-session-list button {
+    width: 68px !important;
+    min-width: 68px !important;
+    max-width: 68px !important;
+  }
+}
+
+/* 棣栭〉蹇嵎鍏ュ彛锛氬垹闄よˉ鍏呰鏄庡悗淇濇寔鍗＄墖閲嶅績绋冲畾 */
+.practice-home .home-shortcuts button small {
+  display: none !important;
+}
+
+.practice-home .home-shortcuts button {
+  align-content: space-between !important;
+}
+
+.practice-home .home-shortcuts b {
+  margin-top: auto;
+}
+
+.practice-home .home-shortcuts button:nth-child(2) i {
+  display: inline-block;
+  margin-top: 6px;
+}
+
+/* 棣栭〉 AI 淇煶瀹ょ姸鎬佹爣锛氶伩鍏嶄笌鏍囬閲嶅彔 */
+.practice-home .home-shortcuts button:nth-child(2) i {
+  position: absolute !important;
+  left: auto !important;
+  right: 18px !important;
+  bottom: 16px !important;
+  margin-top: 0 !important;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff1e9;
+  color: #ff6b2f !important;
+  font-size: 10px !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.practice-home .home-shortcuts button:nth-child(2) b {
+  padding-right: 58px;
+}
+
+/* 棣栭〉鎺ㄨ崘姝屾洸锛氶毦搴︽潯澧炲姞绛夌骇鏂囧瓧璇存槑 */
+.home-song-item .song-difficulty {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.home-song-item .song-difficulty i {
+  display: flex !important;
+  gap: 3px;
+  margin-top: 0 !important;
+}
+
+.home-song-item .song-difficulty small {
+  color: #8b7590;
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 淇锛氶椤垫帹鑽愭瓕鏇茬瓑绾ф枃瀛楀姞鍏ュ悗锛屼繚鐣欏師鏈夌豢鑹查毦搴︾煭鏉?*/
+.home-song-item .song-difficulty i em {
+  width: 10px !important;
+  height: 4px !important;
+  display: block !important;
+  border-radius: 3px !important;
+  background: #eee6df !important;
+}
+
+.home-song-item .song-difficulty i em.on {
+  background: #9acb43 !important;
+}
+
+/* 棣栭〉鎺ㄨ崘姝屾洸锛氭瓕鍚?姝屾墜/缁冧範閲嶇偣/闅惧害鍒嗗眰灞曠ず */
+.home-song-item > div {
+  display: grid;
+  align-content: center;
+  gap: 5px;
+}
+
+.home-song-item .song-heading {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.home-song-item .song-heading h3 {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #382246;
+  font-size: 18px;
+  font-weight: 950;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-song-item .song-heading small {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: #9a879b;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-song-item .song-focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 1px !important;
+  color: inherit !important;
+}
+
+.home-song-item .song-focus-tags em {
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #2f8f72;
+  background: #eafff5;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.home-song-item .song-difficulty {
+  margin-top: 2px !important;
+}
+
+@media (max-width: 390px) {
+  .home-song-item .song-heading {
+    gap: 6px;
+  }
+  .home-song-item .song-heading h3 {
+    font-size: 17px;
+  }
+  .home-song-item .song-heading small {
+    font-size: 10px;
+  }
+  .home-song-item .song-focus-tags em {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+/* 鎴愰暱鎶ュ憡/鍘嗗彶鍙嶉椤碉細娣¤壊铻嶅悎鑳屾櫙锛屾秷闄ゅ鑸爮鍒囧壊鎰?*/
+.report-design {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 240, 166, .36), transparent 27%),
+    radial-gradient(circle at 90% 10%, rgba(181, 235, 244, .48), transparent 30%),
+    linear-gradient(180deg, #fff8ef 0%, #fff4fb 52%, #fff8ef 100%) !important;
+}
+
+.report-design > .warm-page-header {
+  margin-bottom: 0 !important;
+}
+
+.report-design .report-companion-scene {
+  height: 252px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background:
+    radial-gradient(circle at 15% 22%, rgba(255, 239, 170, .3), transparent 26%),
+    radial-gradient(circle at 86% 26%, rgba(177, 235, 245, .45), transparent 28%),
+    radial-gradient(circle at 50% 76%, rgba(255, 182, 218, .25), transparent 34%) !important;
+}
+
+.report-design .report-companion-scene::before {
+  top: 42px !important;
+  right: 28px !important;
+  color: rgba(143, 109, 244, .16) !important;
+}
+
+.report-design .report-companion-scene::after {
+  display: none !important;
+  content: none !important;
+}
+
+.report-design .report-companion-scene .companion-speech {
+  top: 54px !important;
+  max-width: calc(100% - 64px);
+  padding: 14px 22px;
+  color: #4b2d58 !important;
+  background: #fffafd !important;
+  white-space: normal !important;
+  line-height: 1.35;
+}
+
+.report-design .report-companion-scene .xiaomai {
+  width: 166px !important;
+  height: 128px !important;
+  bottom: 8px !important;
+}
+
+.report-design .report-sheet {
+  margin-top: -14px !important;
+}
+
+@media (max-width: 390px) {
+  .report-design .report-companion-scene {
+    height: 232px !important;
+  }
+  .report-design .report-companion-scene .xiaomai {
+    width: 152px !important;
+    height: 118px !important;
+  }
+  .report-design .report-companion-scene .companion-speech {
+    top: 48px !important;
+    max-width: calc(100% - 44px);
+    font-size: 13px !important;
+  }
+}
+
+/* 缁撶畻椤碉細澶嶇敤缁熶竴瀵艰埅鏍忥紝鏍囬灞呬腑骞舵秷闄ゆ棫鍦烘櫙鍐呮爣棰樺崰浣?*/
+.recap-design {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 240, 166, .36), transparent 27%),
+    radial-gradient(circle at 90% 10%, rgba(181, 235, 244, .48), transparent 30%),
+    linear-gradient(180deg, #fff8ef 0%, #fff4fb 52%, #fff8ef 100%) !important;
+}
+
+.recap-design > .warm-page-header {
+  margin-bottom: 0 !important;
+}
+
+.recap-design .recap-room-scene {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: 326px !important;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background:
+    radial-gradient(circle at 15% 22%, rgba(255, 239, 170, .3), transparent 26%),
+    radial-gradient(circle at 86% 26%, rgba(177, 235, 245, .45), transparent 28%),
+    radial-gradient(circle at 50% 76%, rgba(255, 182, 218, .25), transparent 34%) !important;
+}
+
+.recap-design .recap-room-scene::after {
+  display: none !important;
+  content: none !important;
+}
+
+.recap-design .recap-room-scene .xiaomai {
+  width: 220px !important;
+  height: 172px !important;
+  bottom: 4px !important;
+}
+
+.recap-design .recap-speech {
+  top: 54px !important;
+  max-width: calc(100% - 64px);
+  padding: 14px 22px;
+  white-space: normal !important;
+  line-height: 1.35;
+}
+
+.recap-design .recap-result-card {
+  margin-top: -14px !important;
+}
+
+@media (max-width: 390px) {
+  .recap-design .recap-room-scene {
+    height: 300px !important;
+  }
+  .recap-design .recap-room-scene .xiaomai {
+    width: 198px !important;
+    height: 154px !important;
+  }
+  .recap-design .recap-speech {
+    top: 48px !important;
+    max-width: calc(100% - 44px);
+    font-size: 13px !important;
+  }
+}
+
+/* 鎴愰暱鎶ュ憡椤碉細鍑忓皯鍗＄墖宓屽锛屽己鍖栨枃瀛楀眰绾?*/
+.coaching-report-sheet {
+  gap: 16px !important;
+  padding: 24px 18px 28px !important;
+}
+
+.coaching-report-sheet .report-xiaomai-summary {
+  display: grid !important;
+  grid-template-columns: 26px minmax(0, 1fr) !important;
+  gap: 14px !important;
+  padding: 0 0 18px !important;
+  border-bottom: 1px dashed #ead8e6 !important;
+}
+
+.coaching-report-sheet .report-xiaomai-summary > svg {
+  width: 24px !important;
+  height: 24px !important;
+  color: #ffb627 !important;
+}
+
+.coaching-report-sheet .report-xiaomai-summary small,
+.coaching-card small,
+.evidence-card small {
+  font-size: 13px !important;
+  font-weight: 950 !important;
+  line-height: 1.1 !important;
+}
+
+.coaching-report-sheet .report-xiaomai-summary h2 {
+  margin-top: 10px !important;
+  color: #392347 !important;
+  font-size: 23px !important;
+  line-height: 1.28 !important;
+}
+
+.coaching-report-sheet .report-xiaomai-summary p {
+  margin-top: 10px !important;
+  color: #7d6d84 !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+}
+
+.coaching-card,
+.evidence-card {
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  gap: 14px !important;
+  padding: 18px 18px !important;
+  border: 0 !important;
+  border-radius: 26px !important;
+  background: #fff !important;
+  box-shadow: 0 8px 0 #f0cfe5, 0 16px 30px rgba(131, 85, 146, .08) !important;
+}
+
+.coaching-card > span {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 16px !important;
+}
+
+.coaching-card h2,
+.evidence-card h2 {
+  margin-top: 9px !important;
+  color: #392347 !important;
+  font-size: 21px !important;
+  line-height: 1.32 !important;
+}
+
+.coaching-card p,
+.evidence-card p {
+  margin-top: 9px !important;
+  color: #7d6d84 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.evidence-card.highlight-clip-card {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.evidence-card.highlight-clip-card button {
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+.coaching-report-sheet .report-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 4px !important;
+}
+
+.coaching-report-sheet .report-actions audio {
+  width: 100% !important;
+}
+
+.coaching-report-sheet .report-actions button {
+  width: min(240px, 78%) !important;
+  min-height: 54px !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+}
+
+.coaching-report-sheet .report-disclaimer {
+  display: none !important;
+}
+
+@media (max-width: 390px) {
+  .coaching-report-sheet {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .coaching-report-sheet .report-xiaomai-summary h2 {
+    font-size: 21px !important;
+  }
+  .coaching-card h2,
+  .evidence-card h2 {
+    font-size: 19px !important;
+  }
+}
+
+/* 缁冩瓕鍚庨摼璺敹鏁涳細缁撶畻鍙繘鎴愰暱鎶ュ憡锛屾姤鍛婂唴宓岄珮鍏?*/
+.recap-design-actions.single {
+  grid-template-columns: 1fr !important;
+}
+
+.recap-design-actions.single button {
+  width: min(280px, 100%) !important;
+  justify-self: center !important;
+}
+
+.evidence-card.highlight-clip-card.muted {
+  color: #8d7b90 !important;
+  background: #fff9fc !important;
+  box-shadow: 0 8px 0 #ead8e6, 0 14px 24px rgba(131, 85, 146, .06) !important;
+  opacity: .78;
+}
+
+.evidence-card.highlight-clip-card.muted h2 {
+  color: #7d6d84 !important;
+  font-size: 18px !important;
+}
+
+.evidence-card.highlight-clip-card.muted button {
+  color: #9a879b !important;
+  border: 2px dashed #ead8e6 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+/* 鏈鍙嶉锛氫笓涓氫緷鎹粎淇濈暀浜旂淮鍜岀粌涔犲缓璁?*/
+.feedback-metrics.report-metric-bars.compact {
+  display: grid !important;
+  gap: 10px !important;
+  padding: 0 14px 16px !important;
+}
+
+.feedback-metrics.report-metric-bars.compact article {
+  grid-template-columns: 34px 58px minmax(0, 1fr) 34px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 0 !important;
+}
+
+.feedback-metrics.report-metric-bars.compact article p {
+  grid-column: 2 / -1 !important;
+  margin: 2px 0 0 !important;
+  color: #7d6d84 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.feedback-metrics.report-metric-bars.compact dl,
+.feedback-metrics.report-metric-bars.compact .metric-times,
+.professional-evidence .report-quality {
+  display: none !important;
+}
+
+/* 棣栭〉搴曢儴瀵艰埅锛氱粌姝屽叆鍙ｅ凡鍚堝苟鍒扳€滃彲缁冩瓕鏇测€濓紝搴曟爮淇濈暀棣栭〉/鎴愰暱 */
+.practice-home .practice-bottom-nav {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  width: min(calc(100% - 72px), 320px) !important;
+}
+
+.practice-home .practice-bottom-nav button:nth-child(2) svg {
+  background: #f3efff !important;
+}
+
+/* 绉诲姩绔?TabBar 閲嶈璁★細瀹藉害涓庨〉闈㈠唴瀹瑰尯涓€鑷?*/
+.practice-home .practice-bottom-nav,
+.practice-bottom-nav {
+  left: 50% !important;
+  bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  width: min(calc(100vw - 28px), 402px) !important;
+  max-width: calc(430px - 28px) !important;
+  height: 74px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 8px !important;
+  border-radius: 30px !important;
+  transform: translateX(-50%) !important;
+}
+
+.practice-home .practice-bottom-nav button,
+.practice-bottom-nav button {
+  min-height: 56px !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 3px !important;
+  padding: 6px 8px !important;
+}
+
+.practice-home .practice-bottom-nav svg,
+.practice-bottom-nav svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+@media (max-width: 390px) {
+  .practice-home .practice-bottom-nav,
+  .practice-bottom-nav {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+    height: 72px !important;
+    border-radius: 28px !important;
+  }
+}
+
+/* 棣栭〉/鎴愰暱鍏辩敤 TabBar锛氬己鍖栧綋鍓嶉〉鏂囧瓧鐘舵€?*/
+.practice-bottom-nav button.active span {
+  color: #fff !important;
+  font-size: 12px !important;
+  font-weight: 950 !important;
+  text-shadow: 0 1px 0 rgba(112, 34, 78, .18);
+}
+
+.practice-bottom-nav button:not(.active) span {
+  color: #7f6b86 !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+}
+
+.growth-page {
+  padding-bottom: 112px !important;
+}
+
+/* TabBar 璐村悎椤甸潰搴曢儴锛氫笉鍐嶈秴鍑虹Щ鍔ㄧ椤甸潰瀹瑰櫒 */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav,
+.practice-bottom-nav {
+  position: sticky !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 22px 0 0 !important;
+  transform: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.practice-home,
+.growth-page {
+  padding-bottom: 0 !important;
+}
+
+.practice-home .home-shortcuts,
+.growth-page .song-growth-groups {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 390px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav,
+  .practice-bottom-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 棣栭〉/鎴愰暱 TabBar 鍥哄畾搴曢儴锛氱粺涓€楂樺害涓庣Щ鍔ㄧ瀹瑰櫒瀹藉害 */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav,
+.practice-bottom-nav {
+  position: fixed !important;
+  z-index: 60 !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: max(0px, env(safe-area-inset-bottom)) !important;
+  width: min(calc(100vw - 28px), 402px) !important;
+  max-width: calc(430px - 28px) !important;
+  height: 74px !important;
+  margin: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 8px !important;
+  border: 2px solid rgba(255,255,255,.96) !important;
+  border-radius: 30px 30px 0 0 !important;
+  background: #fffafd !important;
+  box-shadow: 0 -2px 0 rgba(255,255,255,.82), 0 -14px 34px rgba(117, 78, 139, .14) !important;
+  transform: translateX(-50%) !important;
+}
+
+.practice-home,
+.growth-page {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
+}
+
+.practice-home .practice-bottom-nav button,
+.growth-page .practice-bottom-nav button,
+.practice-bottom-nav button {
+  min-height: 54px !important;
+}
+
+@media (max-width: 390px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav,
+  .practice-bottom-nav {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+    height: 72px !important;
+  }
+  .practice-home,
+  .growth-page {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final mobile TabBar lock: home and growth share the same fixed footer. */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav {
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 0 !important;
+  z-index: 80 !important;
+  width: min(calc(100vw - 28px), 402px) !important;
+  max-width: 402px !important;
+  height: 74px !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  align-items: center !important;
+  border: 2px solid rgba(255, 255, 255, .96) !important;
+  border-bottom: 0 !important;
+  border-radius: 30px 30px 0 0 !important;
+  background: #fffafd !important;
+  box-shadow: 0 -2px 0 rgba(255, 255, 255, .82), 0 -14px 34px rgba(117, 78, 139, .14) !important;
+  transform: translateX(-50%) !important;
+}
+
+.practice-home .practice-bottom-nav button,
+.growth-page .practice-bottom-nav button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 56px !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 3px !important;
+  padding: 6px 8px !important;
+  border-radius: 22px !important;
+}
+
+.practice-home .practice-bottom-nav svg,
+.growth-page .practice-bottom-nav svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.practice-home,
+.growth-page {
+  padding-bottom: calc(94px + env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 390px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+    height: 72px !important;
+  }
+
+  .practice-home,
+  .growth-page {
+    padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Mobile TabBar width fix: match page content cards and prevent border-box overflow. */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav {
+  box-sizing: border-box !important;
+  left: 50% !important;
+  right: auto !important;
+  width: min(calc(100vw - 36px), 402px) !important;
+  max-width: calc(430px - 36px) !important;
+  overflow: hidden !important;
+}
+
+.practice-home .practice-bottom-nav *,
+.growth-page .practice-bottom-nav * {
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 420px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav {
+    width: calc(100vw - 20px) !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav {
+    width: calc(100vw - 20px) !important;
+    max-width: none !important;
+  }
+}
+
+/* Mobile TabBar final spec: full-screen width, fixed bottom, safe-area aware. */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav,
+.practice-bottom-nav {
+  box-sizing: border-box !important;
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 100 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: calc(74px + env(safe-area-inset-bottom)) !important;
+  margin: 0 !important;
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom)) !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  align-items: stretch !important;
+  border: 0 !important;
+  border-top: 2px solid rgba(255, 255, 255, .96) !important;
+  border-radius: 26px 26px 0 0 !important;
+  background: #fffafd !important;
+  box-shadow: 0 -2px 0 rgba(255, 255, 255, .82), 0 -14px 34px rgba(117, 78, 139, .14) !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+.practice-home .practice-bottom-nav *,
+.growth-page .practice-bottom-nav *,
+.practice-bottom-nav * {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.practice-home .practice-bottom-nav button,
+.growth-page .practice-bottom-nav button,
+.practice-bottom-nav button {
+  width: 100% !important;
+  min-height: 56px !important;
+  height: auto !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 2px !important;
+  padding: 6px 4px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
+.practice-home .practice-bottom-nav svg,
+.growth-page .practice-bottom-nav svg,
+.practice-bottom-nav svg {
+  width: clamp(18px, 5.8vw, 24px) !important;
+  height: clamp(18px, 5.8vw, 24px) !important;
+  flex: 0 0 auto !important;
+}
+
+.practice-home .practice-bottom-nav span,
+.growth-page .practice-bottom-nav span,
+.practice-bottom-nav span {
+  max-width: 100% !important;
+  display: block !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font-size: clamp(10px, 3.2vw, 12px) !important;
+  line-height: 1.12 !important;
+}
+
+.practice-home,
+.growth-page {
+  padding-bottom: calc(92px + env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 340px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav,
+  .practice-bottom-nav {
+    gap: 6px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .practice-home .practice-bottom-nav button,
+  .growth-page .practice-bottom-nav button,
+  .practice-bottom-nav button {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+}
+
+/* Desktop preview containment: TabBar follows the mobile app canvas, not the browser viewport. */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav,
+.practice-bottom-nav {
+  left: 50% !important;
+  right: auto !important;
+  width: min(100vw, 520px) !important;
+  max-width: 520px !important;
+  transform: translateX(-50%) !important;
+}
+
+@media (max-width: 520px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav,
+  .practice-bottom-nav {
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+  }
+}
+
+/* Align bottom TabBar with the visible mobile canvas in desktop preview. */
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav,
+.practice-bottom-nav {
+  left: 50% !important;
+  right: auto !important;
+  width: min(100vw, 430px) !important;
+  max-width: 430px !important;
+  transform: translateX(-50%) !important;
+}
+
+@media (max-width: 430px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav,
+  .practice-bottom-nav {
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+  }
+}
+
+/* Bind fixed TabBar to the mobile canvas so it aligns with and clips like the phone screen. */
+.practice-home,
+.growth-page {
+  transform: translateZ(0) !important;
+  overflow-x: clip !important;
+}
+
+@media (min-width: 700px) {
+  .practice-home,
+  .growth-page {
+    overflow: hidden !important;
+    border-radius: 32px !important;
+  }
+}
+
+.practice-home .practice-bottom-nav,
+.growth-page .practice-bottom-nav {
+  left: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  transform: none !important;
+  border-radius: 28px 28px 32px 32px !important;
+}
+
+@media (max-width: 430px) {
+  .practice-home .practice-bottom-nav,
+  .growth-page .practice-bottom-nav {
+    border-radius: 24px 24px 0 0 !important;
+  }
+}
+
+/* Home/Growth root box-model unification: keep the mobile canvas stable between tabs. */
+.practice-mobile,
+.warm-room-page,
+.practice-home,
+.growth-page {
+  box-sizing: border-box !important;
+  width: min(100%, 430px) !important;
+  max-width: 430px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.practice-home,
+.growth-page {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.practice-home > .practice-top,
+.growth-page > .practice-top,
+.practice-home > .warm-page-header,
+.growth-page > .warm-page-header {
+  width: auto !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+@media (max-width: 430px) {
+  .practice-mobile,
+  .warm-room-page,
+  .practice-home,
+  .growth-page {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Mobile typography pass: raise tiny text while preserving clear hierarchy. */
+.practice-mobile,
+.warm-room-page {
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.practice-mobile p,
+.practice-mobile label,
+.practice-mobile input,
+.practice-mobile textarea,
+.practice-mobile dd,
+.practice-mobile li {
+  font-size: 14px !important;
+  line-height: 1.58 !important;
+}
+
+.practice-mobile small,
+.practice-mobile .section-title small,
+.practice-mobile .catalog-song small,
+.practice-mobile .home-song-item small,
+.practice-mobile .mode-grid small,
+.practice-mobile .practice-switch small,
+.practice-mobile .metric-list article small,
+.practice-mobile .growth-list article span,
+.practice-mobile .growth-list article small,
+.practice-mobile .growth-metrics article small,
+.practice-mobile .growth-history > button small,
+.practice-mobile .growth-empty,
+.practice-mobile .report-quality small,
+.practice-mobile .metric-heading > span em,
+.practice-mobile .metric-list article .metric-confidence,
+.practice-mobile .metric-list article dt,
+.practice-mobile .metric-list article dd,
+.practice-mobile .metric-times,
+.practice-mobile .evidence-segments,
+.practice-mobile .import-entry small,
+.practice-mobile .import-intro p,
+.practice-mobile .import-form > label > span,
+.practice-mobile .file-picker small,
+.practice-mobile .import-warning,
+.practice-mobile .import-error,
+.practice-mobile .review-summary small,
+.practice-mobile .review-line small,
+.practice-mobile .review-line-picker span,
+.practice-mobile .review-bulk p,
+.practice-mobile .review-bulk > small,
+.practice-mobile .review-export small,
+.practice-mobile .management-entry span small,
+.practice-mobile .management-summary p,
+.practice-mobile .management-info small,
+.practice-mobile .management-info > span,
+.practice-mobile .setup-options small,
+.practice-mobile .setup-headphone small,
+.practice-mobile .setup-privacy,
+.practice-mobile .recap-tip,
+.practice-mobile .highlight-empty,
+.practice-mobile .tuning-note,
+.practice-mobile .report-disclaimer,
+.practice-mobile .report-design .report-disclaimer,
+.practice-mobile .highlight-player-card .section-title p,
+.practice-mobile .song-growth-groups article > header small {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+.practice-mobile .focus-tags i,
+.practice-mobile .catalog-song em,
+.practice-mobile .home-song-item .song-focus-tags em,
+.practice-mobile .home-song-item .song-difficulty small,
+.practice-mobile .home-song-item .song-start,
+.practice-mobile .catalog-song > i,
+.practice-mobile .setup-song-card > span,
+.practice-mobile .highlight-player-card .section-title > span,
+.practice-mobile .practice-kicker,
+.practice-mobile .practice-companion-hero > span,
+.practice-mobile .home-room-hero header button,
+.practice-mobile .home-song-panel .section-title button,
+.practice-mobile .review-notes article label {
+  min-height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+}
+
+.practice-mobile button,
+.practice-mobile .practice-primary,
+.practice-mobile .latency-skip,
+.practice-mobile .report-actions button,
+.practice-mobile .recap-design-actions button,
+.practice-mobile .highlight-actions button,
+.practice-mobile .highlight-play,
+.practice-mobile .song-session-toggle,
+.practice-mobile .management-actions button,
+.practice-mobile .review-line button,
+.practice-mobile .review-notes button,
+.practice-mobile .review-export > button {
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+}
+
+.practice-mobile .practice-top > b,
+.practice-mobile .warm-page-header h1 {
+  font-size: 24px !important;
+  line-height: 1.16 !important;
+}
+
+.practice-mobile .section-title h2,
+.practice-mobile .home-song-panel .section-title h2 {
+  font-size: 20px !important;
+  line-height: 1.22 !important;
+}
+
+.practice-mobile .home-song-item .song-heading h3,
+.practice-mobile .catalog-song b,
+.practice-mobile .song-growth-groups article > header b,
+.practice-mobile .recap-complete b,
+.practice-mobile .report-xiaomai-summary h2,
+.practice-mobile .report-advice h2,
+.practice-mobile .coaching-card h2,
+.practice-mobile .evidence-card h2 {
+  font-size: 18px !important;
+  line-height: 1.28 !important;
+}
+
+.practice-mobile .home-song-item .song-heading small {
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+}
+
+.practice-mobile .home-song-item .song-focus-tags,
+.practice-mobile .home-song-item .song-difficulty,
+.practice-mobile .focus-tags {
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.practice-mobile .song-session-list button b,
+.practice-mobile .calendar-strip div b,
+.practice-mobile .calendar-strip div span,
+.practice-mobile .calendar-strip div small {
+  font-size: 13px !important;
+  line-height: 1.18 !important;
+}
+
+.practice-mobile .practice-bottom-nav span {
+  font-size: clamp(12px, 3.4vw, 13px) !important;
+  line-height: 1.12 !important;
+}
+
+@media (max-width: 360px) {
+  .practice-mobile .practice-top > b,
+  .practice-mobile .warm-page-header h1 {
+    font-size: 22px !important;
+  }
+
+  .practice-mobile .section-title h2,
+  .practice-mobile .home-song-panel .section-title h2 {
+    font-size: 18px !important;
+  }
+
+  .practice-mobile .home-song-item .song-heading h3,
+  .practice-mobile .catalog-song b,
+  .practice-mobile .song-growth-groups article > header b {
+    font-size: 17px !important;
+  }
+}
+
+/* Growth song section header: keep title/count inside the card bounds. */
+.growth-page .song-growth-groups {
+  padding-top: 24px !important;
+  overflow: hidden !important;
+}
+
+.growth-page .song-growth-groups > .section-title {
+  width: auto !important;
+  max-width: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 18px 18px !important;
+  padding: 0 !important;
+}
+
+.growth-page .song-growth-groups > .section-title h2 {
+  min-width: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow: hidden !important;
+  color: #392347 !important;
+  font-size: 24px !important;
+  line-height: 1.18 !important;
+  white-space: nowrap !important;
+}
+
+.growth-page .song-growth-groups > .section-title h2 svg {
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px !important;
+  margin-left: 0 !important;
+  color: #ff5b9b !important;
+  transform: none !important;
+}
+
+.growth-page .song-growth-groups > .section-title small {
+  min-width: max-content !important;
+  justify-self: end !important;
+  color: #7f6d88 !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 360px) {
+  .growth-page .song-growth-groups > .section-title {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+    gap: 8px !important;
+  }
+
+  .growth-page .song-growth-groups > .section-title h2 {
+    font-size: 21px !important;
+  }
+
+  .growth-page .song-growth-groups > .section-title h2 svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex-basis: 20px !important;
+  }
+}
+
+/* Practice setup headphone card refinement */
+.practice-mobile .setup-headphone {
+  align-items: center !important;
+  min-height: 72px;
+}
+
+.practice-mobile .setup-headphone b {
+  font-size: 17px !important;
+  line-height: 1.35;
+}
+
+/* Practice setup footer hints */
+.practice-mobile .setup-start {
+  margin-top: 10px !important;
+}
+
+.practice-mobile .setup-privacy {
+  margin-top: 16px !important;
+  margin-bottom: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.practice-mobile .setup-headphone-note {
+  margin: 6px 0 0;
+  color: #8c7e87;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* Practice setup breathing space */
+.practice-mobile.setup-design .setup-song-card {
+  margin-bottom: 16px !important;
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
+}
+
+.practice-mobile.setup-design .setup-options,
+.practice-mobile.setup-design .setup-latency {
+  margin-top: 14px !important;
+  margin-bottom: 14px !important;
+}
+
+.practice-mobile.setup-design .setup-latency {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+/* Rhythm calibration page polish */
+.practice-mobile.latency-page {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 241, 177, .32), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(190, 235, 246, .42), transparent 30%),
+    linear-gradient(180deg, #fffaf2 0%, #fff5fb 100%) !important;
+}
+
+.practice-mobile.latency-page .latency-hero {
+  height: 222px !important;
+  margin-top: 0 !important;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(255, 231, 139, .34), transparent 24%),
+    radial-gradient(circle at 84% 28%, rgba(165, 232, 244, .42), transparent 28%),
+    linear-gradient(180deg, #fff8ed 0%, #fff0fb 58%, #f4fbff 100%) !important;
+  border-bottom-left-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+}
+
+.practice-mobile.latency-page .latency-hero .xiaomai {
+  width: 154px !important;
+  height: 120px !important;
+  margin-bottom: 20px !important;
+}
+
+.practice-mobile.latency-page .latency-hero .companion-speech {
+  top: 24px !important;
+  max-width: calc(100% - 72px) !important;
+}
+
+.practice-mobile.latency-page .latency-sheet {
+  margin-top: -10px !important;
+  padding-top: 28px !important;
+}
+
+.practice-mobile.latency-page .latency-note {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 18px 0 22px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.practice-mobile.latency-page .latency-note-copy,
+.practice-mobile.latency-page .latency-note > span:first-child,
+.practice-mobile.latency-page .latency-note > span:last-child {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.practice-mobile.latency-page .latency-note-line,
+.practice-mobile.latency-page .latency-note-line.main {
+  white-space: normal !important;
+  font-size: 15px !important;
+  line-height: 1.72 !important;
+  color: #706676 !important;
+}
+
+/* Home visual refresh: colorful room scene without changing navigation. */
+.practice-mobile.practice-home {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 235, 128, .42), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(118, 226, 242, .36), transparent 30%),
+    linear-gradient(180deg, #8f6df4 0%, #f7a0cf 32%, #fff3fb 64%, #fffaf2 100%) !important;
+}
+
+.practice-home .home-room-hero {
+  min-height: 338px !important;
+  padding: 26px 24px 0 !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 238, 133, .7), transparent 20%),
+    radial-gradient(circle at 84% 20%, rgba(124, 230, 244, .58), transparent 24%),
+    radial-gradient(circle at 58% 58%, rgba(255, 255, 255, .18), transparent 34%),
+    linear-gradient(155deg, #ff8fca 0%, #a47cf7 52%, #7ddff0 100%) !important;
+  border-bottom-left-radius: 34px !important;
+  border-bottom-right-radius: 34px !important;
+  box-shadow: 0 24px 52px rgba(131, 82, 199, .2) !important;
+}
+
+.practice-home .home-room-hero::before {
+  left: 34px !important;
+  right: 34px !important;
+  bottom: -54px !important;
+  height: 150px !important;
+  background: linear-gradient(180deg, rgba(255, 222, 238, .92), rgba(255, 160, 205, .72)) !important;
+  box-shadow: 0 -14px 36px rgba(116, 76, 184, .14) !important;
+}
+
+.practice-home .home-room-hero::after {
+  opacity: .42 !important;
+  filter: saturate(1.18);
+}
+
+.practice-home .home-room-hero header {
+  max-width: 190px !important;
+}
+
+.practice-home .home-room-hero h1 {
+  color: #fff !important;
+  font-size: clamp(34px, 9vw, 40px) !important;
+  line-height: 1 !important;
+  text-shadow: 0 8px 22px rgba(83, 48, 143, .22) !important;
+}
+
+.practice-home .home-room-hero header p {
+  margin-top: 8px !important;
+  color: rgba(255, 255, 255, .94) !important;
+  font-size: 15px !important;
+  font-weight: 750 !important;
+  text-shadow: 0 6px 18px rgba(83, 48, 143, .18) !important;
+}
+
+.practice-home .room-music-note {
+  color: rgba(255, 255, 255, .72) !important;
+  text-shadow: 0 8px 22px rgba(94, 56, 154, .18) !important;
+}
+
+.practice-home .room-music-note.one {
+  top: 104px !important;
+  right: 74px !important;
+}
+
+.practice-home .room-music-note.two {
+  top: 174px !important;
+  left: 30px !important;
+}
+
+.practice-home .xiaomai-home {
+  bottom: 8px !important;
+}
+
+.practice-home .xiaomai-home .xiaomai {
+  width: 188px !important;
+  height: 150px !important;
+}
+
+.practice-home .xiaomai-home .companion-speech {
+  top: -44px !important;
+  right: -22px !important;
+  left: auto !important;
+  width: 148px !important;
+  padding: 11px 16px !important;
+  color: #4a2b5f !important;
+  border: 2px solid rgba(255, 255, 255, .86) !important;
+  background: rgba(255, 255, 255, .94) !important;
+  box-shadow: 0 14px 30px rgba(88, 55, 148, .16) !important;
+  font-size: 14px !important;
+  line-height: 1.32 !important;
+}
+
+.practice-home .xiaomai-home .companion-speech::after {
+  left: 24px !important;
+  bottom: -12px !important;
+  border-top-color: rgba(255, 255, 255, .94) !important;
+}
+
+.practice-home .home-song-panel {
+  isolation: isolate;
+  margin: -20px 14px 0 !important;
+  padding: 18px 14px 16px !important;
+  border: 1px solid rgba(255, 255, 255, .82) !important;
+  border-radius: 32px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .86), rgba(255, 248, 253, .94)) !important;
+  box-shadow: 0 22px 54px rgba(123, 77, 174, .18) !important;
+  backdrop-filter: blur(18px) saturate(1.12) !important;
+}
+
+.practice-home .home-song-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -28px -10px auto;
+  height: 88px;
+  border-radius: 34px 34px 0 0;
+  background: linear-gradient(180deg, rgba(255, 165, 213, .34), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.practice-home .home-search {
+  height: 52px !important;
+  border: 1px solid rgba(255, 255, 255, .86) !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, .72) !important;
+  box-shadow: inset 0 -3px 0 rgba(236, 220, 244, .68) !important;
+}
+
+.practice-home .home-search .home-search-main {
+  color: #8b7694 !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+}
+
+.practice-home .home-song-panel .section-title {
+  margin: 20px 2px 12px !important;
+}
+
+.practice-home .home-song-panel .section-title h2 {
+  color: #40244f !important;
+}
+
+.practice-home .home-song-panel .section-title button {
+  color: #f65b9a !important;
+  background: rgba(255, 238, 248, .86) !important;
+  border: 1px solid rgba(255, 201, 224, .92) !important;
+}
+
+.practice-home .home-song-item {
+  min-height: 92px !important;
+  padding: 12px 10px !important;
+  border: 1px solid rgba(255, 223, 238, .95) !important;
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, .82) !important;
+  box-shadow: 0 10px 26px rgba(104, 72, 146, .08), inset 0 -3px 0 rgba(244, 225, 235, .72) !important;
+}
+
+.practice-home .song-art {
+  border-radius: 18px !important;
+  box-shadow: inset 0 -4px 0 rgba(94, 50, 126, .16), 0 10px 18px rgba(122, 76, 165, .16) !important;
+}
+
+.practice-home .home-song-item .song-heading h3 {
+  color: #321f43 !important;
+}
+
+.practice-home .home-song-item .song-heading small,
+.practice-home .home-song-item .song-focus-tags em,
+.practice-home .home-song-item .song-difficulty small {
+  color: #806f88 !important;
+}
+
+.practice-home .home-song-item .song-focus-tags em {
+  background: #fff1f8 !important;
+  border-color: rgba(255, 207, 227, .9) !important;
+}
+
+.practice-home .home-song-item .song-start {
+  color: #fff !important;
+  background: linear-gradient(135deg, #89d84e, #35c7bd) !important;
+  box-shadow: inset 0 -3px 0 rgba(35, 142, 105, .24) !important;
+}
+
+.practice-home .home-shortcuts {
+  margin: 14px 14px 0 !important;
+  gap: 12px !important;
+}
+
+.practice-home .home-shortcuts button {
+  border: 1px solid rgba(255, 255, 255, .82) !important;
+  border-radius: 28px !important;
+  background: rgba(255, 255, 255, .78) !important;
+  box-shadow: 0 16px 34px rgba(123, 77, 174, .12), inset 0 -4px 0 rgba(237, 220, 241, .74) !important;
+  backdrop-filter: blur(14px) saturate(1.08) !important;
+}
+
+.practice-home .home-shortcuts button:first-child {
+  background: linear-gradient(145deg, rgba(255, 249, 254, .9), rgba(255, 237, 248, .86)) !important;
+}
+
+.practice-home .home-shortcuts button:nth-child(2) {
+  background: linear-gradient(145deg, rgba(245, 255, 253, .9), rgba(239, 244, 255, .86)) !important;
+}
+
+.practice-home .home-shortcuts b {
+  color: #3f284f !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero {
+    min-height: 322px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .practice-home .home-room-hero h1 {
+    font-size: 34px !important;
+  }
+
+  .practice-home .xiaomai-home .xiaomai {
+    width: 174px !important;
+    height: 138px !important;
+  }
+
+  .practice-home .xiaomai-home .companion-speech {
+    right: -12px !important;
+    width: 136px !important;
+    font-size: 13px !important;
+  }
+
+  .practice-home .home-song-panel,
+  .practice-home .home-shortcuts {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+}
+
+
+/* Home recommendation panel gradient containment */
+.practice-home .home-song-panel {
+  overflow: hidden !important;
+}
+
+.practice-home .home-song-panel::before {
+  z-index: -1 !important;
+  inset: 0 0 auto 0 !important;
+  height: 92px !important;
+  border-radius: 32px 32px 0 0 !important;
+  background: linear-gradient(180deg, rgba(255, 190, 224, .24), rgba(255, 255, 255, 0)) !important;
+}
+
+/* Home hero integration: remove the separate purple card feel while keeping a colorful room mood. */
+.practice-mobile.practice-home {
+  background:
+    radial-gradient(circle at 18% 7%, rgba(255, 239, 143, .44), transparent 26%),
+    radial-gradient(circle at 86% 11%, rgba(123, 228, 244, .36), transparent 28%),
+    radial-gradient(circle at 52% 30%, rgba(255, 153, 211, .28), transparent 36%),
+    linear-gradient(180deg, #9476f4 0%, #d9c6ff 34%, #f7ecff 58%, #fff8f2 100%) !important;
+}
+
+.practice-home .home-room-hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 240, 136, .5), transparent 20%),
+    radial-gradient(circle at 84% 22%, rgba(128, 232, 244, .42), transparent 24%),
+    linear-gradient(180deg, rgba(148, 118, 244, .96) 0%, rgba(217, 198, 255, .72) 58%, rgba(247, 236, 255, 0) 100%) !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.practice-home .home-room-hero::before {
+  display: none !important;
+  content: none !important;
+}
+
+.practice-home .home-room-hero::after {
+  opacity: .32 !important;
+}
+
+.practice-home .home-song-panel {
+  margin-top: -18px !important;
+}
+/* Home Xiaomai stage: a contained oval platform that does not overlap the song card. */
+.practice-home .home-room-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 22px !important;
+  width: min(218px, 58vw) !important;
+  height: 56px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 999px / 62% !important;
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(255, 247, 255, .76), rgba(255, 211, 237, .34) 46%, rgba(255, 151, 205, .18) 72%, transparent 100%),
+    linear-gradient(180deg, rgba(255, 230, 247, .54), rgba(225, 174, 244, .2)) !important;
+  box-shadow:
+    0 16px 28px rgba(96, 60, 143, .14),
+    inset 0 -8px 16px rgba(185, 111, 196, .12) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: 18px !important;
+    width: min(198px, 58vw) !important;
+    height: 50px !important;
+  }
+}
+/* Home Xiaomai stage refinement: plain solid ellipse. */
+.practice-home .home-room-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 22px !important;
+  width: min(224px, 60vw) !important;
+  height: 58px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 50% !important;
+  background: #f39acb !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: 18px !important;
+    width: min(202px, 60vw) !important;
+    height: 52px !important;
+  }
+}
+/* Home Xiaomai stage size: wide ellipse matching the reference. */
+.practice-home .home-room-hero::before {
+  bottom: -18px !important;
+  width: min(420px, 112vw) !important;
+  height: 128px !important;
+  border-radius: 50% !important;
+  background: #f49ac4 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: -16px !important;
+    width: min(400px, 112vw) !important;
+    height: 118px !important;
+  }
+}
+/* Home Xiaomai stage tone-down: slightly smaller and less bright. */
+.practice-home .home-room-hero::before {
+  bottom: -10px !important;
+  width: min(360px, 96vw) !important;
+  height: 104px !important;
+  background: #dc82ad !important;
+  opacity: .94 !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: -8px !important;
+    width: min(338px, 96vw) !important;
+    height: 96px !important;
+  }
+}
+/* Home hero composition: Xiaomai is the clear focus, decorations are restrained Duolingo-like blocks. */
+.practice-home .home-room-hero {
+  min-height: 342px !important;
+  isolation: isolate !important;
+}
+
+.practice-home .xiaomai-home {
+  z-index: 6 !important;
+  bottom: 0 !important;
+}
+
+.practice-home .xiaomai-home .xiaomai {
+  width: 196px !important;
+  height: 156px !important;
+}
+
+.practice-home .home-room-hero::before {
+  z-index: 1 !important;
+  bottom: -12px !important;
+  width: min(352px, 94vw) !important;
+  height: 100px !important;
+  background: #d680aa !important;
+  opacity: .92 !important;
+}
+
+.practice-home .room-record {
+  z-index: 1 !important;
+  top: 88px !important;
+  left: 28px !important;
+  width: 50px !important;
+  height: 34px !important;
+  border-radius: 12px !important;
+  border: 0 !important;
+  background:
+    linear-gradient(90deg, rgba(132, 106, 188, .34) 0 16%, transparent 16% 84%, rgba(132, 106, 188, .34) 84% 100%),
+    #d7c9f2 !important;
+  box-shadow: none !important;
+  opacity: .5 !important;
+  transform: rotate(-8deg) !important;
+}
+
+.practice-home .room-record::before,
+.practice-home .room-record::after {
+  content: none !important;
+  display: none !important;
+}
+
+.practice-home .room-speaker {
+  z-index: 2 !important;
+  right: 42px !important;
+  bottom: 102px !important;
+  width: 54px !important;
+  height: 56px !important;
+  border: 0 !important;
+  border-radius: 16px 16px 18px 18px !important;
+  background: #f0adc8 !important;
+  box-shadow: none !important;
+  opacity: .76 !important;
+  transform: rotate(4deg) !important;
+}
+
+.practice-home .room-speaker::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 13px !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  background: #e38bb4 !important;
+  box-shadow: none !important;
+}
+
+.practice-home .room-speaker::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 20px !important;
+  bottom: 6px !important;
+  width: 14px !important;
+  height: 5px !important;
+  border-radius: 999px !important;
+  background: #d779a8 !important;
+  box-shadow: none !important;
+}
+
+.practice-home .room-music-note {
+  z-index: 2 !important;
+  color: rgba(112, 87, 166, .46) !important;
+  font-size: 42px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+}
+
+.practice-home .room-music-note.one {
+  top: 100px !important;
+  right: 88px !important;
+  transform: rotate(-13deg) !important;
+}
+
+.practice-home .room-music-note.two {
+  top: 142px !important;
+  right: 126px !important;
+  left: auto !important;
+  transform: rotate(10deg) scale(.88) !important;
+}
+
+.practice-home .home-room-hero::after {
+  content: "♪" !important;
+  z-index: 2 !important;
+  position: absolute !important;
+  right: 58px !important;
+  top: 62px !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  color: rgba(112, 87, 166, .34) !important;
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: rotate(16deg) !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .xiaomai-home .xiaomai {
+    width: 184px !important;
+    height: 146px !important;
+  }
+
+  .practice-home .home-room-hero::before {
+    width: min(326px, 94vw) !important;
+    height: 92px !important;
+  }
+
+  .practice-home .room-record {
+    left: 22px !important;
+    top: 92px !important;
+    width: 44px !important;
+    height: 30px !important;
+  }
+
+  .practice-home .room-speaker {
+    right: 30px !important;
+    bottom: 96px !important;
+    width: 48px !important;
+    height: 50px !important;
+  }
+
+  .practice-home .room-music-note.one { right: 74px !important; }
+  .practice-home .room-music-note.two { right: 108px !important; }
+  .practice-home .home-room-hero::after { right: 48px !important; }
+}
+/* Home hero refinement: unified flat stage and Z-flow notes. */
+.practice-home .home-room-hero::before {
+  bottom: -10px !important;
+  width: min(348px, 92vw) !important;
+  height: 98px !important;
+  border-radius: 50% !important;
+  background: #df8db8 !important;
+  opacity: .96 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.practice-home .room-music-note {
+  color: rgba(112, 87, 166, .42) !important;
+  font-size: 38px !important;
+  text-shadow: none !important;
+}
+
+.practice-home .room-music-note.one {
+  top: 76px !important;
+  left: 56px !important;
+  right: auto !important;
+  transform: rotate(-14deg) !important;
+}
+
+.practice-home .home-room-hero::after {
+  content: "\266A" !important;
+  top: 118px !important;
+  right: 58px !important;
+  left: auto !important;
+  color: rgba(112, 87, 166, .36) !important;
+  font-size: 36px !important;
+  transform: rotate(12deg) !important;
+}
+
+.practice-home .room-music-note.two {
+  top: 174px !important;
+  left: 46px !important;
+  right: auto !important;
+  transform: rotate(9deg) scale(.9) !important;
+}
+
+.practice-home .room-speaker {
+  right: 34px !important;
+  bottom: 96px !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: -8px !important;
+    width: min(322px, 92vw) !important;
+    height: 90px !important;
+  }
+
+  .practice-home .room-music-note.one {
+    left: 42px !important;
+    top: 78px !important;
+  }
+
+  .practice-home .home-room-hero::after {
+    right: 46px !important;
+    top: 118px !important;
+  }
+
+  .practice-home .room-music-note.two {
+    left: 36px !important;
+    top: 168px !important;
+  }
+}
+/* Home hero cleanup: remove the upper-right pink speaker block. */
+.practice-home .room-speaker {
+  display: none !important;
+}
+/* Home hero left accent: add a small rhythm sticker to balance the film decoration. */
+.practice-home .room-speaker {
+  display: block !important;
+  z-index: 1 !important;
+  left: 22px !important;
+  right: auto !important;
+  top: 150px !important;
+  bottom: auto !important;
+  width: 54px !important;
+  height: 48px !important;
+  border: 0 !important;
+  border-radius: 18px 18px 20px 20px !important;
+  background: #f4d990 !important;
+  box-shadow: none !important;
+  opacity: .58 !important;
+  transform: rotate(-10deg) !important;
+}
+
+.practice-home .room-speaker::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 11px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #d7c9f2 !important;
+  box-shadow: 18px 12px 0 #e8b7cf !important;
+}
+
+.practice-home .room-speaker::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 14px !important;
+  bottom: 8px !important;
+  width: 28px !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+  background: rgba(137, 104, 184, .42) !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .room-speaker {
+    left: 16px !important;
+    top: 146px !important;
+    width: 48px !important;
+    height: 42px !important;
+  }
+}
+/* Home crossover composition: Xiaomai's feet rest on the white search panel. */
+.practice-home .home-room-hero {
+  overflow: visible !important;
+  min-height: 324px !important;
+}
+
+.practice-home .xiaomai-home {
+  z-index: 8 !important;
+  bottom: -18px !important;
+}
+
+.practice-home .home-room-hero::before {
+  bottom: -18px !important;
+  z-index: 1 !important;
+}
+
+.practice-home .home-song-panel {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-top: -36px !important;
+  padding-top: 24px !important;
+}
+
+.practice-home .home-search {
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero {
+    min-height: 316px !important;
+  }
+
+  .practice-home .xiaomai-home {
+    bottom: -16px !important;
+  }
+
+  .practice-home .home-song-panel {
+    margin-top: -34px !important;
+    padding-top: 22px !important;
+  }
+}
+/* Home crossover correction: keep Xiaomai fully visible while preserving a light overlap. */
+.practice-home .home-room-hero {
+  z-index: 6 !important;
+  min-height: 338px !important;
+}
+
+.practice-home .xiaomai-home {
+  z-index: 10 !important;
+  bottom: 6px !important;
+}
+
+.practice-home .xiaomai-home .companion-speech {
+  right: -48px !important;
+  top: -50px !important;
+}
+
+.practice-home .home-song-panel {
+  z-index: 4 !important;
+  margin-top: -24px !important;
+  padding-top: 22px !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero {
+    min-height: 330px !important;
+  }
+
+  .practice-home .xiaomai-home {
+    bottom: 4px !important;
+  }
+
+  .practice-home .xiaomai-home .companion-speech {
+    right: -34px !important;
+    top: -48px !important;
+  }
+
+  .practice-home .home-song-panel {
+    margin-top: -22px !important;
+  }
+}
+/* Home stage correction: keep the ellipse inside the hero and behind the content card. */
+.practice-home .home-room-hero::before {
+  z-index: 1 !important;
+  bottom: 18px !important;
+  width: min(318px, 84vw) !important;
+  height: 82px !important;
+}
+
+.practice-home .home-song-panel {
+  z-index: 7 !important;
+  margin-top: -18px !important;
+}
+
+.practice-home .xiaomai-home {
+  z-index: 10 !important;
+  bottom: 10px !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: 16px !important;
+    width: min(296px, 84vw) !important;
+    height: 76px !important;
+  }
+
+  .practice-home .home-song-panel {
+    margin-top: -16px !important;
+  }
+}
+/* Home card nudge: align the panel top with Xiaomai's feet. */
+.practice-home .home-song-panel {
+  margin-top: -28px !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-song-panel {
+    margin-top: -26px !important;
+  }
+}
+/* Home stage arc: lower and larger, sitting behind Xiaomai and the card. */
+.practice-home .home-room-hero::before {
+  z-index: 1 !important;
+  bottom: -4px !important;
+  width: min(344px, 90vw) !important;
+  height: 94px !important;
+  background: #d985b1 !important;
+  opacity: .94 !important;
+}
+
+.practice-home .xiaomai-home {
+  z-index: 10 !important;
+}
+
+.practice-home .home-song-panel {
+  z-index: 7 !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: -2px !important;
+    width: min(318px, 90vw) !important;
+    height: 88px !important;
+  }
+}
+/* Home stage color: lower soft yellow arc sampled from the page palette. */
+.practice-home .home-room-hero::before {
+  bottom: -14px !important;
+  background: #ead08a !important;
+  opacity: .9 !important;
+}
+
+@media (max-width: 380px) {
+  .practice-home .home-room-hero::before {
+    bottom: -12px !important;
+  }
+}
+/* Home stage color: brighter warm orange, aligned with the song card palette. */
+.practice-home .home-room-hero::before {
+  background: #f3b36f !important;
+  opacity: .94 !important;
+}
+/* Home stage color: cleaner warm orange with slightly higher saturation. */
+.practice-home .home-room-hero::before {
+  background: #f6a94f !important;
+  opacity: .96 !important;
+}
+/* Home stage color rollback: restore the softer warm orange. */
+.practice-home .home-room-hero::before {
+  background: #f3b36f !important;
+  opacity: .94 !important;
 }
