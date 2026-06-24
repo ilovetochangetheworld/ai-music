@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { BarChart3, Download, Music2, RefreshCw, Sparkles, Trash2, WandSparkles } from 'lucide-react'
+import { ArrowLeft, BarChart3, Download, Music2, RefreshCw, Sparkles, Trash2, WandSparkles } from 'lucide-react'
 import XiaoMai from '../components/XiaoMai'
 import { loadPracticeReport } from '../features/practice-room/reportStore'
 import { loadRecap } from '../features/sing-room/recap'
@@ -29,7 +29,8 @@ export default function SingRoomRecapPage() {
 
   return <main className="practice-mobile recap-design warm-room-page">
     <section className="recap-room-scene">
-      <header><div><h1>本次结算</h1><p>{timeline?.title ?? '本次练习'} · 完整演唱</p></div></header>
+      <button className="recap-home-back" onClick={() => navigate('/')} title="返回首页"><ArrowLeft /></button>
+      <header><div><h1>本次结算</h1></div></header>
       <div className="companion-speech recap-speech">唱完啦，{recap.participationRate >= .75 ? '很稳' : '这一遍我记下了'}</div>
       <XiaoMai state="cheering" />
     </section>

@@ -457,30 +457,29 @@ export default function SingRoomPerformancePage() {
     }
   }
 
-  async function togglePause() {
-    if (phase === 'singing') {
-      await engineRef.current?.pause()
-      if (recorderRef.current?.state === 'recording') recorderRef.current.pause()
-      setPhase('paused')
-    } else if (phase === 'paused') {
-      await engineRef.current?.resume()
-      if (recorderRef.current?.state === 'paused') recorderRef.current.resume()
-      setPhase('singing')
-    }
+  async function pauseSession() {
+    if (phase !== 'singing') return
+    await engineRef.current?.pause()
+    if (recorderRef.current?.state === 'recording') recorderRef.current.pause()
+    setPhase('paused')
+  }
+
+  async function resumeSession() {
+    if (phase !== 'paused') return
+    await engineRef.current?.resume()
+    if (recorderRef.current?.state === 'paused') recorderRef.current.resume()
+    setPhase('singing')
   }
 
   const timeline = timelineRef.current
   const duration = timeline?.duration ?? manifestRef.current?.duration ?? 0
-  const section = timeline?.sections.find((item) => songTime >= item.start && songTime < item.end)
   const progress = duration ? songTime / duration : 0
-  const meter = Math.max(0, Math.min(1, (frame.db + 58) / 42))
 
   return (
     <main className={applauding ? 'sing-stage crowd-live' : 'sing-stage'}>
       <div className="stage-ambient" aria-hidden="true" />
       <header className="stage-topbar">
-        <div><span className="live-dot" />AI 练歌房 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
-        <span>{section?.label ?? '准备中'}</span>
+        <div className="stage-brand"><span className="live-dot" />AI 练歌房 {recordingActive && <small className="recording-indicator">录音中</small>}</div>
         <button className="stage-end" onClick={() => void finishSession()} disabled={!['singing', 'paused'].includes(phase)}>结束演唱</button>
       </header>
 
@@ -490,6 +489,14 @@ export default function SingRoomPerformancePage() {
           <b>小麦</b><small>{rescuing ? '接唱中' : applauding ? '为你鼓掌' : frame.isSinging ? '正在听' : '安静陪着你'}</small>
         </div>
 
+        <AnimatePresence>
+          {hostMessage && phase !== 'loading' && (
+            <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
+              <b>小麦</b>{hostMessage}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="lyric-stage">
           <AnimatePresence mode="wait">
             <motion.p key={currentLine?.id ?? 'waiting'} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="current-lyric">
@@ -498,41 +505,32 @@ export default function SingRoomPerformancePage() {
           </AnimatePresence>
           <p className="next-lyric">{nextLine?.text ?? ' '}</p>
           <ReferenceGuide at={songTime} track={referenceTrack} trail={pitchTrail} guidance={guidance} />
-          <AnimatePresence>
-            {hostMessage && phase !== 'loading' && (
-              <motion.div className="host-bubble" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}>
-                <b>小麦</b>{hostMessage}
-              </motion.div>
-            )}
-          </AnimatePresence>
           <div className={applauding ? 'crowd-presence active' : 'crowd-presence'} aria-live="polite">
             <span className="crowd-bars" aria-hidden="true"><i /><i /><i /><i /></span>
             <b>小麦</b><span>{crowdReaction}</span>
           </div>
         </div>
 
-        <div className="voice-state">
-          <span className={frame.isSinging ? 'voice-orb active' : 'voice-orb'}><Mic2 size={23} /></span>
-          <div><b>{rescuing ? '小麦正在接唱' : frame.isSinging ? '小麦听见你了' : '等你开口'}</b><small>{settings.practiceMode === 'free' ? '自由唱 · 唱后再分析' : '专项练习 · 一句结束后轻提示'}</small></div>
-          <span className="voice-meter"><i style={{ width: `${meter * 100}%` }} /></span>
-        </div>
+
       </section>
 
       <footer className="stage-controls">
         <div className="stage-progress"><i style={{ width: `${progress * 100}%` }} /></div>
         <div className="stage-time mono"><span>{formatTime(songTime)}</span><span>{formatTime(duration)}</span></div>
         <div className="stage-command-row">
-          <button className="icon-command" title={phase === 'paused' ? '继续' : '暂停'} onClick={togglePause} disabled={!['singing', 'paused'].includes(phase)}>
-            {phase === 'paused' ? <Play size={20} /> : <Pause size={20} />}
-          </button>
           <button className={rescuing ? 'rescue-command active' : 'rescue-command'} onClick={() => rescuing ? stopRescue(true) : startRescue('manual')} disabled={phase !== 'singing'}>
             <SkipForward size={20} /><span>{rescuing ? '我来接回' : '帮我接'}</span>
           </button>
-          <button className="icon-command" title="切换和声" onClick={() => {
+          <div className="transport-controls" aria-label="播放控制">
+            <button className={phase === 'paused' ? 'icon-command transport-toggle active' : 'icon-command transport-toggle'} title={phase === 'paused' ? '继续' : '暂停'} onClick={() => phase === 'paused' ? void resumeSession() : void pauseSession()} disabled={!['singing', 'paused'].includes(phase)}>
+              {phase === 'paused' ? <Play size={28} /> : <Pause size={28} />}
+            </button>
+          </div>
+          <button className={harmonyActiveRef.current ? 'harmony-command active' : 'harmony-command'} title="切换和声陪唱" onClick={() => {
             harmonyActiveRef.current = !harmonyActiveRef.current
             engineRef.current?.setHarmonyLevel(harmonyActiveRef.current ? settings.harmonyLevel : 0)
           }} disabled={phase !== 'singing'}>
-            {harmonyActiveRef.current ? <Volume2 size={20} /> : <Volume1 size={20} />}
+            {harmonyActiveRef.current ? <Volume2 size={18} /> : <Volume1 size={18} />}<span>和声陪唱</span>
           </button>
         </div>
       </footer>
@@ -565,7 +563,6 @@ function ReferenceGuide({ at, track, trail, guidance }: { at: number; track: Ref
     <footer><span className={`timing-${guidance.timingState}`}>{guidance.timingLabel}</span>{track.mappingStatus !== 'reviewed' && <small>逐字映射为预览，审核后开放快慢判断</small>}</footer>
   </div>
 }
-
 function StageOverlay({ icon, title, detail, progress, action }: { icon: React.ReactNode; title: string; detail: string; progress?: number; action?: React.ReactNode }) {
   return (
     <motion.div className="stage-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
