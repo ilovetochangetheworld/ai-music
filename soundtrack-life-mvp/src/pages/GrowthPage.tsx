@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react'
+﻿import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, CalendarDays, ChevronRight, Database, Flame, Music2, Play, Trash2 } from 'lucide-react'
-import { clearGrowthReports, listGrowthReports, type GrowthEntry } from '../features/practice-room/growth'
+import { ArrowLeft, BarChart3, CalendarDays, ChevronDown, Database, Flame, Home, Music2, Play } from 'lucide-react'
+import XiaoMai from '../components/XiaoMai'
+import { listGrowthReports, type GrowthEntry } from '../features/practice-room/growth'
 
 interface SongGroup {
   songId: string
@@ -14,19 +15,30 @@ interface SongGroup {
 export default function GrowthPage() {
   const navigate = useNavigate()
   const [entries, setEntries] = useState<GrowthEntry[]>([])
+  const [expandedSongs, setExpandedSongs] = useState<Record<string, boolean>>({})
   useEffect(() => { listGrowthReports().then(setEntries).catch(() => setEntries([])) }, [])
   const calendarDays = useMemo(() => buildCalendarDays(entries), [entries])
   const streak = useMemo(() => buildStreak(entries), [entries])
   const songGroups = useMemo(() => groupBySong(entries), [entries])
   const nextPractice = songGroups[0]?.latest
-  async function clear() { await clearGrowthReports(); setEntries([]) }
 
   return <main className="practice-mobile growth-page warm-room-page coaching-growth-page">
-    <header className="practice-top"><button onClick={() => navigate('/')}><ArrowLeft size={19} /></button><b>成长档案</b><button onClick={() => void clear()} aria-label="清空成长档案"><Trash2 size={17} /></button></header>
-    <section className="growth-hero coaching-growth-hero"><Flame /><h1>小麦练歌手账</h1><p>{entries.length ? `已经记录 ${entries.length} 次练习，连续练习 ${streak} 天。` : '完成第一次练习后，小麦会把你的变化记在这里。'}</p></section>
+    <header className="practice-top"><button onClick={() => navigate('/')}><ArrowLeft size={19} /></button><b>成长档案</b><span /></header>
+    <section className="growth-hero coaching-growth-hero"><div className="growth-xiaomai-avatar"><XiaoMai state="notebook" /></div><h1>小麦练歌手账</h1><p>{entries.length ? `已经记录 ${entries.length} 次练习，连续练习 ${streak} 天。` : '完成第一次练习后，小麦会把你的变化记在这里。'}</p></section>
     <section className="practice-calendar-card"><div className="section-title"><h2><CalendarDays />练习日历</h2><small>最近 14 天</small></div><div className="calendar-strip">{calendarDays.map((day) => <div className={day.count ? 'active' : ''} key={day.key}><b>{day.label}</b><span>{day.day}</span><small>{day.count ? `${day.count}次` : ' '}</small></div>)}</div><p><Flame />{streak ? `已连续练习 ${streak} 天，保持这个节奏就很好。` : '今天唱一遍，就从这里开始累计。'}</p></section>
     <section className="next-practice-card"><div><small>下次练什么</small><h2>{nextPractice ? `继续练《${nextPractice.songTitle ?? displaySongName(nextPractice.songId)}》` : '先完成一次完整练习'}</h2><p>{nextPractice?.report?.primarySuggestion ?? '小麦会根据上一遍演唱，给你下一次最值得练的一点。'}</p></div><button onClick={() => navigate(nextPractice ? `/practice/${nextPractice.songId}/sing` : '/songs')}><Play />{nextPractice ? '去练这首' : '选择歌曲'}</button></section>
-    <section className="song-growth-groups"><div className="section-title"><h2><Music2 />按歌曲查看</h2><small>{songGroups.length} 首歌</small></div>{songGroups.length ? songGroups.map((group) => <article key={group.songId}><button onClick={() => navigate(`/growth/${group.latest.id}`)}><span><b>{group.title}</b><small>{group.entries.length} 次练习 · 最近 {formatDate(group.latest.createdAt)}</small></span><strong>{group.bestScore ?? '数据不足'}</strong><ChevronRight /></button><p>{group.latest.report?.headline ?? group.latest.report?.primarySuggestion ?? '这一首还在积累练习记录。'}</p><div>{group.entries.slice(0, 4).map((entry) => <button key={entry.id} onClick={() => navigate(`/growth/${entry.id}`)}>{formatShortDate(entry.createdAt)}<span>{entry.overallScore ?? '—'}</span></button>)}</div></article>) : <div className="growth-empty"><Database /><p>完成第一次练习后，会按歌曲整理练习记录。</p></div>}</section>
+    <section className="song-growth-groups"><div className="section-title"><h2><Music2 />按歌曲查看</h2><small>{songGroups.length} 首歌</small></div>{songGroups.length ? songGroups.map((group) => {
+      const expanded = Boolean(expandedSongs[group.songId])
+      const visibleEntries = expanded ? group.entries : group.entries.slice(0, 4)
+      const hasOverflow = group.entries.length > 4
+      return <article key={group.songId}>
+        <header><span><b>{group.title}</b><small>{group.entries.length} 次练习 · 最近 {formatDate(group.latest.createdAt)}</small></span>{group.bestScore !== null && <strong>{group.bestScore}</strong>}</header>
+        {(group.latest.report?.headline || group.latest.report?.primarySuggestion) && <p>{group.latest.report?.headline ?? group.latest.report?.primarySuggestion}</p>}
+        <div className="song-session-list">{visibleEntries.map((entry) => <button key={entry.id} onClick={() => navigate(`/growth/${entry.id}`)}><b>{formatShortDate(entry.createdAt)}</b><span>{entry.overallScore ?? '—'}</span></button>)}</div>
+        {hasOverflow && <button className="song-session-toggle" onClick={() => setExpandedSongs((current) => ({ ...current, [group.songId]: !expanded }))}>{expanded ? '收起记录' : `查看全部 ${group.entries.length} 次`}<ChevronDown className={expanded ? 'expanded' : ''} /></button>}
+      </article>
+    }) : <div className="growth-empty"><Database /><p>完成第一次练习后，会按歌曲整理练习记录。</p></div>}</section>
+    <nav className="practice-bottom-nav"><button onClick={() => navigate('/')}><Home /><span>首页</span></button><button className="active"><BarChart3 /><span>成长</span></button></nav>
   </main>
 }
 
@@ -69,3 +81,8 @@ function displaySongName(songId: string): string { return songId === 'trajectory
 function toDateKey(date: Date): string { return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` }
 function formatDate(value: string): string { return new Date(value).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric' }) }
 function formatShortDate(value: string): string { const date = new Date(value); return `${date.getMonth() + 1}/${date.getDate()}` }
+
+
+
+
+

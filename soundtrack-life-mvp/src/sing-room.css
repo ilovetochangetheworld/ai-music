@@ -1,4 +1,4 @@
-/* AI 声友局：面向反复演唱操作的安静舞台界面 */
+/* AI 澹板弸灞€锛氶潰鍚戝弽澶嶆紨鍞辨搷浣滅殑瀹夐潤鑸炲彴鐣岄潰 */
 
 .sing-primary-command {
   min-height: 48px;
@@ -337,7 +337,7 @@
   .countdown-overlay strong { font-size: 88px; }
 }
 
-/* 暖色移动端演唱舞台 */
+/* 鏆栬壊绉诲姩绔紨鍞辫垶鍙?*/
 .sing-stage{width:min(100%,520px);min-height:100svh;margin:0 auto;grid-template-rows:76px 1fr 128px;color:#2c203d;background:linear-gradient(180deg,#fff8ed,#fff4e7)}
 .stage-ambient{opacity:1;background:radial-gradient(circle at 8% 28%,rgba(212,248,255,.85),transparent 22%),radial-gradient(circle at 85% 40%,rgba(255,226,126,.75),transparent 32%),linear-gradient(180deg,#fff8ef,#fff1db)}
 .sing-stage.crowd-live .stage-ambient{opacity:1;background:radial-gradient(circle at 10% 25%,rgba(212,248,255,.95),transparent 22%),radial-gradient(circle at 85% 40%,rgba(255,213,111,.9),transparent 32%),linear-gradient(180deg,#fff8ef,#ffe9cc)}
@@ -351,7 +351,7 @@
 @media(min-width:700px){.sing-stage{margin-top:20px;margin-bottom:20px;min-height:calc(100vh - 40px);border-radius:32px;box-shadow:0 20px 70px rgba(0,0,0,.3)}}
 @media(max-width:620px){.sing-stage{grid-template-rows:64px 1fr 120px}.stage-topbar{grid-template-columns:1fr auto 1fr}.stage-brand{transform:translateX(4px)}.stage-main{grid-template-columns:minmax(90px,auto) minmax(0,225px);gap:10px 14px;padding:14px;justify-content:center}.friend-rail{order:initial}.friend-rail.single-companion{flex-direction:column;transform:translateX(8px)}.lyric-stage{min-height:0;padding-top:24px}.current-lyric{min-height:88px;font-size:29px}.next-lyric{font-size:15px}.host-bubble{max-width:225px;margin-left:6px;padding:12px 14px}.stage-command-row{grid-template-columns:1fr auto 1fr;gap:8px}.rescue-command{min-width:96px;height:40px}.icon-command.transport-toggle{width:62px;height:62px}.harmony-command{padding:0 10px;font-size:10px}.reference-guide>div{height:96px}.crowd-presence{width:100%}.countdown-overlay{padding:0}.countdown-overlay strong{font-size:88px}}
 
-/* 2026 粉紫糖果演唱舞台视觉升级 */
+/* 2026 绮夌传绯栨灉婕斿敱鑸炲彴瑙嗚鍗囩骇 */
 .sing-stage {
   color: #342044;
   background:
@@ -486,7 +486,7 @@
 .overlay-progress i { background: linear-gradient(90deg, #ff5b9b, #8f6df4); }
 .countdown-overlay { background: rgba(255, 229, 243, .58); }
 .countdown-overlay strong { color: #ff5b9b; }
-/* 演唱页细节修正：去掉右侧唱片装饰，调整播放按钮边框 */
+/* 婕斿敱椤电粏鑺備慨姝ｏ細鍘绘帀鍙充晶鍞辩墖瑁呴グ锛岃皟鏁存挱鏀炬寜閽竟妗?*/
 .stage-ambient::after {
   display: none !important;
   content: none !important;
@@ -505,4 +505,420 @@
 .icon-command.transport-toggle:focus-visible {
   outline: 3px solid rgba(255, 160, 194, .72) !important;
   outline-offset: 3px;
+}
+/* Duolingo 椋庢牸婕斿敱椤电粺涓€锛氬疄浣撳渾娑﹀眰绾э紝鍑忓皯鐜荤拑鎷熸€?*/
+.sing-stage {
+  color: #382246 !important;
+  background:
+    radial-gradient(circle at 12% 6%, rgba(255,245,173,.42), transparent 24%),
+    radial-gradient(circle at 88% 12%, rgba(122,222,236,.34), transparent 25%),
+    linear-gradient(180deg, #fff2fb 0%, #fff8ef 48%, #fff5fb 100%) !important;
+}
+.stage-ambient,
+.sing-stage.crowd-live .stage-ambient {
+  background:
+    radial-gradient(circle at 16% 22%, rgba(255, 182, 214, .46), transparent 24%),
+    radial-gradient(circle at 86% 32%, rgba(105, 224, 236, .42), transparent 25%),
+    linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,0)) !important;
+}
+.stage-topbar {
+  border-bottom: 2px solid rgba(255,255,255,.92) !important;
+  background: #fffafd !important;
+  box-shadow: 0 6px 0 #efd9ea, 0 16px 28px rgba(117, 78, 139, .08) !important;
+  backdrop-filter: none !important;
+}
+.stage-brand,
+.stage-topbar > div { color: #382246 !important; font-weight: 950; }
+.stage-end {
+  border: 2px solid #f0ddea !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 0 #ead8e6 !important;
+  color: #7d6d84 !important;
+  font-weight: 900;
+}
+.host-bubble,
+.reference-guide,
+.crowd-presence {
+  border: 2px solid rgba(255,255,255,.92) !important;
+  border-radius: 28px !important;
+  background: #fffafd !important;
+  box-shadow: 0 6px 0 #efd9ea, 0 16px 28px rgba(117, 78, 139, .09) !important;
+  backdrop-filter: none !important;
+}
+.host-bubble b,
+.reference-guide > span,
+.reference-guide > header > span,
+.crowd-presence b { color: #ff5b9b !important; }
+.current-lyric {
+  color: #382246 !important;
+  text-shadow: 0 4px 0 rgba(255,255,255,.62), 0 14px 24px rgba(117,78,139,.1) !important;
+}
+.next-lyric { color: #7d6d84 !important; }
+.crowd-presence.active {
+  border-color: #ffc7dc !important;
+  background: #fff2f8 !important;
+  box-shadow: 0 6px 0 #f3bfd6, 0 16px 30px rgba(255,91,155,.14) !important;
+}
+.reference-guide > div,
+.melody-window {
+  border: 2px solid #f0ddea !important;
+  border-radius: 22px !important;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.55), transparent 18%, transparent 82%, rgba(255,255,255,.55)),
+    repeating-linear-gradient(0deg, #fff8fc 0, #fff8fc 20px, #eadff3 21px) !important;
+}
+.reference-note,
+.reference-guide > div i { background: #cdbed7 !important; }
+.reference-note.active,
+.reference-guide > div i.matched {
+  background: linear-gradient(90deg, #ff7daf, #ff5b9b 58%, #8f6df4) !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.96) inset, 0 8px 18px rgba(255,91,155,.26) !important;
+}
+.stage-controls {
+  border-top: 2px solid rgba(255,255,255,.92) !important;
+  background: #fffafd !important;
+  box-shadow: 0 -7px 0 #efd9ea, 0 -18px 34px rgba(117, 78, 139, .1) !important;
+  backdrop-filter: none !important;
+}
+.stage-progress { height: 7px !important; background: #ead8e6 !important; }
+.stage-progress i { background: linear-gradient(90deg, #ff7daf, #ff5b9b, #8f6df4) !important; }
+.stage-time { color: #7d6d84 !important; font-weight: 850; }
+.rescue-command,
+.harmony-command {
+  border: 2px solid #f0ddea !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 0 #ead8e6 !important;
+  color: #7a5f83 !important;
+  font-weight: 900;
+}
+.rescue-command.active {
+  border-color: #bff0e8 !important;
+  background: #eafff5 !important;
+  box-shadow: 0 4px 0 #a7ded5 !important;
+  color: #2f8f72 !important;
+}
+.harmony-command.active {
+  border-color: #ddceff !important;
+  background: #f3efff !important;
+  box-shadow: 0 4px 0 #cbbcf0 !important;
+  color: #6f55c8 !important;
+}
+.icon-command.transport-toggle {
+  width: 66px !important;
+  height: 66px !important;
+  border: 3px solid #fff !important;
+  background: #fff !important;
+  box-shadow: 0 6px 0 #ead8e6, 0 14px 24px rgba(117,78,139,.14) !important;
+  color: #7a5f83 !important;
+}
+.icon-command.transport-toggle.active {
+  border-color: #fff !important;
+  background: linear-gradient(135deg, #ff7daf, #ff5b9b 58%, #8f6df4) !important;
+  box-shadow: 0 7px 0 #cc3f81, 0 18px 28px rgba(255,91,155,.22) !important;
+  color: #fff !important;
+}
+.stage-overlay {
+  background: rgba(255, 247, 252, .96) !important;
+  backdrop-filter: none !important;
+}
+.overlay-icon {
+  border-radius: 26px !important;
+  background: linear-gradient(145deg, #ff7daf, #8f6df4) !important;
+  box-shadow: 0 6px 0 #cfb7ef !important;
+}
+@media(max-width:620px){
+  .host-bubble { border-radius: 24px !important; }
+  .reference-guide { border-radius: 26px !important; }
+  .stage-controls { padding-bottom: 16px !important; }
+}
+
+/* 婕斿敱椤电Щ鍔ㄧ閫傞厤鏀跺彛锛氬浐瀹氳垶鍙板搴︼紝閬垮厤鎺у埗鍖哄拰鍗＄墖妯悜婧㈠嚭 */
+.sing-stage {
+  width: min(100%, 430px) !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow-x: clip !important;
+}
+.stage-topbar,
+.stage-main,
+.stage-controls {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+.stage-topbar {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  gap: 8px !important;
+  padding-left: clamp(12px, 4vw, 18px) !important;
+  padding-right: clamp(12px, 4vw, 18px) !important;
+}
+.stage-brand,
+.stage-topbar > div,
+.stage-end {
+  min-width: 0;
+}
+.stage-brand {
+  transform: none !important;
+  white-space: nowrap;
+}
+.stage-main {
+  grid-template-columns: minmax(86px, auto) minmax(0, 1fr) !important;
+  gap: 10px 12px !important;
+  padding-left: clamp(12px, 4vw, 16px) !important;
+  padding-right: clamp(12px, 4vw, 16px) !important;
+  overflow: hidden;
+}
+.host-bubble,
+.reference-guide,
+.crowd-presence,
+.lyric-stage {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+.host-bubble {
+  margin-left: 0 !important;
+  overflow-wrap: anywhere;
+}
+.reference-guide {
+  width: 100% !important;
+}
+.reference-guide > header {
+  grid-template-columns: minmax(0, 1fr) auto auto !important;
+}
+.reference-guide > header > span,
+.reference-guide > header b,
+.reference-guide > footer,
+.melody-tokens span {
+  min-width: 0;
+}
+.stage-controls {
+  padding-left: clamp(12px, 4vw, 18px) !important;
+  padding-right: clamp(12px, 4vw, 18px) !important;
+}
+.stage-progress {
+  margin-left: calc(clamp(12px, 4vw, 18px) * -1) !important;
+  margin-right: calc(clamp(12px, 4vw, 18px) * -1) !important;
+}
+.stage-command-row {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  gap: 8px !important;
+  max-width: 100%;
+}
+.rescue-command,
+.harmony-command {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  white-space: nowrap;
+}
+.rescue-command span,
+.harmony-command span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media(max-width:390px){
+  .stage-main {
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    gap: 8px !important;
+  }
+  .friend-rail.single-companion {
+    transform: none !important;
+  }
+  .friend-rail.single-companion .xiaomai {
+    width: 92px !important;
+    height: 72px !important;
+  }
+  .host-bubble {
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+  }
+  .icon-command.transport-toggle {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .rescue-command,
+  .harmony-command {
+    height: 38px !important;
+    font-size: 10px !important;
+  }
+}
+
+
+
+/* Singing controls: float above mobile browser address bar without a white bottom card. */
+.sing-stage {
+  --sing-browser-offset: 92px;
+  --sing-floating-controls: 112px;
+  min-height: 100svh !important;
+  padding-bottom: calc(var(--sing-browser-offset) + var(--sing-floating-controls) + env(safe-area-inset-bottom)) !important;
+}
+
+.stage-main {
+  transform: translateY(-22px) !important;
+}
+
+.stage-controls {
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: calc(var(--sing-browser-offset) + env(safe-area-inset-bottom)) !important;
+  z-index: 40 !important;
+  width: min(100vw, 430px) !important;
+  max-width: 430px !important;
+  min-height: var(--sing-floating-controls) !important;
+  margin: 0 !important;
+  padding: 0 clamp(14px, 4vw, 18px) 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  transform: translateX(-50%) !important;
+  pointer-events: none;
+}
+
+.stage-controls > * {
+  pointer-events: auto;
+}
+
+.stage-progress {
+  height: 7px !important;
+  margin: 0 0 8px !important;
+  border-radius: 999px !important;
+  background: rgba(234, 216, 230, .78) !important;
+  box-shadow: 0 2px 8px rgba(117, 78, 139, .08) !important;
+}
+
+.stage-time {
+  padding-top: 0 !important;
+  margin-bottom: 6px !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .9) !important;
+}
+
+.stage-command-row {
+  min-height: 72px !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+}
+
+.rescue-command,
+.harmony-command,
+.icon-command.transport-toggle {
+  background: rgba(255, 255, 255, .92) !important;
+}
+
+@media (max-width: 430px) {
+  .stage-controls {
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .sing-stage {
+    --sing-browser-offset: 88px;
+    --sing-floating-controls: 108px;
+  }
+
+  .stage-main {
+    transform: translateY(-28px) !important;
+  }
+}
+
+@media (display-mode: standalone) {
+  .sing-stage {
+    --sing-browser-offset: 14px;
+  }
+}
+
+/* Singing page: remove the small Xiaomai status card above controls. */
+.sing-stage .crowd-presence {
+  display: none !important;
+}
+
+/* Singing page: hide review-only rhythm copy and make Xiaomai status readable. */
+.sing-stage .reference-guide > footer,
+.sing-stage .reference-guide > header small {
+  display: none !important;
+}
+
+.sing-stage .friend-rail.single-companion small,
+.sing-stage .stage-friend small {
+  color: #7d6d84 !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  line-height: 1.25 !important;
+}
+
+/* Singing controls: anchor inside the stage instead of behaving like a floating browser overlay. */
+.sing-stage {
+  padding-bottom: 0 !important;
+}
+
+.stage-main {
+  padding-bottom: 160px !important;
+}
+
+.stage-controls {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 112px !important;
+  transform: none !important;
+}
+
+@media (max-width: 390px) {
+  .stage-main {
+    padding-bottom: 150px !important;
+  }
+
+  .stage-controls {
+    bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+    min-height: 108px !important;
+  }
+}
+
+/* Singing stage: move the Xiaomai companion group slightly lower. */
+.sing-stage .friend-rail.single-companion {
+  transform: translateY(14px) !important;
+}
+
+@media (max-width: 390px) {
+  .sing-stage .friend-rail.single-companion {
+    transform: translateY(12px) !important;
+  }
+}
+
+/* Singing stage: center the Xiaomai avatar and speech bubble as one group. */
+.sing-stage .stage-main {
+  grid-template-columns: auto minmax(0, 270px) !important;
+  justify-content: center !important;
+  column-gap: 18px !important;
+}
+
+.sing-stage .friend-rail.single-companion {
+  justify-self: end !important;
+}
+
+.sing-stage .host-bubble {
+  justify-self: start !important;
+  margin-left: 0 !important;
+}
+
+@media (max-width: 390px) {
+  .sing-stage .stage-main {
+    grid-template-columns: auto minmax(0, 220px) !important;
+    column-gap: 12px !important;
+  }
 }

@@ -1,4 +1,4 @@
-import type { MetricKey, PracticeReport } from '../../../shared/contracts'
+﻿import type { MetricKey, PracticeReport } from '../../../shared/contracts'
 import { loadPracticeManifest } from './catalog'
 
 export interface GrowthEntry {
@@ -107,3 +107,5 @@ function transaction(db: IDBDatabase, mode: IDBTransactionMode, action: (store: 
     tx.onerror = () => reject(tx.error)
   })
 }
+
+
