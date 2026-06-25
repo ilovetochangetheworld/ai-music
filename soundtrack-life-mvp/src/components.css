@@ -258,7 +258,7 @@
 .empty { padding: 200px 0; text-align: center; }
 .empty p { color: var(--muted); margin-bottom: 20px; font-size: 17px; }
 
-/* ── Playlist Butler ── */
+/* ── AI 练歌房 ── */
 .playlist-butler { padding-bottom: 160px; }
 .butler-hero {
   display: grid;
